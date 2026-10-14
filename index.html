@@ -2,1286 +2,903 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#8A14FF">
-  <meta name="description" content="ShazaLaKazoo — Balkan music, wild weddings, crooked rhythms and electronic psychedelia.">
-  <title>ShazaLaKazoo — Balkan Psychedelic Electro</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Space+Grotesk:wght@400;500;600;700&family=Unbounded:wght@500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --purple: #8A14FF;
-      --cyan: #37E0E6;
-      --yellow: #FFF500;
-      --pink: #FF00B9;
-      --green: #00FF10;
-      --black: #09070D;
-      --white: #FFFDF7;
-      --paper: #F4F0E8;
-      --ink: #141018;
-      --line: rgba(255,255,255,.25);
-      --display: "Unbounded", sans-serif;
-      --body: "Space Grotesk", sans-serif;
-      --type: "Special Elite", monospace;
-      --max: 1440px;
-    }
-
-    * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 100px;
-    }
-
-    body {
-      margin: 0;
-      background: var(--black);
-      color: var(--white);
-      font-family: var(--body);
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: 20;
-      pointer-events: none;
-      opacity: .055;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
-    }
-
-    a { color: inherit; }
-
-    img, iframe { max-width: 100%; }
-
-    img { display: block; }
-
-    button, a { -webkit-tap-highlight-color: transparent; }
-
-    ::selection {
-      color: var(--black);
-      background: var(--yellow);
-    }
-
-    .wrap {
-      width: min(var(--max), calc(100% - 48px));
-      margin-inline: auto;
-    }
-
-    .eyebrow {
-      font: 400 12px/1.5 var(--type);
-      text-transform: uppercase;
-      letter-spacing: .14em;
-    }
-
-    .section {
-      position: relative;
-      padding: 100px 0;
-      scroll-margin-top: 75px;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 44px;
-      border-bottom: 2px solid currentColor;
-      padding-bottom: 18px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font: 800 clamp(36px, 7vw, 82px)/.95 var(--display);
-      letter-spacing: -.075em;
-      text-transform: uppercase;
-      overflow-wrap: anywhere;
-    }
-
-    .section-head .eyebrow {
-      max-width: 210px;
-      text-align: right;
-    }
-
-    .marker {
-      display: inline-block;
-      padding: 5px 9px;
-      background: var(--yellow);
-      color: var(--black);
-      font: 700 10px/1.3 var(--body);
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      transform: rotate(-2deg);
-    }
-
-    /* HEADER */
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(9,7,13,.94);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(14px);
-    }
-
-    .topbar-inner {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 28px;
-    }
-
-    .logo {
-      flex-shrink: 0;
-      color: var(--white);
-      text-decoration: none;
-      white-space: nowrap;
-      font: 900 clamp(19px, 2.2vw, 30px)/1 var(--display);
-      letter-spacing: -.085em;
-    }
-
-    .logo .ka { color: var(--cyan); }
-
-    .logo:hover { color: var(--yellow); }
-    .logo:hover .ka { color: var(--pink); }
-
-    .nav {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px 21px;
-    }
-
-    .nav a {
-      position: relative;
-      color: var(--white);
-      text-decoration: none;
-      text-transform: uppercase;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .08em;
-    }
-
-    .nav a::after {
-      content: "";
-      position: absolute;
-      bottom: -6px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--cyan);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .2s ease;
-    }
-
-    .nav a:hover { color: var(--yellow); }
-    .nav a:hover::after { transform: scaleX(1); }
-
-    /* HERO */
-
-    .hero {
-      position: relative;
-      min-height: min(790px, calc(100svh - 78px));
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      isolation: isolate;
-      background: var(--purple);
-      border-bottom: 8px solid var(--yellow);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: -15%;
-      z-index: -2;
-      background:
-        repeating-conic-gradient(
-          from 7deg at 52% 48%,
-          var(--purple) 0deg 9deg,
-          var(--pink) 9deg 11deg,
-          var(--purple) 11deg 18deg,
-          var(--cyan) 18deg 20deg,
-          var(--purple) 20deg 29deg
-        );
-      opacity: .42;
-      animation: slow-spin 100s linear infinite;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: linear-gradient(90deg, rgba(9,7,13,.62), rgba(9,7,13,.06) 85%);
-    }
-
-    @keyframes slow-spin {
-      to { transform: rotate(360deg); }
-    }
-
-    .hero-inner {
-      padding-top: 90px;
-      padding-bottom: 100px;
-    }
-
-    .hero-kicker {
-      display: inline-block;
-      background: var(--yellow);
-      color: var(--black);
-      padding: 9px 13px;
-      font: 400 13px/1.2 var(--type);
-      transform: rotate(-2deg);
-      margin-bottom: 26px;
-    }
-
-    .hero h1 {
-      width: max-content;
-      max-width: 100%;
-      margin: 0;
-      white-space: nowrap;
-      font: 900 clamp(38px, 9.3vw, 145px)/.95 var(--display);
-      letter-spacing: -.105em;
-      color: var(--white);
-      text-shadow: 7px 7px 0 var(--black);
-    }
-
-    .hero h1 .ka { color: var(--cyan); }
-
-    .hero-subtitle {
-      margin: 32px 0 0;
-      max-width: 680px;
-      font: 700 clamp(18px, 2.5vw, 28px)/1.25 var(--display);
-      text-transform: uppercase;
-      letter-spacing: -.04em;
-    }
-
-    .hero-subtitle .yellow { color: var(--yellow); }
-    .hero-subtitle .pink { color: var(--pink); }
-
-    .hero-stamp {
-      position: absolute;
-      right: 7%;
-      bottom: 12%;
-      width: clamp(95px, 13vw, 185px);
-      aspect-ratio: 1;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 15px;
-      border: 3px dashed var(--black);
-      border-radius: 50%;
-      background: var(--yellow);
-      color: var(--black);
-      transform: rotate(12deg);
-      font: 800 clamp(11px, 1.5vw, 17px)/1.25 var(--display);
-      box-shadow: 7px 7px 0 var(--pink);
-    }
-
-    .hero-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-      margin-top: 65px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(255,255,255,.6);
-      font: 400 11px/1.5 var(--type);
-      text-transform: uppercase;
-    }
-
-    .hero-bottom a {
-      text-decoration: none;
-      color: var(--yellow);
-    }
-
-    .hero-bottom a:hover { color: var(--cyan); }
-
-    /* ORNAMENTAL DIVIDER */
-
-    .folk-divider {
-      height: 34px;
-      background-color: var(--yellow);
-      background-image:
-        linear-gradient(45deg, var(--black) 25%, transparent 25%, transparent 75%, var(--black) 75%),
-        linear-gradient(-45deg, var(--black) 25%, transparent 25%, transparent 75%, var(--black) 75%);
-      background-size: 24px 24px;
-      background-position: 0 0, 12px 0;
-      border-bottom: 4px solid var(--black);
-    }
-
-    /* ABOUT */
-
-    .about {
-      background: var(--paper);
-      color: var(--ink);
-    }
-
-    .about .section-head {
-      color: var(--purple);
-      border-color: var(--ink);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(220px, .7fr);
-      gap: clamp(35px, 7vw, 110px);
-      align-items: start;
-    }
-
-    .about-copy {
-      font-size: clamp(17px, 1.8vw, 22px);
-      line-height: 1.75;
-      font-weight: 500;
-    }
-
-    .about-copy p { margin: 0; }
-
-    .about-copy::first-letter {
-      float: left;
-      padding: 9px 12px 0 0;
-      color: var(--purple);
-      font: 900 78px/.8 var(--display);
-    }
-
-    .about-aside {
-      position: relative;
-      padding: 28px 23px;
-      margin-top: 8px;
-      background: var(--cyan);
-      border: 3px solid var(--ink);
-      box-shadow: 9px 9px 0 var(--purple);
-      transform: rotate(1.5deg);
-    }
-
-    .about-aside::before {
-      content: "✳";
-      position: absolute;
-      top: -25px;
-      right: -18px;
-      color: var(--pink);
-      font-size: 54px;
-    }
-
-    .about-aside h3 {
-      margin: 0 0 16px;
-      font: 800 23px/1.1 var(--display);
-      text-transform: uppercase;
-      letter-spacing: -.06em;
-    }
-
-    .about-aside p {
-      margin: 0;
-      font: 400 14px/1.7 var(--type);
-    }
-
-    /* MUSIC */
-
-    .music {
-      color: var(--white);
-      background:
-        radial-gradient(ellipse at 10% 10%, rgba(138,20,255,.3), transparent 38%),
-        var(--black);
-    }
-
-    .music .section-head { color: var(--yellow); }
-
-    .music-intro {
-      margin: -20px 0 40px;
-      max-width: 680px;
-      color: var(--cyan);
-      font: 400 14px/1.7 var(--type);
-    }
-
-    .release-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 25px;
-    }
-
-    .release {
-      min-width: 0;
-      background: #15111C;
-      border: 1px solid rgba(255,255,255,.25);
-      transition: border-color .2s ease, transform .2s ease;
-    }
-
-    .release:hover {
-      border-color: var(--cyan);
-      transform: translateY(-4px);
-    }
-
-    .release-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 17px 18px;
-      border-bottom: 1px solid rgba(255,255,255,.2);
-    }
-
-    .release-index {
-      color: var(--pink);
-      font: 700 12px/1 var(--type);
-    }
-
-    .release-type {
-      color: var(--black);
-      background: var(--yellow);
-      padding: 5px 8px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .release h3 {
-      margin: 0;
-      padding: 20px 18px 18px;
-      font: 800 clamp(20px, 3vw, 32px)/1.1 var(--display);
-      letter-spacing: -.06em;
-      text-transform: uppercase;
-    }
-
-    .release iframe {
-      display: block;
-      width: 100%;
-      height: 300px;
-      border: 0;
-      background: #21172A;
-    }
-
-    .release.wide { grid-column: 1 / -1; }
-
-    .release.wide iframe { height: 300px; }
-
-    /* VIDEOS */
-
-    .videos {
-      background: var(--purple);
-      color: var(--white);
-    }
-
-    .videos .section-head {
-      color: var(--yellow);
-      border-color: var(--white);
-    }
-
-    .videos .section-head .marker {
-      background: var(--cyan);
-    }
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 34px 25px;
-    }
-
-    .video-card {
-      min-width: 0;
-    }
-
-    .video-frame {
-      position: relative;
-      overflow: hidden;
-      background: var(--black);
-      border: 3px solid var(--black);
-      box-shadow: 7px 7px 0 var(--cyan);
-      aspect-ratio: 16 / 9;
-    }
-
-    .video-card:nth-child(3n + 2) .video-frame {
-      box-shadow: 7px 7px 0 var(--yellow);
-    }
-
-    .video-card:nth-child(3n) .video-frame {
-      box-shadow: 7px 7px 0 var(--pink);
-    }
-
-    .video-frame iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .video-card h3 {
-      margin: 17px 0 0;
-      font: 700 clamp(15px, 1.6vw, 19px)/1.4 var(--body);
-    }
-
-    .video-number {
-      display: block;
-      margin-bottom: 7px;
-      color: var(--yellow);
-      font: 400 11px/1.3 var(--type);
-    }
-
-    /* PHOTOS */
-
-    .photos {
-      background: var(--yellow);
-      color: var(--black);
-    }
-
-    .photos .section-head {
-      border-color: var(--black);
-      color: var(--black);
-    }
-
-    .photos .section-head .marker {
-      color: var(--white);
-      background: var(--purple);
-    }
-
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 35px 28px;
-    }
-
-    .photo-card {
-      min-width: 0;
-      margin: 0;
-      background: var(--white);
-      border: 3px solid var(--black);
-      padding: 9px 9px 0;
-      box-shadow: 8px 8px 0 var(--purple);
-      transform: rotate(-.4deg);
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .photo-card:nth-child(4n + 2) {
-      transform: rotate(.6deg);
-      box-shadow: 8px 8px 0 var(--pink);
-    }
-
-    .photo-card:nth-child(4n + 3) {
-      transform: rotate(.35deg);
-      box-shadow: 8px 8px 0 var(--cyan);
-    }
-
-    .photo-card:hover {
-      transform: rotate(0) translateY(-4px);
-      box-shadow: 10px 12px 0 var(--black);
-    }
-
-    .photo-card img {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 3 / 2;
-      object-fit: cover;
-      background: #ddd;
-      border: 1px solid var(--black);
-    }
-
-    .photo-card figcaption {
-      min-height: 76px;
-      padding: 15px 8px 17px;
-      font: 400 13px/1.5 var(--type);
-    }
-
-    .photo-card figcaption::before {
-      content: "✳ ";
-      color: var(--purple);
-      font-size: 17px;
-    }
-
-    /* SHOWS / PRESS / CONTACT */
-
-    .link-sections {
-      background: var(--black);
-    }
-
-    .link-panel {
-      padding: 42px 0;
-      border-bottom: 1px solid var(--line);
-      scroll-margin-top: 90px;
-    }
-
-    .link-panel:last-child { border-bottom: 0; }
-
-    .link-panel-inner {
-      display: grid;
-      grid-template-columns: minmax(180px, .7fr) minmax(0, 1.3fr);
-      gap: 35px;
-      align-items: center;
-    }
-
-    .link-panel h2 {
-      margin: 0;
-      color: var(--cyan);
-      font: 800 clamp(30px, 5vw, 58px)/1 var(--display);
-      text-transform: uppercase;
-      letter-spacing: -.08em;
-    }
-
-    .link-panel:nth-child(2) h2 { color: var(--pink); }
-    .link-panel:nth-child(3) h2 { color: var(--yellow); }
-
-    .link-panel p {
-      margin: 0;
-      color: var(--white);
-      font: 400 14px/1.8 var(--type);
-    }
-
-    .inline-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 15px;
-    }
-
-    .pill-link {
-      display: inline-block;
-      padding: 10px 13px;
-      color: var(--black);
-      background: var(--cyan);
-      border: 2px solid var(--cyan);
-      text-decoration: none;
-      text-transform: uppercase;
-      font-size: 11px;
-      font-weight: 700;
-      transition: background .2s ease, color .2s ease;
-    }
-
-    .pill-link:hover {
-      color: var(--white);
-      background: transparent;
-    }
-
-    .link-panel:nth-child(2) .pill-link {
-      background: var(--pink);
-      border-color: var(--pink);
-    }
-
-    .link-panel:nth-child(2) .pill-link:hover {
-      background: transparent;
-    }
-
-    .link-panel:nth-child(3) .pill-link {
-      background: var(--yellow);
-      border-color: var(--yellow);
-    }
-
-    .link-panel:nth-child(3) .pill-link:hover {
-      background: transparent;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: var(--purple);
-      border-top: 6px solid var(--yellow);
-      padding: 38px 0 28px;
-    }
-
-    .footer-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-      padding-bottom: 28px;
-    }
-
-    .footer-logo {
-      font: 900 clamp(23px, 4vw, 43px)/1 var(--display);
-      letter-spacing: -.09em;
-      white-space: nowrap;
-    }
-
-    .footer-logo .ka { color: var(--cyan); }
-
-    .socials {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 9px;
-    }
-
-    .socials a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 40px;
-      padding: 9px 12px;
-      color: var(--black);
-      background: var(--yellow);
-      border: 2px solid var(--black);
-      text-decoration: none;
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      transition: transform .15s ease, background .15s ease;
-    }
-
-    .socials a:hover {
-      background: var(--cyan);
-      transform: translateY(-3px) rotate(-2deg);
-    }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255,255,255,.5);
-      font: 400 10px/1.6 var(--type);
-      text-transform: uppercase;
-    }
-
-    .footer-bottom a {
-      color: var(--yellow);
-      text-decoration: none;
-    }
-
-    /* RESPONSIVE */
-
-    @media (min-width: 1100px) {
-      .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .photo-card:first-child { grid-column: 1 / -1; }
-      .photo-card:first-child img { aspect-ratio: 16 / 7; }
-      .photo-card:first-child figcaption { font-size: 15px; }
-    }
-
-    @media (max-width: 850px) {
-      .topbar-inner {
-        padding: 15px 0;
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 16px;
-      }
-
-      .nav { justify-content: flex-start; gap: 12px 17px; }
-
-      .hero { min-height: 650px; }
-      .hero h1 { font-size: clamp(36px, 9.2vw, 76px); }
-      .hero-stamp { right: 6%; bottom: 8%; }
-
-      .about-grid { grid-template-columns: 1fr; }
-      .about-aside { max-width: 450px; margin: 10px 0 0 10px; }
-
-      .release-list { grid-template-columns: 1fr; }
-      .release.wide { grid-column: auto; }
-      .release iframe { height: 280px; }
-
-      .link-panel-inner {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .wrap { width: min(100% - 30px, var(--max)); }
-
-      .section { padding: 68px 0; }
-
-      .section-head {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 12px;
-        margin-bottom: 30px;
-      }
-
-      .section-head .eyebrow { text-align: left; }
-
-      .hero {
-        min-height: 610px;
-        min-height: min(730px, calc(100svh - 120px));
-      }
-
-      .hero-inner { padding-top: 65px; padding-bottom: 80px; }
-
-      .hero h1 {
-        font-size: clamp(32px, 9.1vw, 54px);
-        letter-spacing: -.095em;
-        text-shadow: 4px 4px 0 var(--black);
-      }
-
-      .hero-kicker { font-size: 11px; }
-      .hero-subtitle { max-width: 290px; font-size: 20px; }
-      .hero-stamp { width: 90px; right: 7%; bottom: 7%; font-size: 10px; }
-
-      .hero-bottom {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 48px;
-      }
-
-      .about-copy { font-size: 17px; line-height: 1.75; }
-      .about-copy::first-letter { font-size: 63px; }
-
-      .video-grid, .photo-grid { grid-template-columns: 1fr; gap: 29px; }
-      .video-card h3 { font-size: 16px; }
-
-      .release iframe { height: 260px; }
-      .release.wide iframe { height: 260px; }
-
-      .photo-card:first-child { grid-column: auto; }
-      .photo-card:first-child img { aspect-ratio: 3 / 2; }
-
-      .footer-top {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .socials { justify-content: flex-start; }
-
-      .footer-bottom {
-        flex-direction: column;
-        gap: 8px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#8A14FF">
+<title>ShazaLaKazoo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Unbounded:wght@500;600;700;800;900&family=Special+Elite&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --purple: #8A14FF;
+  --cyan: #37E0E6;
+  --yellow: #FFF500;
+  --pink: #FF00B9;
+  --green: #00FF10;
+  --black: #09070D;
+  --white: #FFFDF7;
+  --paper: #F4F0E8;
+  --display: "Unbounded", sans-serif;
+  --body: "Space Grotesk", sans-serif;
+  --type: "Special Elite", monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--body);
+}
+a { color: inherit; }
+img, iframe { max-width: 100%; }
+img { display: block; }
+::selection { color: var(--black); background: var(--yellow); }
+.wrap { width: min(1320px, calc(100% - 44px)); margin: auto; }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(9,7,13,.96);
+  border-bottom: 2px solid var(--cyan);
+}
+.header-inner {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.logo {
+  flex-shrink: 0;
+  color: var(--white);
+  text-decoration: none;
+  white-space: nowrap;
+  font: 900 clamp(19px, 2.3vw, 30px)/1 var(--display);
+  letter-spacing: -.09em;
+}
+.logo .ka { color: var(--cyan); }
+nav { display: flex; flex-wrap: wrap; gap: 10px 19px; }
+nav a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+nav a:hover { color: var(--yellow); }
+
+.hero {
+  position: relative;
+  min-height: min(700px, 85vh);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--purple);
+  border-bottom: 8px solid var(--yellow);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background: repeating-conic-gradient(
+    from 7deg at 50% 50%,
+    var(--purple) 0deg 9deg,
+    var(--pink) 9deg 11deg,
+    var(--purple) 11deg 18deg,
+    var(--cyan) 18deg 20deg,
+    var(--purple) 20deg 29deg
+  );
+  opacity: .4;
+  animation: spin 100s linear infinite;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(9,7,13,.48), transparent);
+}
+.hero .wrap { position: relative; z-index: 1; }
+.hero h1 {
+  margin: 0;
+  white-space: nowrap;
+  font: 900 clamp(35px, 9.5vw, 145px)/1.05 var(--display);
+  letter-spacing: -.105em;
+  text-shadow: 7px 7px 0 var(--black);
+}
+.hero h1 .ka { color: var(--cyan); }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.section { padding: 86px 0; scroll-margin-top: 75px; }
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 36px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid currentColor;
+}
+.section-head h2 {
+  margin: 0;
+  font: 800 clamp(34px, 6.5vw, 76px)/1.05 var(--display);
+  letter-spacing: -.075em;
+  text-transform: uppercase;
+}
+.about { background: var(--paper); color: var(--black); }
+.about .section-head { color: var(--purple); }
+.about-copy {
+  max-width: 950px;
+  font-size: clamp(17px, 1.8vw, 22px);
+  line-height: 1.8;
+  font-weight: 500;
+}
+.about-copy p { margin: 0; }
+
+.music {
+  background:
+    radial-gradient(ellipse at 8% 5%, rgba(138,20,255,.3), transparent 40%),
+    var(--black);
+}
+.music .section-head { color: var(--yellow); }
+.release-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.release {
+  min-width: 0;
+  border: 1px solid rgba(255,255,255,.35);
+  background: #15111C;
+}
+.release h3 {
+  margin: 0;
+  padding: 18px;
+  font: 800 clamp(19px, 2.6vw, 30px)/1.2 var(--display);
+  letter-spacing: -.05em;
+}
+.release-meta {
+  padding: 12px 18px 0;
+  color: var(--cyan);
+  font: 12px/1.5 var(--type);
+}
+.release iframe {
+  display: block;
+  width: 100%;
+  height: 300px;
+  border: 0;
+}
+.release.wide { grid-column: 1 / -1; }
+
+.videos { background: var(--purple); }
+.videos .section-head { color: var(--yellow); }
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 25px;
+}
+.video-card { min-width: 0; }
+.video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--black);
+  border: 3px solid var(--black);
+  box-shadow: 7px 7px 0 var(--cyan);
+}
+.video-card:nth-child(3n + 2) .video-frame { box-shadow: 7px 7px 0 var(--yellow); }
+.video-card:nth-child(3n) .video-frame { box-shadow: 7px 7px 0 var(--pink); }
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-card h3 {
+  margin: 17px 0 0;
+  font: 600 16px/1.5 var(--body);
+}
+
+.photos { background: var(--yellow); color: var(--black); }
+.photos .section-head { border-color: var(--black); }
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 26px;
+}
+.photo-card {
+  min-width: 0;
+  margin: 0;
+  padding: 9px 9px 0;
+  background: var(--white);
+  border: 3px solid var(--black);
+  box-shadow: 8px 8px 0 var(--purple);
+  transform: rotate(-.35deg);
+  transition: transform .2s, box-shadow .2s;
+}
+.photo-card:nth-child(4n + 2) {
+  transform: rotate(.5deg);
+  box-shadow: 8px 8px 0 var(--pink);
+}
+.photo-card:nth-child(4n + 3) {
+  transform: rotate(.25deg);
+  box-shadow: 8px 8px 0 var(--cyan);
+}
+.photo-card:hover {
+  transform: rotate(0) translateY(-3px);
+  box-shadow: 9px 11px 0 var(--black);
+}
+.photo-card img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--black);
+}
+.photo-card figcaption {
+  padding: 14px 8px 17px;
+  font: 13px/1.6 var(--type);
+}
+
+.shows { background: var(--black); }
+.shows .section-head { color: var(--cyan); }
+.next-show {
+  padding: 25px;
+  margin-bottom: 50px;
+  color: var(--black);
+  background: var(--yellow);
+  border: 3px solid var(--cyan);
+  box-shadow: 8px 8px 0 var(--purple);
+  font: 700 clamp(16px, 2.2vw, 23px)/1.6 var(--body);
+  text-transform: uppercase;
+}
+.past-heading {
+  margin: 0 0 22px;
+  color: var(--pink);
+  font: 800 clamp(25px, 4vw, 42px)/1.1 var(--display);
+}
+.show-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(255,255,255,.25);
+}
+.show-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 12px 5px;
+  border-bottom: 1px solid rgba(255,255,255,.2);
+  font: 13px/1.6 var(--type);
+}
+.show-list li:hover { color: var(--yellow); }
+.flag {
+  flex: 0 0 1.5em;
+  font-family: sans-serif;
+  font-size: 18px;
+  line-height: 1;
+  text-align: center;
+}
+.show-text { min-width: 0; }
+
+.empty-section {
+  padding: 50px 0;
+  border-top: 1px solid rgba(255,255,255,.25);
+  scroll-margin-top: 90px;
+}
+.empty-section h2 {
+  margin: 0;
+  font: 800 clamp(30px, 5vw, 56px)/1.1 var(--display);
+  text-transform: uppercase;
+  letter-spacing: -.07em;
+}
+#press h2 { color: var(--pink); }
+#contact h2 { color: var(--yellow); }
+.socials { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 24px; }
+.socials a {
+  display: inline-block;
+  padding: 10px 12px;
+  color: var(--black);
+  background: var(--yellow);
+  border: 2px solid var(--black);
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.socials a:hover { background: var(--cyan); }
+
+footer {
+  padding: 28px 0;
+  background: var(--purple);
+  border-top: 6px solid var(--yellow);
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+footer .socials { margin-top: 0; }
+
+@media (min-width: 1000px) {
+  .photo-card:first-child { grid-column: 1 / -1; }
+  .photo-card:first-child img {
+    max-height: 650px;
+    object-fit: contain;
+    margin-inline: auto;
+  }
+}
+@media (max-width: 800px) {
+  .header-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 15px 0;
+    gap: 15px;
+  }
+  nav { gap: 12px 16px; }
+  .release-list { grid-template-columns: 1fr; }
+  .release.wide { grid-column: auto; }
+}
+@media (max-width: 600px) {
+  .wrap { width: calc(100% - 30px); }
+  .section { padding: 62px 0; }
+  .section-head { align-items: flex-start; flex-direction: column; }
+  .hero { min-height: 65vh; }
+  .hero h1 {
+    font-size: clamp(31px, 9vw, 53px);
+    text-shadow: 4px 4px 0 var(--black);
+  }
+  .video-grid, .photo-grid { grid-template-columns: 1fr; gap: 28px; }
+  .photo-card:first-child { grid-column: auto; }
+  .release iframe { height: 260px; }
+  .next-show { padding: 17px; }
+  .show-list li { gap: 9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+</style>
 </head>
 
 <body>
+<header>
+  <div class="wrap header-inner">
+    <a class="logo" href="#home">ShazaLa<span class="ka">Ka</span>zoo</a>
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#music">Music</a>
+      <a href="#videos">Videos</a>
+      <a href="#photos">Photos</a>
+      <a href="#shows">Shows</a>
+      <a href="#press">Press</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <header class="topbar">
-    <div class="wrap topbar-inner">
-      <a class="logo" href="#home" aria-label="ShazaLaKazoo home">ShazaLa<span class="ka">Ka</span>zoo</a>
+<main>
+<section class="hero" id="home">
+  <div class="wrap">
+    <h1>ShazaLa<span class="ka">Ka</span>zoo</h1>
+  </div>
+</section>
 
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#music">Music</a>
-        <a href="#videos">Videos</a>
-        <a href="#photos">Photos</a>
-        <a href="#shows">Shows</a>
-        <a href="#press">Press</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<section class="section about" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>About</h2>
     </div>
-  </header>
-
-  <main>
-    <!-- HOME -->
-
-    <section class="hero" id="home">
-      <div class="wrap hero-inner">
-        <span class="hero-kicker">A crooked wedding at the crossroads</span>
-
-        <h1>ShazaLa<span class="ka">Ka</span>zoo</h1>
-
-        <p class="hero-subtitle">
-          Balkan <span class="yellow">psychedelia.</span><br>
-          Folk gone <span class="pink">electro.</span><br>
-          No straight roads.
-        </p>
-
-        <div class="hero-bottom">
-          <span>Turn it up · Dance it crooked</span>
-          <a href="#music">↓ Enter the noise</a>
-        </div>
-      </div>
-
-      <div class="hero-stamp" aria-hidden="true">
-        BALKAN<br>BEAT<br>DISORDER
-      </div>
-    </section>
-
-    <div class="folk-divider" aria-hidden="true"></div>
-
-    <!-- ABOUT -->
-
-    <section class="section about" id="about">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>The crossroads</h2>
-          <span class="eyebrow">East meets West. Then everything catches fire.</span>
-        </div>
-
-        <div class="about-grid">
-          <div class="about-copy">
-            <p>People often think of the Balkans as a crossroads. With their busy trade and cultural
-            routes, the Balkans have been linking the East with the West, the North with the South
-            throughout the centuries. Now can you imagine someone setting up a tent in the midst of that
-            bustling roundabout, in a place where all those roads converge in a swirling mix? Can you
-            imagine, out of the blue, a tent springing up in the middle of that crossroads, a wild and illegal
-            wedding party inside it, a jamming makeshift shelter which blocks the traffic and makes time
-            stand still until the break of dawn? Well, the loud and crazy music that would be played beneath
-            such a tent cover - this is the sound of the ShazaLaKazoo.</p>
-          </div>
-
-          <aside class="about-aside">
-            <h3>Wrong turn.<br>Right party.</h3>
-            <p>East / West<br>North / South<br>Old sounds / New circuits<br>Tradition / Trouble</p>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- MUSIC -->
-
-    <section class="section music" id="music">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Music</h2>
-          <span class="marker">Seven ways to lose the plot</span>
-        </div>
-
-        <p class="music-intro">Records, remixes and dance-floor collisions. Hit play.</p>
-
-        <div class="release-list">
-          <article class="release">
-            <div class="release-top">
-              <span class="release-index">01 / RELEASE</span>
-              <span class="release-type">Album · 2024</span>
-            </div>
-            <h3>Chorba</h3>
-            <iframe
-              title="ShazaLaKazoo — Chorba album"
-              loading="lazy"
-              allow="autoplay"
-              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1798992951&color=%238A14FF&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true">
-            </iframe>
-          </article>
-
-          <article class="release">
-            <div class="release-top">
-              <span class="release-index">02 / RELEASE</span>
-              <span class="release-type">Album · 2016</span>
-            </div>
-            <h3>Metanational</h3>
-            <iframe
-              title="ShazaLaKazoo — Metanational album"
-              loading="lazy"
-              allow="autoplay"
-              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/275988183&color=%238A14FF&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true">
-            </iframe>
-          </article>
-
-          <article class="release">
-            <div class="release-top">
-              <span class="release-index">03 / RELEASE</span>
-              <span class="release-type">Album · 2014</span>
-            </div>
-            <h3>Monobrow</h3>
-            <iframe
-              title="ShazaLaKazoo — Monobrow album"
-              loading="lazy"
-              allow="autoplay"
-              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/30427835&color=%238A14FF&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true">
-            </iframe>
-          </article>
-
-          <article class="release">
-            <div class="release-top">
-              <span class="release-index">04 / RELEASE</span>
-              <span class="release-type">Album · 2012</span>
-            </div>
-            <h3>Karton City Boom</h3>
-            <iframe
-              title="ShazaLaKazoo — Karton City Boom album"
-              loading="lazy"
-              allow="autoplay"
-              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1176296&color=%238A14FF&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true">
-            </iframe>
-          </article>
-
-          <article class="release">
-            <div class="release-top">
-              <span class="release-index">05 / RELEASE</span>
-              <span class="release-type">Album · 2010</span>
-            </div>
-            <h3>Speaking Balkanian</h3>
-            <iframe
-              title="ShazaLaKazoo — Speaking Balkanian album"
-              loading="lazy"
-              allow="autoplay"
-              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/4538604&color=%238A14FF&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true">
-            </iframe>
-          </article>
-
-          <article class="release">
-            <div class="release-top">
-              <span class="release-index">06 / RELEASE</span>
-              <span class="release-type">EP · 2011</span>
-            </div>
-            <h3>Bang! Bang!</h3>
-            <iframe
-              title="ShazaLaKazoo — Bang! Bang! EP"
-              loading="lazy"
-              allow="autoplay"
-              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1174853&color=%238A14FF&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true">
-            </iframe>
-          </article>
-
-          <article class="release wide">
-            <div class="release-top">
-              <span class="release-index">07 / AFTER HOURS</span>
-              <span class="release-type">Remixes</span>
-            </div>
-            <h3>Remixes</h3>
-            <iframe
-              title="ShazaLaKazoo — Remixes"
-              loading="lazy"
-              allow="autoplay"
-              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/4538475&color=%238A14FF&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true">
-            </iframe>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- VIDEOS -->
-
-    <section class="section videos" id="videos">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Videos</h2>
-          <span class="marker">Seen in the wild</span>
-        </div>
-
-        <div class="video-grid">
-          <article class="video-card">
-            <div class="video-frame">
-              <iframe loading="lazy" title="ShazaLaKazoo - Krasi [Official Video]" src="https://www.youtube-nocookie.com/embed/Gvxwydm1b-c" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <h3><span class="video-number">VIDEO 01</span>ShazaLaKazoo - Krasi [Official Video]</h3>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame">
-              <iframe loading="lazy" title="ShazaLaKazoo at BOK, Bialystok, Poland" src="https://www.youtube-nocookie.com/embed/6ld0HxMVQAc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <h3><span class="video-number">VIDEO 02</span>ShazaLaKazoo at BOK, Bialystok, Poland</h3>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame">
-              <iframe loading="lazy" title="ShazaLaKazoo at Lido, Berlin, Germany" src="https://www.youtube-nocookie.com/embed/L_x-qZPYXFc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <h3><span class="video-number">VIDEO 03</span>ShazaLaKazoo at Lido, Berlin, Germany</h3>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame">
-              <iframe loading="lazy" title="ShazaLaKazoo & Miss Bolivia - Menea [Official Video]" src="https://www.youtube-nocookie.com/embed/99UKoEjqTt4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <h3><span class="video-number">VIDEO 04</span>ShazaLaKazoo &amp; Miss Bolivia - Menea [Official Video]</h3>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame">
-              <iframe loading="lazy" title="ShazaLaKazoo - Ava Kari" src="https://www.youtube-nocookie.com/embed/M94uGInAoOg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <h3><span class="video-number">VIDEO 05</span>ShazaLaKazoo - Ava Kari</h3>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame">
-              <iframe loading="lazy" title="ShazaLaKazoo vs. The Binary Cumbia Orchestra vs. Grupo G - La Inconformable" src="https://www.youtube-nocookie.com/embed/qQi08BF-TD0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <h3><span class="video-number">VIDEO 06</span>ShazaLaKazoo vs. The Binary Cumbia Orchestra vs. Grupo G - La Inconformable</h3>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame">
-              <iframe loading="lazy" title="ShazaLaKazoo at Festival Mundial, Tilburg, The Netherlands" src="https://www.youtube-nocookie.com/embed/F2PbbLfl13Q" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <h3><span class="video-number">VIDEO 07</span>ShazaLaKazoo at Festival Mundial, Tilburg, The Netherlands</h3>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame">
-              <iframe loading="lazy" title="ShazaLaKazoo ft. Killo Killo - Baklava Lover" src="https://www.youtube-nocookie.com/embed/D7Pp_T4aGBE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <h3><span class="video-number">VIDEO 08</span>ShazaLaKazoo ft. Killo Killo - Baklava Lover</h3>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame">
-              <iframe loading="lazy" title="ShazaLaKazoo at Ost Klub, Vienna, Austria" src="https://www.youtube-nocookie.com/embed/M6tlvJ-6154" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <h3><span class="video-number">VIDEO 09</span>ShazaLaKazoo at Ost Klub, Vienna, Austria</h3>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame">
-              <iframe loading="lazy" title="ShazaLaKazoo & Las Balkanieras - Burek Stajl [Official Video]" src="https://www.youtube-nocookie.com/embed/m0zHeWl5DMk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <h3><span class="video-number">VIDEO 10</span>ShazaLaKazoo &amp; Las Balkanieras - Burek Stajl [Official Video]</h3>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame">
-              <iframe loading="lazy" title="ShazaLaKazoo at Universiade Closing Ceremony at Belgrade Arena, Serbia" src="https://www.youtube-nocookie.com/embed/Ay0mVSs7jAs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <h3><span class="video-number">VIDEO 11</span>ShazaLaKazoo at Universiade Closing Ceremony at Belgrade Arena, Serbia</h3>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PHOTOS -->
-
-    <section class="section photos" id="photos">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Photos</h2>
-          <span class="marker">Out there, somewhere</span>
-        </div>
-
-        <div class="photo-grid">
-          <figure class="photo-card">
-            <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2022/09/05-shazalakazoo-live-band-by-tomasz-pienicki-2022.jpg" alt="ShazaLaKazoo live band, photographed by Tomasz Pienicki in 2022" width="555" height="387">
-            <figcaption>Live at The Rise of Eastern Culture / Another Dimension Festival @ BOK, Bialystok, Poland</figcaption>
-          </figure>
-
-          <figure class="photo-card">
-            <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2019/02/colorgraiding.00_05_30_10.still003.jpg" alt="ShazaLaKazoo live at Lido, Berlin" width="555" height="307">
-            <figcaption>Live at BalkanBeats Party @ Lido, Berlin, Germany</figcaption>
-          </figure>
-
-          <figure class="photo-card">
-            <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/411501_2448716057929_172860426_o.jpg?w=660" alt="ShazaLaKazoo live in Dublin" width="555" height="370">
-            <figcaption>Live at Goulash Disko @ The Twisted Pepper, Dublin, Ireland</figcaption>
-          </figure>
-
-          <figure class="photo-card">
-            <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/259156_1853471897197_4977786_o.jpg?w=660" alt="ShazaLaKazoo live in Cape Town" width="555" height="370">
-            <figcaption>Live at Balkanology @ Zip Zap Circus Dome, Cape Town, South Africa</figcaption>
-          </figure>
-
-          <figure class="photo-card">
-            <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/10513438_10202679962380870_2368502489389752378_n.jpg?w=660" alt="ShazaLaKazoo at FMM Sines, Portugal" width="555" height="370">
-            <figcaption>Live at FMM - Festival Músicas do Mundo, Sines, Portugal</figcaption>
-          </figure>
-
-          <figure class="photo-card">
-            <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/428442_3445655660796_1463892206_n.jpg?w=660" alt="ShazaLaKazoo at Dinamofest in Rome" width="555" height="370">
-            <figcaption>Live at Dinamofest, Rome, Italy</figcaption>
-          </figure>
-
-          <figure class="photo-card">
-            <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/431957_4974968132652_533699774_n.jpg?w=660" alt="ShazaLaKazoo at Reperkusion in Ourense" width="555" height="369">
-            <figcaption>Live at Festival Reperkusion, Ourense, Spain</figcaption>
-          </figure>
-
-          <figure class="photo-card">
-            <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/1000476_10200325700365791_257478264_n.jpg?w=660" alt="ShazaLaKazoo at Inne Brzmienia in Lublin" width="555" height="370">
-            <figcaption>Live at Inne Brzmienia Art &amp; Music Festival, Lublin, Poland</figcaption>
-          </figure>
-
-          <figure class="photo-card">
-            <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/11020250_10204107630751687_1794605386699824734_o.jpg?w=660" alt="ShazaLaKazoo at Fanfar'o'doi in Strasbourg" width="555" height="369">
-            <figcaption>Live at Fanfar'o'doi @ Molodoi, Strasbourg, France</figcaption>
-          </figure>
-
-          <figure class="photo-card">
-            <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/10513438_10202679962300868_2424001524745199525_n2.jpg?w=660" alt="ShazaLaKazoo at FMM Sines, Portugal" width="555" height="370">
-            <figcaption>Live at FMM - Festival Músicas do Mundo, Sines, Portugal</figcaption>
-          </figure>
-
-          <figure class="photo-card">
-            <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/981784_10200129085530543_1799489350_o.jpg?w=660" alt="ShazaLaKazoo at Reperkusion in Ourense" width="556" height="272">
-            <figcaption>Live at Festival Reperkusion, Ourense, Spain</figcaption>
-          </figure>
-
-          <figure class="photo-card">
-            <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/11011009_10204863601890493_5581071730729781338_o.jpg?w=660" alt="ShazaLaKazoo at Culture Night in Vilnius" width="555" height="370">
-            <figcaption>Live at Culture Night, Vilnius, Lithuania</figcaption>
-          </figure>
-
-          <figure class="photo-card">
-            <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/965738_10200124406133561_1241301380_o.jpg?w=660" alt="ShazaLaKazoo at Warsaw Balkan Madness" width="555" height="368">
-            <figcaption>Live at Warsaw Balkan Madness @ Powiekszenie, Warsaw, Poland</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- SHOWS / PRESS / CONTACT -->
-
-    <section class="link-sections">
-      <div class="wrap">
-
-        <section class="link-panel" id="shows">
-          <div class="link-panel-inner">
-            <h2>Shows</h2>
-            <div>
-              <p>Follow ShazaLaKazoo for updates and announcements.</p>
-              <div class="inline-links">
-                <a class="pill-link" href="https://www.instagram.com/shazalakazoo/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a class="pill-link" href="https://youtube.com/@shazalakazoo" target="_blank" rel="noopener noreferrer">YouTube</a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="link-panel" id="press">
-          <div class="link-panel-inner">
-            <h2>Press</h2>
-            <div>
-              <p>Music and videos.</p>
-              <div class="inline-links">
-                <a class="pill-link" href="https://shazalakazoo.bandcamp.com" target="_blank" rel="noopener noreferrer">Bandcamp</a>
-                <a class="pill-link" href="https://open.spotify.com/artist/4kLNR50wrWI1h9WPYg7K0V" target="_blank" rel="noopener noreferrer">Spotify</a>
-                <a class="pill-link" href="https://soundcloud.com/shazalakazoo" target="_blank" rel="noopener noreferrer">SoundCloud</a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="link-panel" id="contact">
-          <div class="link-panel-inner">
-            <h2>Contact</h2>
-            <div>
-              <p>Find ShazaLaKazoo online.</p>
-              <div class="inline-links">
-                <a class="pill-link" href="https://www.instagram.com/shazalakazoo/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a class="pill-link" href="https://shazalakazoo.bandcamp.com" target="_blank" rel="noopener noreferrer">Bandcamp</a>
-                <a class="pill-link" href="https://soundcloud.com/shazalakazoo" target="_blank" rel="noopener noreferrer">SoundCloud</a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <div class="footer-top">
-        <a class="logo footer-logo" href="#home" aria-label="ShazaLaKazoo home">ShazaLa<span class="ka">Ka</span>zoo</a>
-
-        <nav class="socials" aria-label="Social media">
-          <a href="https://www.instagram.com/shazalakazoo/" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="https://open.spotify.com/artist/4kLNR50wrWI1h9WPYg7K0V" target="_blank" rel="noopener noreferrer">Spotify</a>
-          <a href="https://soundcloud.com/shazalakazoo" target="_blank" rel="noopener noreferrer">SoundCloud</a>
-          <a href="https://shazalakazoo.bandcamp.com" target="_blank" rel="noopener noreferrer">Bandcamp</a>
-          <a href="https://youtube.com/@shazalakazoo" target="_blank" rel="noopener noreferrer">YouTube</a>
-        </nav>
-      </div>
-
-      <div class="footer-bottom">
-        <span>ShazaLaKazoo</span>
-        <a href="#home">Back to the top ↑</a>
-      </div>
+    <div class="about-copy">
+      <p>People often think of the Balkans as a crossroads. With their busy trade and cultural
+      routes, the Balkans have been linking the East with the West, the North with the South
+      throughout the centuries. Now can you imagine someone setting up a tent in the midst of that
+      bustling roundabout, in a place where all those roads converge in a swirling mix? Can you
+      imagine, out of the blue, a tent springing up in the middle of that crossroads, a wild and illegal
+      wedding party inside it, a jamming makeshift shelter which blocks the traffic and makes time
+      stand still until the break of dawn? Well, the loud and crazy music that would be played beneath
+      such a tent cover - this is the sound of the ShazaLaKazoo.</p>
     </div>
-  </footer>
+  </div>
+</section>
 
+<section class="section music" id="music">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Music</h2>
+    </div>
+    <div class="release-list">
+      <article class="release">
+        <h3>Chorba</h3>
+        <div class="release-meta">Album · 2024</div>
+        <iframe title="Chorba — ShazaLaKazoo" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1798992951&color=%238A14FF&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true"></iframe>
+      </article>
+
+      <article class="release">
+        <h3>Metanational</h3>
+        <div class="release-meta">Album · 2016</div>
+        <iframe title="Metanational — ShazaLaKazoo" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/275988183&color=%238A14FF&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true"></iframe>
+      </article>
+
+      <article class="release">
+        <h3>Monobrow</h3>
+        <div class="release-meta">Album · 2014</div>
+        <iframe title="Monobrow — ShazaLaKazoo" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/30427835&color=%238A14FF&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true"></iframe>
+      </article>
+
+      <article class="release">
+        <h3>Karton City Boom</h3>
+        <div class="release-meta">Album · 2012</div>
+        <iframe title="Karton City Boom — ShazaLaKazoo" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1176296&color=%238A14FF&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true"></iframe>
+      </article>
+
+      <article class="release">
+        <h3>Speaking Balkanian</h3>
+        <div class="release-meta">Album · 2010</div>
+        <iframe title="Speaking Balkanian — ShazaLaKazoo" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/4538604&color=%238A14FF&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true"></iframe>
+      </article>
+
+      <article class="release">
+        <h3>Bang! Bang!</h3>
+        <div class="release-meta">EP · 2011</div>
+        <iframe title="Bang! Bang! — ShazaLaKazoo" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1174853&color=%238A14FF&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true"></iframe>
+      </article>
+
+      <article class="release wide">
+        <h3>Remixes</h3>
+        <iframe title="Remixes — ShazaLaKazoo" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/4538475&color=%238A14FF&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true"></iframe>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section videos" id="videos">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Videos</h2>
+    </div>
+    <div class="video-grid">
+      <article class="video-card">
+        <div class="video-frame"><iframe loading="lazy" title="ShazaLaKazoo - Krasi [Official Video]" src="https://www.youtube-nocookie.com/embed/Gvxwydm1b-c" allowfullscreen></iframe></div>
+        <h3>ShazaLaKazoo - Krasi [Official Video]</h3>
+      </article>
+      <article class="video-card">
+        <div class="video-frame"><iframe loading="lazy" title="ShazaLaKazoo at BOK, Bialystok, Poland" src="https://www.youtube-nocookie.com/embed/6ld0HxMVQAc" allowfullscreen></iframe></div>
+        <h3>ShazaLaKazoo at BOK, Bialystok, Poland</h3>
+      </article>
+      <article class="video-card">
+        <div class="video-frame"><iframe loading="lazy" title="ShazaLaKazoo at Lido, Berlin, Germany" src="https://www.youtube-nocookie.com/embed/L_x-qZPYXFc" allowfullscreen></iframe></div>
+        <h3>ShazaLaKazoo at Lido, Berlin, Germany</h3>
+      </article>
+      <article class="video-card">
+        <div class="video-frame"><iframe loading="lazy" title="ShazaLaKazoo & Miss Bolivia - Menea [Official Video]" src="https://www.youtube-nocookie.com/embed/99UKoEjqTt4" allowfullscreen></iframe></div>
+        <h3>ShazaLaKazoo &amp; Miss Bolivia - Menea [Official Video]</h3>
+      </article>
+      <article class="video-card">
+        <div class="video-frame"><iframe loading="lazy" title="ShazaLaKazoo - Ava Kari" src="https://www.youtube-nocookie.com/embed/M94uGInAoOg" allowfullscreen></iframe></div>
+        <h3>ShazaLaKazoo - Ava Kari</h3>
+      </article>
+      <article class="video-card">
+        <div class="video-frame"><iframe loading="lazy" title="ShazaLaKazoo vs. The Binary Cumbia Orchestra vs. Grupo G - La Inconformable" src="https://www.youtube-nocookie.com/embed/qQi08BF-TD0" allowfullscreen></iframe></div>
+        <h3>ShazaLaKazoo vs. The Binary Cumbia Orchestra vs. Grupo G - La Inconformable</h3>
+      </article>
+      <article class="video-card">
+        <div class="video-frame"><iframe loading="lazy" title="ShazaLaKazoo at Festival Mundial, Tilburg, The Netherlands" src="https://www.youtube-nocookie.com/embed/F2PbbLfl13Q" allowfullscreen></iframe></div>
+        <h3>ShazaLaKazoo at Festival Mundial, Tilburg, The Netherlands</h3>
+      </article>
+      <article class="video-card">
+        <div class="video-frame"><iframe loading="lazy" title="ShazaLaKazoo ft. Killo Killo - Baklava Lover" src="https://www.youtube-nocookie.com/embed/D7Pp_T4aGBE" allowfullscreen></iframe></div>
+        <h3>ShazaLaKazoo ft. Killo Killo - Baklava Lover</h3>
+      </article>
+      <article class="video-card">
+        <div class="video-frame"><iframe loading="lazy" title="ShazaLaKazoo at Ost Klub, Vienna, Austria" src="https://www.youtube-nocookie.com/embed/M6tlvJ-6154" allowfullscreen></iframe></div>
+        <h3>ShazaLaKazoo at Ost Klub, Vienna, Austria</h3>
+      </article>
+      <article class="video-card">
+        <div class="video-frame"><iframe loading="lazy" title="ShazaLaKazoo & Las Balkanieras - Burek Stajl [Official Video]" src="https://www.youtube-nocookie.com/embed/m0zHeWl5DMk" allowfullscreen></iframe></div>
+        <h3>ShazaLaKazoo &amp; Las Balkanieras - Burek Stajl [Official Video]</h3>
+      </article>
+      <article class="video-card">
+        <div class="video-frame"><iframe loading="lazy" title="ShazaLaKazoo at Universiade Closing Ceremony at Belgrade Arena, Serbia" src="https://www.youtube-nocookie.com/embed/Ay0mVSs7jAs" allowfullscreen></iframe></div>
+        <h3>ShazaLaKazoo at Universiade Closing Ceremony at Belgrade Arena, Serbia</h3>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section photos" id="photos">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Photos</h2>
+    </div>
+    <div class="photo-grid">
+      <figure class="photo-card">
+        <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2022/09/05-shazalakazoo-live-band-by-tomasz-pienicki-2022.jpg" alt="05 ShazaLaKazoo (Live Band) - by Tomasz Pienicki 2022" width="555" height="387">
+        <figcaption>Live at The Rise of Eastern Culture / Another Dimension Festival @ BOK, Bialystok, Poland</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2019/02/colorgraiding.00_05_30_10.still003.jpg" alt="ColorGraiding.00_05_30_10.Still003" width="555" height="307">
+        <figcaption>Live at BalkanBeats Party @ Lido, Berlin, Germany</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/411501_2448716057929_172860426_o.jpg?w=660" alt="411501_2448716057929_172860426_o" width="555" height="370">
+        <figcaption>Live at Goulash Disko @ The Twisted Pepper, Dublin, Ireland</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/259156_1853471897197_4977786_o.jpg?w=660" alt="259156_1853471897197_4977786_o" width="555" height="370">
+        <figcaption>Live at Balkanology @ Zip Zap Circus Dome, Cape Town, South Africa</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/10513438_10202679962380870_2368502489389752378_n.jpg?w=660" alt="FMM Sines Portugal 1" width="555" height="370">
+        <figcaption>Live at FMM - Festival Músicas do Mundo, Sines, Portugal</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/428442_3445655660796_1463892206_n.jpg?w=660" alt="Dinamofest Rome" width="555" height="370">
+        <figcaption>Live at Dinamofest, Rome, Italy</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/431957_4974968132652_533699774_n.jpg?w=660" alt="Reperkusion Ourense" width="555" height="369">
+        <figcaption>Live at Festival Reperkusion, Ourense, Spain</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/1000476_10200325700365791_257478264_n.jpg?w=660" alt="Inne Brzmienia Lublin" width="555" height="370">
+        <figcaption>Live at Inne Brzmienia Art &amp; Music Festival, Lublin, Poland</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/11020250_10204107630751687_1794605386699824734_o.jpg?w=660" alt="Fanfarodoi Strasbourg" width="555" height="369">
+        <figcaption>Live at Fanfar'o'doi @ Molodoi, Strasbourg, France</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/10513438_10202679962300868_2424001524745199525_n2.jpg?w=660" alt="FMM Sines Portugal 2" width="555" height="370">
+        <figcaption>Live at FMM - Festival Músicas do Mundo, Sines, Portugal</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/981784_10200129085530543_1799489350_o.jpg?w=660" alt="Reperkusion Ourense 2" width="556" height="272">
+        <figcaption>Live at Festival Reperkusion, Ourense, Spain</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/11011009_10204863601890493_5581071730729781338_o.jpg?w=660" alt="Culture Night Vilnius" width="555" height="370">
+        <figcaption>Live at Culture Night, Vilnius, Lithuania</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img loading="lazy" src="https://shazalakazoo.files.wordpress.com/2015/09/965738_10200124406133561_1241301380_o.jpg?w=660" alt="Warsaw Balkan Madness" width="555" height="368">
+        <figcaption>Live at Warsaw Balkan Madness @ Powiekszenie, Warsaw, Poland</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section shows" id="shows">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Shows</h2>
+    </div>
+
+    <div class="next-show">
+      🇵🇱 Poland 13.11.2026 @ TRANSVOCALE FESTIVAL, SŁUBICE, POLAND
+    </div>
+
+    <h3 class="past-heading">Past Shows</h3>
+    <ul class="show-list">
+      <li><span class="flag" aria-label="Italy">🇮🇹</span><span class="show-text">italy 29.08.2026 @ TUTTI MATI PER COLORNO FESTIVAL, COLORNO, ITALY</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 28.08.2026 @ MAMA STOCK FESTIVAL, MONTPELLIER, FRANCE</span></li>
+      <li><span class="flag" aria-label="Italy">🇮🇹</span><span class="show-text">italy 07.06.2025 @ TOM FEST, TURIN, ITALY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 25.01.2025 @ AMPERE, MUNICH, GERMANY</span></li>
+      <li><span class="flag" aria-label="Switzerland">🇨🇭</span><span class="show-text">switzerland 01.11.2024 @ DACHSTOCK, BERN, SWITZERLAND</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 05.07.2024 @ DONAUFEST, ULM, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 31.05.2024 @ VAUDEVILLE, LINDAU, GERMANY</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 27.04.2024 @ FESTIVAL WELCOME IN TZIGANIE, SEISSAN, FRANCE</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">13.07.2023 @ SOMMERFESTIVAL DER KULTUREN, STUTTGART, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 24.06.2023 @ 3-LÄNDER-STADT FESTIVAL, WEIL AM RHEIN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 03.06.2023 @ INTERNATIONALES FRÜHLINGSFEST, KASSEL, GERMANY</span></li>
+      <li><span class="flag" aria-label="Switzerland">🇨🇭</span><span class="show-text">switzerland 26.11.2022 @ DADA BAR, ZURICH, SWITZERLAND</span></li>
+      <li><span class="flag" aria-label="Poland">🇵🇱</span><span class="show-text">poland 26.08.2022 @ FESTIVAL WSCHOD KULTURY, BIALYSTOK, POLAND</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">20.08.2022 @ CREOLE FESTIVAL, TRIER, GERMANY</span></li>
+      <li><span class="flag" aria-label="Italy">🇮🇹</span><span class="show-text">italy 13.08.2022 @ WAO FESTIVAL, SAN VENANZO, ITALY</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 06.08.2022 @ FESTIVAL LES NUITS DU 4 AOÛT, ARTHENAS, FRANCE</span></li>
+      <li><span class="flag" aria-label="Hungary">🇭🇺</span><span class="show-text">hungary 15.07.2022 @ BANKITO FESTIVAL, BANK, HUNGARY</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 04.12.2021 @ DORCOL PLATZ, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Poland">🇵🇱</span><span class="show-text">poland 11.01.2020 @ KLUB RE, KRAKOW, POLAND</span></li>
+      <li><span class="flag" aria-label="Switzerland">🇨🇭</span><span class="show-text">switzerland 31.12.2019 @ CARGO BAR, BASEL, SWITZERLAND</span></li>
+      <li><span class="flag" aria-label="United Kingdom">🇬🇧</span><span class="show-text">gb 29.11.2019 @ HOOTANANNY BRIXTON, LONDON, UK</span></li>
+      <li><span class="flag" aria-label="Croatia">🇭🇷</span><span class="show-text">croatia 06.09.2019 @ MEDULIN CRAFT BEER FESTIVAL, MEDULIN, CROATIA</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 02.08.2019 @ FESTIVILLA, HEIDELBERG, GERMANY</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 05.12.2018 @ GAJBA, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 13.10.2018 @ LIDO, BERLIN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 05.10.2018 @ STADTGARTEN, COLOGNE, GERMANY</span></li>
+      <li><span class="flag" aria-label="Sweden">🇸🇪</span><span class="show-text">sweden 04.08.2018 @ CASSEROLES CIRCUS` FOOD &amp; MUSIC FESTIVAL, MÖLLE, SWEDEN</span></li>
+      <li><span class="flag" aria-label="Austria">🇦🇹</span><span class="show-text">at 12.08.2017 @ LIVE IM PARK FESTIVAL, SALZBURG, AUSTRIA</span></li>
+      <li><span class="flag" aria-label="Austria">🇦🇹</span><span class="show-text">at 11.08.2017 @ FREE TREE FESTIVAL, TAISKIRCHEN IM INNKREIS, AUSTRIA</span></li>
+      <li><span class="flag" aria-label="Sweden">🇸🇪</span><span class="show-text">sweden 05.08.2017 @ CASSEROLES CIRCUS` FOOD &amp; MUSIC FESTIVAL, MÖLLE, SWEDEN</span></li>
+      <li><span class="flag" aria-label="Denmark">🇩🇰</span><span class="show-text">denmark 04.08.2017 @ PUMPEHUSET, COPENHAGEN, DENMARK</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 28.07.2017 @ ZUGVÖGEL FESTIVAL, UDENBRETH, GERMANY</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 22.07.2017 @ LE FESTIVAL DES NUITS ATIPIQUES, SAINT-MACAIRE, FRANCE</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 20.07.2017 @ LES HEBDOS DE L’ÉTÉ, LA MALÈNE, FRANCE</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 19.07.2017 @ LES HEBDOS DE L’ÉTÉ, SAINT-ÉTIENNE-VALLÉE-FRANÇAISE, FRANCE</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 18.07.2017 @ LES HEBDOS DE L’ÉTÉ, QUÉZAC, FRANCE</span></li>
+      <li><span class="flag" aria-label="Bulgaria">🇧🇬</span><span class="show-text">bulgaria 12.07.2017 @ MIXTAPE 5, SOFIA, BULGARIA</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 08.07.2017 @ FESTIVAL CONTENTPOURIEN, MANTES-LA-VILLE, FRANCE</span></li>
+      <li><span class="flag" aria-label="Bosnia and Herzegovina">🇧🇦</span><span class="show-text">bosnia 02.07.2017 @ KOZARA ETHNO FEST, BANJA LUKA, BOSNIA AND HERZEGOVINA</span></li>
+      <li><span class="flag" aria-label="Bulgaria">🇧🇬</span><span class="show-text">bulgaria 30.06.2017 @ HILLS OF ROCK FESTIVAL, PLOVDIV, BULGARIA</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 28.04.2017 @ FESTIVAL WELCOME IN TZIGANIE, SEISSAN, FRANCE</span></li>
+      <li><span class="flag" aria-label="United Kingdom">🇬🇧</span><span class="show-text">gb 18.02.2017 @ POW (THE PRINCE OF WALES), LONDON, UK</span></li>
+      <li><span class="flag" aria-label="United Kingdom">🇬🇧</span><span class="show-text">gb 17.02.2017 @ THE FOX AND FIRKIN, LONDON, UK</span></li>
+      <li><span class="flag" aria-label="Switzerland">🇨🇭</span><span class="show-text">switzerland 20.01.2017 @ SUD, BASEL, SWITZERLAND</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 19.11.2016 @ DOMICIL, DORTMUND, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 18.11.2016 @ GEBÄUDE 9, COLOGNE, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 12.11.2016 @ LIDO, BERLIN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Israel">🇮🇱</span><span class="show-text">il 16.09.2016 @ SHUTKA FESTIVAL, ARAD, ISRAEL</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 19.08.2016 @ 20/44, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Estonia">🇪🇪</span><span class="show-text">ee 29.07.2016 @ VILJANDI FOLK MUSIC FESTIVAL, VILJANDI, ESTONIA</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 21.07.2016 @ MILLAU JAZZ FESTIVAL, MILLAU, FRANCE</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 09.07.2016 @ FESTIVAL COUNTERPOURIEN PRIVATE PARTY, BENNECOURT, FRANCE</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 08.07.2016 @ EN NORD BEAT FESTIVAL, BAILLEUL, FRANCE</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 01.07.2016 @ FESTIVAL AU FOIN DE LA RUE, ST DENIS DE GASTINES, FRANCE</span></li>
+      <li><span class="flag" aria-label="Bulgaria">🇧🇬</span><span class="show-text">bulgaria 25.06.2016 @ WRONG FEST, SOFIA, BULGARIA</span></li>
+      <li><span class="flag" aria-label="Denmark">🇩🇰</span><span class="show-text">denmark 04.03.2016 @ LOPPEN, COPENHAGEN, DENMARK</span></li>
+      <li><span class="flag" aria-label="Austria">🇦🇹</span><span class="show-text">at 13.02.2016 @ JAZZIT, SALZBURG, AUSTRIA</span></li>
+      <li><span class="flag" aria-label="Slovenia">🇸🇮</span><span class="show-text">slovenia 25.12.2015 @ KURZSCHLUSS, LJUBLJANA, SLOVENIA</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 03-09.08.2015 @ GUCA TRUMPET FESTIVAL, GUCA, SERBIA</span></li>
+      <li><span class="flag" aria-label="Spain">🇪🇸</span><span class="show-text">spain 26.06.2015 @ LA RIVIERA, MADRID, SPAIN</span></li>
+      <li><span class="flag" aria-label="Lithuania">🇱🇹</span><span class="show-text">lt 19.06.2015 @ CULTURE NIGHT, VILNIUS, LITHUANIA</span></li>
+      <li><span class="flag" aria-label="Latvia">🇱🇻</span><span class="show-text">lv 18.06.2015 @ NABAKLAB, RIGA, LATVIA</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 09.05.2015 @ L`ALIMENTATION GENERALE, PARIS, FRANCE</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 08.05.2015 @ PENICHE CANCALE, DIJON, FRANCE</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 07.05.2015 @ LA TAVERNE, TOULOUSE, FRANCE</span></li>
+      <li><span class="flag" aria-label="Romania">🇷🇴</span><span class="show-text">romania 01.05.2015 @ PICNIC IN THE PARK, CLUJ-NAPOCA, ROMANIA</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 11.04.2015 @ LIDO, BERLIN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Belgium">🇧🇪</span><span class="show-text">belgium 21.03.2015 @ PETROL, ANTWERP, BELGIUM</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 14.02.2015 @ MOLODOI, STRASSBOURG, FRANCE</span></li>
+      <li><span class="flag" aria-label="Switzerland">🇨🇭</span><span class="show-text">switzerland 24.01.2015 @ GRAFFITTI, BERN, SWITZERLAND</span></li>
+      <li><span class="flag" aria-label="Switzerland">🇨🇭</span><span class="show-text">switzerland 23.01.2015 @ SEDEL, LUCERNE, SWITZERLAND</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 31.12.2014 @ MONSUN, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 26.12.2014 @ MS STUBNITZ, HAMBURG, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 24.10.2014 @ ALTE FEUERWACHE, MANNHEIM, GERMANY</span></li>
+      <li><span class="flag" aria-label="Romania">🇷🇴</span><span class="show-text">romania 23.08.2014 @ GREEN SOUNDS FESTIVAL, BUCHAREST, ROMANIA</span></li>
+      <li><span class="flag" aria-label="Portugal">🇵🇹</span><span class="show-text">portugal 27.07.2014 @ O PURISTA, LISBON, PORTUGAL</span></li>
+      <li><span class="flag" aria-label="Spain">🇪🇸</span><span class="show-text">spain 26.07.2014 @ IBOGA SUMMER FESTIVAL, CULLERA, SPAIN</span></li>
+      <li><span class="flag" aria-label="Portugal">🇵🇹</span><span class="show-text">portugal 25.07.2014 @ FMM – FESTIVAL MUSICAS DO MUNDO, SINES, PORTUGAL</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 03.05.2014 @ BADEHAUS SZIMPLA MUSIKSALON, BERLIN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 28.03.2014 @ GOETHEBUNKER, ESSEN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 01.01.2014 @ 20/44, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 25.11.2013 @ SUPERMARKET, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Switzerland">🇨🇭</span><span class="show-text">switzerland 22.11.2013 @ CULTURESCAPES FESTIVAL, ZURICH, SWITZERLAND</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 28.09.2013 @ CENTRE CULTUREL DE SERBIE, PARIS, FRANCE</span></li>
+      <li><span class="flag" aria-label="Belgium">🇧🇪</span><span class="show-text">belgium 25.07.2013 @ SFINKS FESTIVAL, BOECHOUT, BELGIUM</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 08.07.2013 @ BELEF FESTIVAL, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Poland">🇵🇱</span><span class="show-text">poland 06.07.2013 @ INNE BRZMIENIA FESTIVAL, LUBLIN, POLAND</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 21.06.2013 @ FETE DE LA MUSIQUE, SAINT-AFFRIQUE, FRANCE</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 28.05.2013 @ FESRAM 2014, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Poland">🇵🇱</span><span class="show-text">poland 25.05.2013 @ POWIEKSZENIE, WARSAW, POLAND</span></li>
+      <li><span class="flag" aria-label="Poland">🇵🇱</span><span class="show-text">poland 24.05.2013 @ KLUB RE, KRAKOW, POLAND</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 18.05.2013 @ MUSEUM NIGHT, ZRENJANIN, SERBIA</span></li>
+      <li><span class="flag" aria-label="Portugal">🇵🇹</span><span class="show-text">portugal 11.05.2013 @ ART&amp;TUDE, LISBON, PORTUGAL</span></li>
+      <li><span class="flag" aria-label="Spain">🇪🇸</span><span class="show-text">spain 10.05.2013 @ FESTIVAL REPERKUSION, OURENSE, SPAIN</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 09.05.2013 @ LA DAME DE CANTON, PARIS, FRANCE</span></li>
+      <li><span class="flag" aria-label="Romania">🇷🇴</span><span class="show-text">romania 26.04.2013 @ TIMISHORT FILM FESTIVAL, TIMISOARA, ROMANIA</span></li>
+      <li><span class="flag" aria-label="Norway">🇳🇴</span><span class="show-text">norway 23.02.2013 @ JOHN DEE, OSLO, NORWAY</span></li>
+      <li><span class="flag" aria-label="Croatia">🇭🇷</span><span class="show-text">croatia 31.12.2012 @ KINO EUROPA, OSIJEK, CROATIA</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 13.10.2012 @ HONG KONG BAR, MUNICH, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 12.10.2012 @ TANZCAFE LUDWIG, WÜRZBURG, GERMANY</span></li>
+      <li><span class="flag" aria-label="Netherlands">🇳🇱</span><span class="show-text">netherlands 18.08.2012 @ LOWLANDS FESTIVAL, BIDDINGHUIZEN, NETHERLANDS</span></li>
+      <li><span class="flag" aria-label="Moldova">🇲🇩</span><span class="show-text">moldova 28.07.2012 @ FLAMINGO, CHISINAU, MOLDOVA</span></li>
+      <li><span class="flag" aria-label="Italy">🇮🇹</span><span class="show-text">italy 20.06.2012 @ DINAMOFEST, ROME, ITALY</span></li>
+      <li><span class="flag" aria-label="Netherlands">🇳🇱</span><span class="show-text">netherlands 17.06.2012 @ FESTIVAL MUNDIAL, TILBURG, NETHERLANDS</span></li>
+      <li><span class="flag" aria-label="Netherlands">🇳🇱</span><span class="show-text">netherlands 16.06.2012 @ PARADOX, TILBURG, NETHERLANDS</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 02.06.2012 @ FESTIVAL ELECTRO-CLIQUE, BESANCON, FRANCE</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 29.05.2012 @ FESRAM 2012, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Croatia">🇭🇷</span><span class="show-text">croatia 25.05.2012 @ KVART, ZAGREB, CROATIA</span></li>
+      <li><span class="flag" aria-label="North Macedonia">🇲🇰</span><span class="show-text">macedonia 19.05.2012 @ GURMAN FEST, SKOPJE, MACEDONIA</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 05.05.2012 @ BREIDENBACH STUDIOS, HEIDELBERG, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 04.05.2012 @ E-WERK, FREIBURG, GERMANY</span></li>
+      <li><span class="flag" aria-label="Sweden">🇸🇪</span><span class="show-text">sweden 21.04.2012 @ SÖDRA TEATERN, STOCKHOLM, SWEDEN</span></li>
+      <li><span class="flag" aria-label="Sweden">🇸🇪</span><span class="show-text">sweden 20.04.2012 @ MORISKA PAVILJONGEN, MALMÖ, SWEDEN</span></li>
+      <li><span class="flag" aria-label="Romania">🇷🇴</span><span class="show-text">romania 24.03.2012 @ BOILER CLUB, CLUJ-NAPOCA, ROMANIA</span></li>
+      <li><span class="flag" aria-label="Romania">🇷🇴</span><span class="show-text">romania 23.03.2012 @ SETUP, TIMISOARA, ROMANIA</span></li>
+      <li><span class="flag" aria-label="Romania">🇷🇴</span><span class="show-text">romania 22.03.2012 @ KULTURHAUS, BUCHAREST, ROMANIA</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 31.12.2011 @ GLORIA-THEATER, COLOGNE, GERMANY</span></li>
+      <li><span class="flag" aria-label="Ireland">🇮🇪</span><span class="show-text">ireland 16.12.2011 @ THE TWISTED PEPPER, DUBLIN, IRELAND</span></li>
+      <li><span class="flag" aria-label="Switzerland">🇨🇭</span><span class="show-text">switzerland 10.12.2011 @ STALL 6, ZURICH, SWITZERLAND</span></li>
+      <li><span class="flag" aria-label="Czech Republic">🇨🇿</span><span class="show-text">czechia 02.12.2011 @ VZLET, PRAGUE, CZECH REPUBLIC</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 19.11.2011 @ LIDO, BERLIN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Italy">🇮🇹</span><span class="show-text">italy 22.10.2011 @ LO-FI, MILAN, ITALY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 01.10.2011 @ STADTGARTEN, COLOGNE, GERMANY</span></li>
+      <li><span class="flag" aria-label="Finland">🇫🇮</span><span class="show-text">finland 24.09.2011 @ HELSINKI INT`L FILM FESTIVAL, HELSINKI, FINLAND</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 23.09.2011 @ CABARET ALEATOIRE, MARSEILLE, FRANCE</span></li>
+      <li><span class="flag" aria-label="Hungary">🇭🇺</span><span class="show-text">hungary 03.09.2011 @ RIVALDA, BUDAPEST, HUNGARY</span></li>
+      <li><span class="flag" aria-label="Belarus">🇧🇾</span><span class="show-text">belarus 27.08.2011 @ VOLNAE PAVETRA FESTIVAL, SHABLI, BELARUS</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 18.06.2011 @ DIE PUMPE, KIEL, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 17.06.2011 @ SPEICHER, HUSUM, GERMANY</span></li>
+      <li><span class="flag" aria-label="South Africa">🇿🇦</span><span class="show-text">south africa 15.06.2011 @ ZIP ZAP CIRCUS DOME, CAPE TOWN, SOUTH AFRICA</span></li>
+      <li><span class="flag" aria-label="South Africa">🇿🇦</span><span class="show-text">south africa 11.06.2011 @ MILLS PARKING LOT, JOHANNESBURG, SOUTH AFRICA</span></li>
+      <li><span class="flag" aria-label="Belgium">🇧🇪</span><span class="show-text">belgium 21.05.2011 @ PETROL, ANTWERP, BELGIUM</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 11.05.2011 @ GRAND CASINO BEOGRAD, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 18.03.2011 @ KC GRAD, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Austria">🇦🇹</span><span class="show-text">at 26.02.2011 @ BOEM, VIENNA, AUSTRIA</span></li>
+      <li><span class="flag" aria-label="Austria">🇦🇹</span><span class="show-text">at 25.02.2011 @ OST KLUB, VIENNA, AUSTRIA</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 18.12.2010 @ RAW-TEMPEL, BERLIN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 11.12.2010 @ 3RAUM, HANNOVER, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 10.12.2010 @ HALLE D (WERK II), LEIPZIG, GERMANY</span></li>
+      <li><span class="flag" aria-label="Belgium">🇧🇪</span><span class="show-text">belgium 03.12.2010 @ RECYCLART, BRUSSELS, BELGIUM</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 12.11.2010 @ HALLE 4, ROSTOCK, GERMANY</span></li>
+      <li><span class="flag" aria-label="Croatia">🇭🇷</span><span class="show-text">croatia 05.11.2010 @ BABBAR, ZAGREB, CROATIA</span></li>
+      <li><span class="flag" aria-label="Poland">🇵🇱</span><span class="show-text">poland 30.10.2010 @ ODEON, BIALYSTOK, POLAND</span></li>
+      <li><span class="flag" aria-label="Russia">🇷🇺</span><span class="show-text">russia 09.10.2010 @ ETNOMECHANICA FESTIVAL, ST.PETERSBURG, RUSSIA</span></li>
+      <li><span class="flag" aria-label="Russia">🇷🇺</span><span class="show-text">russia 08.10.2010 @ GAZGOLDER, MOSCOW, RUSSIA</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 02.10.2010 @ AKADEMIJA, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 18.09.2010 @ LADJA JOCKER, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Bosnia and Herzegovina">🇧🇦</span><span class="show-text">bosnia 10.09.2010 @ DOM OMLADINE, BANJA LUKA, BOSNIA AND HERZEGOVINA</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 03.09.2010 @ FESTIVAL KUMPANIA, ARGEIN, FRANCE</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 28.08.2010 @ DONAUFEST, ULM, GERMANY</span></li>
+      <li><span class="flag" aria-label="Norway">🇳🇴</span><span class="show-text">norway 21.08.2010 @ PARKTEATRET, OSLO, NORWAY</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 13.08.2010 @ 20/44, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Finland">🇫🇮</span><span class="show-text">finland 07.08.2010 @ LE BONK, HELSINKI, FINLAND</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 06.08.2010 @ SERBIA WORLD MUSIC FESTIVAL, TAKOVO, SERBIA</span></li>
+      <li><span class="flag" aria-label="Croatia">🇭🇷</span><span class="show-text">croatia 31.07.2010 @ MEDIA MEDITERRANEA FESTIVAL, PULA, CROATIA</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 23.07.2010 @ FESTIVAL LA VALLEE, VERDELAIS, FRANCE</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 12.07.2010 @ JAZZ A LUZ, LUZ-ST-SAUVEUR, FRANCE</span></li>
+      <li><span class="flag" aria-label="Slovakia">🇸🇰</span><span class="show-text">slovakia 10.07.2010 @ POHODA FESTIVAL, TRENCIN, SLOVAKIA</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 08.07.2010 @ EXIT FESTIVAL, NOVI SAD, SERBIA</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 03.07.2010 @ 20/44, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Croatia">🇭🇷</span><span class="show-text">croatia 30.06.2010 @ PARK IN ZAGREB FESTIVAL, ZAGREB, CROATIA</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 26.06.2010 @ FUSION FESTIVAL, LÄRZ, GERMANY</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 18.06.2010 @ LADJA JOCKER, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 11.06.2010 @ MORPH CLUB, BAMBERG, GERMANY</span></li>
+      <li><span class="flag" aria-label="Slovenia">🇸🇮</span><span class="show-text">slovenia 29.05.2010 @ DAN MLADOSTI, PORTOROŽ, SLOVENIA</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 21.05.2010 @ 20/44, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Sweden">🇸🇪</span><span class="show-text">sweden 01.05.2010 @ SÖDRA TEATERN, STOCKHOLM, SWEDEN</span></li>
+      <li><span class="flag" aria-label="Sweden">🇸🇪</span><span class="show-text">sweden 30.04.2010 @ MUSIKENS HUS, GÖTEBORG, SWEDEN</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 23.04.2010 @ AMPERE, MUNICH, GERMANY</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 16.04.2010 @ BUNKER HILL, NOVI SAD, SERBIA</span></li>
+      <li><span class="flag" aria-label="Denmark">🇩🇰</span><span class="show-text">denmark 10.04.2010 @ PUMPEHUSET, COPENHAGEN, DENMARK</span></li>
+      <li><span class="flag" aria-label="Austria">🇦🇹</span><span class="show-text">at 27.03.2010 @ OST KLUB, VIENNA, AUSTRIA</span></li>
+      <li><span class="flag" aria-label="Slovenia">🇸🇮</span><span class="show-text">slovenia 25.03.2010 @ GROMKA, LJUBLJANA, SLOVENIA</span></li>
+      <li><span class="flag" aria-label="Netherlands">🇳🇱</span><span class="show-text">netherlands 13.03.2010 @ DE BADCUYP, AMSTERDAM, NETHERLANDS</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 12.03.2010 @ GEBÄUDE 9, COLOGNE, GERMANY</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 05.03.2010 @ BLOW UP, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 27.02.2010 @ BATLER, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Croatia">🇭🇷</span><span class="show-text">croatia 20.02.2010 @ KSET, ZAGREB, CROATIA</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 16.01.2010 @ FESTSAAL KREUZBERG, BERLIN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 15.01.2010 @ WELTECHO, CHEMNITZ, GERMANY</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 13.01.2010 @ MUF, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="North Macedonia">🇲🇰</span><span class="show-text">macedonia 31.12.2009 @ METROPOLIS ARENA, SKOPJE, MACEDONIA</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 22.12.2009 @ KC GRAD, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Denmark">🇩🇰</span><span class="show-text">denmark 19.12.2009 @ GLOBAL, COPENHAGEN, DENMARK</span></li>
+      <li><span class="flag" aria-label="Denmark">🇩🇰</span><span class="show-text">denmark 18.12.2009 @ KULTURMASKINEN, ODENSE, DENMARK</span></li>
+      <li><span class="flag" aria-label="Sweden">🇸🇪</span><span class="show-text">sweden 17.12.2009 @ INKONST, MALMÖ, SWEDEN</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 12.11.2009 @ LE CAFE DES MOINES, BORDEAUX, FRANCE</span></li>
+      <li><span class="flag" aria-label="France">🇫🇷</span><span class="show-text">fr 10.11.2009 @ CAFE REX, TOULOUSE, FRANCE</span></li>
+      <li><span class="flag" aria-label="Denmark">🇩🇰</span><span class="show-text">denmark 22.10.2009 @ BOOYAKA FESTIVAL, COPENHAGEN, DENMARK</span></li>
+      <li><span class="flag" aria-label="Montenegro">🇲🇪</span><span class="show-text">montenegro 15.10.2009 @ OGP, PODGORICA, MONTENEGRO</span></li>
+      <li><span class="flag" aria-label="Netherlands">🇳🇱</span><span class="show-text">netherlands 25.09.2009 @ TODAYSART FESTIVAL, THE HAGUE, NETHERLANDS</span></li>
+      <li><span class="flag" aria-label="Italy">🇮🇹</span><span class="show-text">italy 21.08.2009 @ ARIANO FOLKFESTIVAL, ARIANO IRPINO, ITALY</span></li>
+      <li><span class="flag" aria-label="Netherlands">🇳🇱</span><span class="show-text">netherlands 15.08.2009 @ DROOMFESTIVAL BLIJBURG, AMSTERDAM, NETHERLANDS</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 14.08.2009 @ C/O POP FESTIVAL, COLOGNE, GERMANY</span></li>
+      <li><span class="flag" aria-label="Bulgaria">🇧🇬</span><span class="show-text">bulgaria 08.08.2009 @ BEGLIKA FREE FEST, YAZOVIR BEGLIKA, BULGARIA</span></li>
+      <li><span class="flag" aria-label="Hungary">🇭🇺</span><span class="show-text">hungary 21.07.2009 @ CAMPUS FESTIVAL, DEBRECEN, HUNGARY</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 12.07.2009 @ BELGRADE ARENA, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 11.07.2009 @ LIDO, BERLIN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 09.07.2009 @ EXIT FESTIVAL, NOVI SAD, SERBIA</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 05.07.2009 @ UNIVERSIADE 2009 BELVILLE, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 28.06.2009 @ FUSION FESTIVAL, LÄRZ, GERMANY</span></li>
+      <li><span class="flag" aria-label="Hungary">🇭🇺</span><span class="show-text">hungary 06.06.2009 @ CHA CHA CHA, BUDAPEST, HUNGARY</span></li>
+      <li><span class="flag" aria-label="Denmark">🇩🇰</span><span class="show-text">denmark 30.05.2009 @ STENGADE 30, COPENHAGEN, DENMARK</span></li>
+      <li><span class="flag" aria-label="Belgium">🇧🇪</span><span class="show-text">belgium 15.05.2009 @ KOKOPELLI FESIVAL, GULLEGEM, BELGIUM</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 02.05.2009 @ THE CLUB, UZICE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Belgium">🇧🇪</span><span class="show-text">belgium 17.04.2009 @ BALKAN TRAFIK FESTIVAL, BRUSSELS, BELGIUM</span></li>
+      <li><span class="flag" aria-label="Austria">🇦🇹</span><span class="show-text">at 10.04.2009 @ OST KLUB, VIENNA, AUSTRIA</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 28.03.2009 @ KGB, FREIBURG IM BREISGAU, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 27.03.2009 @ KRAMLADEN, KAISERSLAUTERN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 26.03.2009 @ ACUD, BERLIN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 21.03.2009 @ MANDARIN, HAMBURG, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 20.03.2009 @ MOMENTS, BREMEN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 19.03.2009 @ FEO BAR, HAMBURG, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 14.03.2009 @ LUNA CLUB, KIEL, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 13.03.2009 @ 3RAUM AM BALLHOF, HANNOVER, GERMANY</span></li>
+      <li><span class="flag" aria-label="Croatia">🇭🇷</span><span class="show-text">croatia 21.02.2009 @ KSET, ZAGREB, CROATIA</span></li>
+      <li><span class="flag" aria-label="Slovenia">🇸🇮</span><span class="show-text">slovenia 20.02.2009 @ MED FESTIVAL, MARIBOR, SLOVENIA</span></li>
+      <li><span class="flag" aria-label="Slovenia">🇸🇮</span><span class="show-text">slovenia 19.02.2009 @ GROMKA, LJUBLJANA, SLOVENIA</span></li>
+      <li><span class="flag" aria-label="Italy">🇮🇹</span><span class="show-text">italy 18.02.2009 @ VISIONARIO BAR, UDINE, ITALY</span></li>
+      <li><span class="flag" aria-label="Italy">🇮🇹</span><span class="show-text">italy 17.02.2009 @ ETNOBLOG, TRIESTE, ITALY</span></li>
+      <li><span class="flag" aria-label="Denmark">🇩🇰</span><span class="show-text">denmark 10.01.2009 @ BASEMENT, COPENHAGEN, DENMARK</span></li>
+      <li><span class="flag" aria-label="Sweden">🇸🇪</span><span class="show-text">sweden 09.01.2009 @ PLOCKE-PINN, MALMÖ, SWEDEN</span></li>
+      <li><span class="flag" aria-label="Netherlands">🇳🇱</span><span class="show-text">netherlands 02.01.2009 @ LANDBOUWBELANG, MAASTRICHT, NETHERLANDS</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 31.12.2008 @ JAKOBSHOF, AACHEN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 26.12.2008 @ GOETHEBUNKER, ESSEN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 20.12.2008 @ KGB, FREIBURG, GERMANY</span></li>
+      <li><span class="flag" aria-label="Switzerland">🇨🇭</span><span class="show-text">switzerland 19.12.2008 @ ZOO USINE, GENEVA, SWITZERLAND</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 13.12.2008 @ ROUTE 66, NOVI SAD, SERBIA</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 12.12.2008 @ HECTOR, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Norway">🇳🇴</span><span class="show-text">norway 06.12.2008 @ PARKTEATRET, OSLO, NORWAY</span></li>
+      <li><span class="flag" aria-label="Hungary">🇭🇺</span><span class="show-text">hungary 04.12.2008 @ TÜZRAKTER, BUDAPEST, HUNGARY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 23.11.2008 @ HAFENKLANG EXIL, HAMBURG, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 22.11.2008 @ LUNA CLUB, KIEL, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 21.11.2008 @ 3RAUM AM BALLHOF, HANNOVER, GERMANY</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 24.10.2008 @ HECTOR, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Slovenia">🇸🇮</span><span class="show-text">slovenia 10.10.2008 @ SUB SUB CLUB, LJUBLJANA, SLOVENIA</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 20.09.2008 @ PRISMA INTERCULTURAL WEEK, DÖBELN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 19.09.2008 @ PUSCHKIN CLUB, DRESDEN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 04.09.2008 @ STARI DANI FESTIVAL, VRANJE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Slovenia">🇸🇮</span><span class="show-text">slovenia 24.08.2008 @ GLOW SUPPER CLUB, PORTOROZ, SLOVENIA</span></li>
+      <li><span class="flag" aria-label="Austria">🇦🇹</span><span class="show-text">at 22.08.2008 @ OST FESTIVAL, VIENNA, AUSTRIA</span></li>
+      <li><span class="flag" aria-label="Slovenia">🇸🇮</span><span class="show-text">slovenia 21.08.2008 @ TRNFEST, LJUBLJANA, SLOVENIA</span></li>
+      <li><span class="flag" aria-label="Croatia">🇭🇷</span><span class="show-text">croatia 16.08.2008 @ MEDIA MEDITERRANEA FESTIVAL, PULA, CROATIA</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 09.08.2008 @ ZALET FESTIVAL, ZAJECAR, SERBIA</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 11.07.2008 @ ARENA – HOPPETOSSE, BERLIN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 10.07.2008 @ EXIT FESTIVAL, NOVI SAD, SERBIA</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 05.07.2008 @ ACUD, BERLIN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 04.07.2008 @ DOMICIL, DORTMUND, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 28.06.2008 @ RAW-TEMPEL, BERLIN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 27.06.2008 @ 3RAUM AM BALLHOF, HANNOVER, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 21.06.2008 @ LILA EULE, BREMEN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 14.06.2008 @ BUNTE REPUBLIK NEUSTADT, DRESDEN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 13.06.2008 @ VILLA KELLER, LEIPZIG, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 12.06.2008 @ STEINHAUS, BAUTZEN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 10.06.2008 @ VIERRADENMUHLE, GÖRLITZ, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 07.06.2008 @ KATAKOMBEN-THEATER, ESSEN, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 06.06.2008 @ DJÄZZ, DUISBURG, GERMANY</span></li>
+      <li><span class="flag" aria-label="Slovenia">🇸🇮</span><span class="show-text">slovenia 15.05.2008 @ MAGDALENA FESTIVAL, MARIBOR, SLOVENIA</span></li>
+      <li><span class="flag" aria-label="Austria">🇦🇹</span><span class="show-text">at 25.04.2008 @ WORLD EX-POSITION, VIENNA, AUSTRIA</span></li>
+      <li><span class="flag" aria-label="Austria">🇦🇹</span><span class="show-text">at 18.04.2008 @ OST KLUB, VIENNA, AUSTRIA</span></li>
+      <li><span class="flag" aria-label="Netherlands">🇳🇱</span><span class="show-text">netherlands 21.03.2008 @ MERLEYN, NIJMEGEN, NETHERLANDS</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 15.03.2008 @ DOMICIL, DORTMUND, GERMANY</span></li>
+      <li><span class="flag" aria-label="Germany">🇩🇪</span><span class="show-text">germany 14.03.2008 @ GEBÄUDE 9, COLOGNE, GERMANY</span></li>
+      <li><span class="flag" aria-label="Slovenia">🇸🇮</span><span class="show-text">slovenia 19.01.2008 @ GRAJSKI PARK, LOGATEC, SLOVENIA</span></li>
+      <li><span class="flag" aria-label="Slovenia">🇸🇮</span><span class="show-text">slovenia 18.01.2008 @ GALA HALA, LJUBLJANA, SLOVENIA</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 13.01.2008 @ KLUB CVIJETA, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Netherlands">🇳🇱</span><span class="show-text">netherlands 16.11.2007 @ SUGAR FACTORY, AMSTERDAM, NETHERLANDS</span></li>
+      <li><span class="flag" aria-label="Slovenia">🇸🇮</span><span class="show-text">slovenia 19.10.2007 @ GOLDEN DRUM FESTIVAL, PORTOROZ, SLOVENIA</span></li>
+      <li><span class="flag" aria-label="Switzerland">🇨🇭</span><span class="show-text">switzerland 13.10.2007 @ CARGO BAR, BASEL, SWITZERLAND</span></li>
+      <li><span class="flag" aria-label="Switzerland">🇨🇭</span><span class="show-text">switzerland 12.10.2007 @ NORDSTERN, BASEL, SWITZERLAND</span></li>
+      <li><span class="flag" aria-label="Slovenia">🇸🇮</span><span class="show-text">slovenia 29.09.2007 @ TERMINAL00 FESTIVAL, LJUBLJANA, SLOVENIA</span></li>
+      <li><span class="flag" aria-label="Serbia">🇷🇸</span><span class="show-text">serbia 01.05.2007 @ POVETARAC, BELGRADE, SERBIA</span></li>
+      <li><span class="flag" aria-label="Croatia">🇭🇷</span><span class="show-text">croatia 19.03.2007 @ KSET, ZAGREB, CROATIA</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="empty-section" id="press">
+  <div class="wrap">
+    <h2>Press</h2>
+    <div class="socials">
+      <a href="https://open.spotify.com/artist/4kLNR50wrWI1h9WPYg7K0V" target="_blank" rel="noopener noreferrer">Spotify</a>
+      <a href="https://soundcloud.com/shazalakazoo" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+      <a href="https://shazalakazoo.bandcamp.com" target="_blank" rel="noopener noreferrer">Bandcamp</a>
+      <a href="https://youtube.com/@shazalakazoo" target="_blank" rel="noopener noreferrer">YouTube</a>
+    </div>
+  </div>
+</section>
+
+<section class="empty-section" id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <div class="socials">
+      <a href="https://www.instagram.com/shazalakazoo/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://shazalakazoo.bandcamp.com" target="_blank" rel="noopener noreferrer">Bandcamp</a>
+      <a href="https://soundcloud.com/shazalakazoo" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+      <a href="https://youtube.com/@shazalakazoo" target="_blank" rel="noopener noreferrer">YouTube</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <a class="logo" href="#home">ShazaLa<span class="ka">Ka</span>zoo</a>
+    <div class="socials">
+      <a href="https://www.instagram.com/shazalakazoo/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://shazalakazoo.bandcamp.com" target="_blank" rel="noopener noreferrer">Bandcamp</a>
+      <a href="https://soundcloud.com/shazalakazoo" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+      <a href="https://youtube.com/@shazalakazoo" target="_blank" rel="noopener noreferrer">YouTube</a>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
