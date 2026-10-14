@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ShazaLaKazoo — music, videos, photos and live shows.">
+  <title>ShazaLaKazoo — Official Website</title>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #171717;
+      --surface: #222222;
+      --text: #f1f1ed;
+      --muted: #aaa9a3;
+      --accent: #e6bd54;
+      --width: 960px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    .container {
+      width: min(100% - 40px, var(--width));
+      margin-inline: auto;
+    }
+
+    header {
+      padding: 52px 0 28px;
+      border-bottom: 1px solid #383838;
+    }
+
+    .site-title {
+      margin: 0;
+      font-size: clamp(2.2rem, 7vw, 4rem);
+      line-height: 1.1;
+      letter-spacing: -2px;
+      font-weight: 900;
+    }
+
+    .tagline {
+      color: var(--muted);
+      margin: 12px 0 28px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 25px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      padding: 5px 0;
+    }
+
+    main {
+      padding: 36px 0 70px;
+    }
+
+    section {
+      margin-bottom: 56px;
+      scroll-margin-top: 20px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin: 0 0 24px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #444;
+    }
+
+    .album {
+      margin-bottom: 32px;
+    }
+
+    .album h3 {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+    }
+
+    .year {
+      color: var(--muted);
+      font-weight: normal;
+    }
+
+    .player-placeholder {
+      min-height: 100px;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: var(--surface);
+      border: 1px solid #383838;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .link-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+    }
+
+    .link-list a {
+      color: var(--accent);
+    }
+
+    footer {
+      border-top: 1px solid #383838;
+      padding: 25px 0 35px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding-top: 35px;
+      }
+
+      nav {
+        gap: 8px 18px;
+      }
+
+      .container {
+        width: min(100% - 28px, var(--width));
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1 class="site-title">ShazaLaKazoo</h1>
+      <p class="tagline">Official website · Music from the Balkans and beyond</p>
+
+      <nav aria-label="Main navigation">
+        <a href="#music">Music</a>
+        <a href="#videos">Videos</a>
+        <a href="#photos">Photos</a>
+        <a href="#shows">Shows</a>
+        <a href="#press">Press</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="music">
+      <h2>Music</h2>
+
+      <article class="album">
+        <h3>Chorba <span class="year">(Album, 2024)</span></h3>
+        <div class="player-placeholder">
+          SoundCloud player will go here
+        </div>
+      </article>
+
+      <article class="album">
+        <h3>Metanational <span class="year">(Album, 2016)</span></h3>
+        <div class="player-placeholder">
+          SoundCloud player will go here
+        </div>
+      </article>
+
+      <article class="album">
+        <h3>Monobrow <span class="year">(Album, 2014)</span></h3>
+        <div class="player-placeholder">
+          SoundCloud player will go here
+        </div>
+      </article>
+
+      <article class="album">
+        <h3>Karton City Boom <span class="year">(Album, 2012)</span></h3>
+        <div class="player-placeholder">
+          SoundCloud player will go here
+        </div>
+      </article>
+
+      <article class="album">
+        <h3>Speaking Balkanian <span class="year">(Album, 2010)</span></h3>
+        <div class="player-placeholder">
+          SoundCloud player will go here
+        </div>
+      </article>
+
+      <article class="album">
+        <h3>Bang! Bang! <span class="year">(EP, 2011)</span></h3>
+        <div class="player-placeholder">
+          SoundCloud player will go here
+        </div>
+      </article>
+
+      <h3>Remixes</h3>
+      <div class="player-placeholder">
+        SoundCloud remix player will go here
+      </div>
+    </section>
+
+    <section id="videos">
+      <h2>Videos</h2>
+      <p>Music videos and live performances.</p>
+      <p>Video gallery coming soon.</p>
+    </section>
+
+    <section id="photos">
+      <h2>Photos</h2>
+      <p>Live photos, festivals and adventures on the road.</p>
+      <p>Photo gallery coming soon.</p>
+    </section>
+
+    <section id="shows">
+      <h2>Shows</h2>
+      <p>Upcoming concerts and festival appearances.</p>
+      <p>Show dates coming soon.</p>
+    </section>
+
+    <section id="press">
+      <h2>Press</h2>
+      <p>Press information, biographies and downloadable materials.</p>
+      <p>Press kit coming soon.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>For bookings and other enquiries, get in touch.</p>
+      <!-- Add your preferred public contact details here. -->
+    </section>
+
+    <section id="links">
+      <h2>Elsewhere</h2>
+      <div class="link-list">
+        <a href="https://www.instagram.com/" target="_blank"
+           rel="noopener noreferrer">Instagram</a>
+        <a href="https://soundcloud.com/" target="_blank"
+           rel="noopener noreferrer">SoundCloud</a>
+        <a href="https://open.spotify.com/" target="_blank"
+           rel="noopener noreferrer">Spotify</a>
+        <a href="https://bandcamp.com/" target="_blank"
+           rel="noopener noreferrer">Bandcamp</a>
+        <a href="https://www.youtube.com/" target="_blank"
+           rel="noopener noreferrer">YouTube</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 ShazaLaKazoo
+    </div>
+  </footer>
+</body>
+</html>
