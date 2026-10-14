@@ -7,17 +7,11 @@
   <meta name="theme-color" content="#f8f3e5">
 
   <title>ShazaLaKazoo — Official Website</title>
-  <meta
-    name="description"
-    content="ShazaLaKazoo — official website, music, videos, photos, shows and press."
-  >
+  <meta name="description" content="ShazaLaKazoo — official website, music, videos, photos, shows and press.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -57,11 +51,6 @@
 
     a:hover {
       color: var(--blue);
-    }
-
-    img,
-    iframe {
-      max-width: 100%;
     }
 
     .page {
@@ -117,7 +106,6 @@
     /* HOME */
 
     .hero {
-      position: relative;
       display: flex;
       min-height: min(72vh, 720px);
       flex-direction: column;
@@ -191,7 +179,6 @@
     }
 
     .scroll-link span {
-      display: inline-block;
       margin-left: 8px;
       color: var(--red);
     }
@@ -278,24 +265,17 @@
       margin-top: 14px;
     }
 
-    .music-note {
-      max-width: 220px;
-      margin: 0;
-      font-size: 12px;
-      text-align: right;
-    }
-
     .release {
       display: grid;
-      grid-template-columns: 90px minmax(180px, 1fr) minmax(250px, 1.25fr);
+      grid-template-columns: 70px minmax(180px, 1fr) minmax(280px, 1.3fr);
       gap: 24px;
       align-items: start;
-      padding: 27px 0 32px;
+      padding: 30px 0 36px;
       border-top: 1px solid var(--line);
     }
 
     .release-number {
-      padding-top: 6px;
+      padding-top: 7px;
       color: var(--red);
       font-size: 11px;
       font-weight: 700;
@@ -325,18 +305,33 @@
     .release-player iframe {
       display: block;
       width: 100%;
-      min-height: 166px;
+      height: 450px;
       border: 0;
     }
 
-    .embed-instructions {
-      margin: 0;
-      padding: 18px;
-      border: 1px dashed var(--line);
-      font-size: 12px;
+    /* SOCIAL LINKS */
+
+    .social-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 28px;
+      padding: 35px 0;
+      border-bottom: 1px solid var(--ink);
     }
 
-    /* OTHER SECTIONS */
+    .social-section a {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .social-section a:hover {
+      color: var(--red);
+    }
+
+    /* VIDEOS, PHOTOS, SHOWS, PRESS, CONTACT */
 
     .empty-section-note {
       max-width: 520px;
@@ -388,7 +383,23 @@
       letter-spacing: 0.08em;
     }
 
-    /* MOBILE */
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .release {
+        grid-template-columns: 45px minmax(0, 1fr);
+        gap: 12px;
+      }
+
+      .release-player {
+        grid-column: 2;
+        margin-top: 12px;
+      }
+
+      .release-player iframe {
+        height: 450px;
+      }
+    }
 
     @media (max-width: 760px) {
       .page {
@@ -440,23 +451,27 @@
         flex-direction: column;
       }
 
-      .music-note {
-        max-width: 300px;
-        text-align: left;
+      .release-player iframe {
+        height: 400px;
       }
 
-      .release {
-        grid-template-columns: 38px 1fr;
-        gap: 12px;
-      }
-
-      .release-player {
-        grid-column: 2;
-        margin-top: 10px;
+      .social-section {
+        justify-content: flex-start;
+        gap: 14px 22px;
       }
 
       .empty-section-note {
         margin-left: 0;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .release-player iframe {
+        height: 350px;
+      }
+
+      .hero h1 {
+        font-size: 15vw;
       }
     }
 
@@ -501,10 +516,7 @@
         </h1>
 
         <div class="hero-bottom">
-          <p>
-            <!-- Add any existing homepage text here, if needed. -->
-          </p>
-
+          <p></p>
           <a class="scroll-link" href="#about">
             About <span>↓</span>
           </a>
@@ -524,8 +536,7 @@
             S<br>L<br>K
           </div>
 
-          <p class="about-copy">
-            People often think of the Balkans as a crossroads. With their busy trade and cultural
+          <p class="about-copy">People often think of the Balkans as a crossroads. With their busy trade and cultural
             routes, the Balkans have been linking the East with the West, the North with the South
             throughout the centuries. Now can you imagine someone setting up a tent in the midst of that
             bustling roundabout, in a place where all those roads converge in a swirling mix? Can you
@@ -545,10 +556,6 @@
             <p class="section-kicker">02 / Discography</p>
             <h2 class="section-title" id="music-title">Music.</h2>
           </div>
-
-          <p class="music-note">
-            <!-- Paste the original SoundCloud embed codes into the corresponding release slots below. -->
-          </p>
         </div>
 
         <article class="release">
@@ -558,7 +565,14 @@
             <p class="release-meta">Album / 2024</p>
           </div>
           <div class="release-player">
-            <!-- Paste the original Chorba SoundCloud iframe here. -->
+            <iframe
+              title="Chorba — ShazaLaKazoo"
+              scrolling="no"
+              frameborder="no"
+              allow="autoplay"
+              loading="lazy"
+              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1798992951&color=%23ff5500&auto_play=false&show_comments=true&visual=true">
+            </iframe>
           </div>
         </article>
 
@@ -569,7 +583,14 @@
             <p class="release-meta">Album / 2016</p>
           </div>
           <div class="release-player">
-            <!-- Paste the original Metanational SoundCloud iframe here. -->
+            <iframe
+              title="Metanational — ShazaLaKazoo"
+              scrolling="no"
+              frameborder="no"
+              allow="autoplay"
+              loading="lazy"
+              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/275988183&color=%23ff0000&auto_play=false&show_comments=true&visual=true">
+            </iframe>
           </div>
         </article>
 
@@ -580,7 +601,14 @@
             <p class="release-meta">Album / 2014</p>
           </div>
           <div class="release-player">
-            <!-- Paste the original Monobrow SoundCloud iframe here. -->
+            <iframe
+              title="Monobrow — ShazaLaKazoo"
+              scrolling="no"
+              frameborder="no"
+              allow="autoplay"
+              loading="lazy"
+              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/30427835&color=%23ff0000&auto_play=false&show_comments=true&visual=true">
+            </iframe>
           </div>
         </article>
 
@@ -591,7 +619,14 @@
             <p class="release-meta">Album / 2012</p>
           </div>
           <div class="release-player">
-            <!-- Paste the original Karton City Boom SoundCloud iframe here. -->
+            <iframe
+              title="Karton City Boom — ShazaLaKazoo"
+              scrolling="no"
+              frameborder="no"
+              allow="autoplay"
+              loading="lazy"
+              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1176296&color=%23ff0000&auto_play=false&show_comments=true&visual=true">
+            </iframe>
           </div>
         </article>
 
@@ -602,7 +637,14 @@
             <p class="release-meta">Album / 2010</p>
           </div>
           <div class="release-player">
-            <!-- Paste the original Speaking Balkanian SoundCloud iframe here. -->
+            <iframe
+              title="Speaking Balkanian — ShazaLaKazoo"
+              scrolling="no"
+              frameborder="no"
+              allow="autoplay"
+              loading="lazy"
+              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/4538604&color=%23ff0000&auto_play=false&show_comments=true&visual=true">
+            </iframe>
           </div>
         </article>
 
@@ -613,7 +655,14 @@
             <p class="release-meta">EP / 2011</p>
           </div>
           <div class="release-player">
-            <!-- Paste the original Bang! Bang! SoundCloud iframe here. -->
+            <iframe
+              title="Bang! Bang! — ShazaLaKazoo"
+              scrolling="no"
+              frameborder="no"
+              allow="autoplay"
+              loading="lazy"
+              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1174853&color=%23ff0000&auto_play=false&show_comments=true&visual=true">
+            </iframe>
           </div>
         </article>
 
@@ -623,7 +672,14 @@
             <h3>Remixes</h3>
           </div>
           <div class="release-player">
-            <!-- Paste the original Remixes SoundCloud iframe here. -->
+            <iframe
+              title="Remixes — ShazaLaKazoo"
+              scrolling="no"
+              frameborder="no"
+              allow="autoplay"
+              loading="lazy"
+              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/4538475&color=%23ff0000&auto_play=false&show_comments=true&visual=true">
+            </iframe>
           </div>
         </article>
       </section>
@@ -635,8 +691,7 @@
           <p class="section-kicker">03 / Watch</p>
           <h2 class="section-title" id="videos-title">Videos.</h2>
         </div>
-
-        <!-- Add your existing videos or video embeds here. -->
+        <!-- Add your videos or YouTube embeds here. -->
       </section>
 
       <!-- PHOTOS -->
@@ -646,8 +701,7 @@
           <p class="section-kicker">04 / Look</p>
           <h2 class="section-title" id="photos-title">Photos.</h2>
         </div>
-
-        <!-- Add your existing photo gallery here. -->
+        <!-- Add your photo gallery here. -->
       </section>
 
       <!-- SHOWS -->
@@ -657,8 +711,7 @@
           <p class="section-kicker">05 / Live</p>
           <h2 class="section-title" id="shows-title">Shows.</h2>
         </div>
-
-        <!-- Add your upcoming shows or existing show archive here. -->
+        <!-- Add upcoming shows or your show archive here. -->
       </section>
 
       <!-- PRESS -->
@@ -668,8 +721,7 @@
           <p class="section-kicker">06 / Media</p>
           <h2 class="section-title" id="press-title">Press.</h2>
         </div>
-
-        <!-- Add your existing press kit, articles, reviews or downloads here. -->
+        <!-- Add press articles, reviews, press kit and downloads here. -->
       </section>
 
       <!-- CONTACT -->
@@ -679,16 +731,22 @@
           <p class="section-kicker">07 / Get in touch</p>
           <h2 class="section-title" id="contact-title">Contact.</h2>
         </div>
-
-        <!-- Add your existing contact details and social links here. -->
+        <!-- Add your contact details here. -->
       </section>
+
+      <!-- SOCIAL LINKS -->
+
+      <nav class="social-section" aria-label="Follow ShazaLaKazoo">
+        <a href="https://www.instagram.com/shazalakazoo/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+        <a href="https://open.spotify.com/artist/4kLNR50wrWI1h9WPYg7K0V" target="_blank" rel="noopener noreferrer">Spotify ↗</a>
+        <a href="https://soundcloud.com/shazalakazoo" target="_blank" rel="noopener noreferrer">SoundCloud ↗</a>
+        <a href="https://shazalakazoo.bandcamp.com/" target="_blank" rel="noopener noreferrer">Bandcamp ↗</a>
+        <a href="https://www.youtube.com/@shazalakazoo" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+      </nav>
     </main>
 
     <footer class="site-footer">
       <a class="footer-mark" href="#top">ShazaLaKazoo</a>
-
-      <!-- Add your original privacy policy link here, if needed. -->
-
       <a class="back-to-top" href="#top">Back to top ↑</a>
     </footer>
 
