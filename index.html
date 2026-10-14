@@ -4,24 +4,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f8f3e5">
+  <meta name="theme-color" content="#ff00e5">
 
   <title>ShazaLaKazoo — Official Website</title>
   <meta name="description" content="ShazaLaKazoo — official website, music, videos, photos, shows and press.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --paper: #f8f3e5;
-      --blue: #2547ff;
-      --red: #ff543d;
-      --yellow: #e5ff42;
-      --ink: #171717;
-      --line: rgba(23, 23, 23, 0.25);
-      --page-width: 1440px;
+      --pink: #ff00e5;
+      --cyan: #00f5ff;
+      --lime: #d6ff00;
+      --orange: #ff4d00;
+      --purple: #6a00ff;
+      --blue: #142dff;
+      --red: #ff1744;
+      --black: #100018;
+      --white: #fff8ff;
+
+      --display: "Archivo Black", Impact, sans-serif;
+      --body: "Space Grotesk", sans-serif;
+      --page-width: 1500px;
     }
 
     *,
@@ -32,16 +38,17 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 90px;
+      scroll-padding-top: 85px;
+      background: var(--pink);
     }
 
     body {
       margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: "DM Sans", sans-serif;
+      background: var(--pink);
+      color: var(--black);
+      font-family: var(--body);
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     a {
@@ -50,11 +57,16 @@
     }
 
     a:hover {
-      color: var(--blue);
+      color: var(--purple);
+    }
+
+    ::selection {
+      color: var(--black);
+      background: var(--cyan);
     }
 
     .page {
-      width: min(100% - 64px, var(--page-width));
+      width: min(100% - 48px, var(--page-width));
       margin: 0 auto;
     }
 
@@ -64,194 +76,237 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 32px;
-      padding: 23px 0;
-      border-bottom: 1px solid var(--ink);
+      gap: 28px;
+      padding: 23px 0 19px;
+      border-bottom: 3px solid var(--black);
     }
 
     .wordmark {
+      display: inline-flex;
       flex-shrink: 0;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(20px, 2.4vw, 30px);
-      font-weight: 700;
-      letter-spacing: -1.8px;
+      align-items: baseline;
+      white-space: nowrap;
+      font-family: var(--display);
+      font-size: clamp(19px, 3.15vw, 43px);
+      font-weight: 400;
+      letter-spacing: -0.065em;
       line-height: 1;
     }
 
-    .wordmark span {
-      color: var(--red);
+    .wordmark .ka {
+      color: var(--cyan);
     }
 
     .main-nav {
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-end;
-      gap: 8px 23px;
-      font-size: 12px;
+      gap: 8px 18px;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.07em;
       text-transform: uppercase;
     }
 
     .main-nav a {
-      padding: 5px 0;
       border-bottom: 2px solid transparent;
     }
 
     .main-nav a:hover {
-      color: var(--ink);
-      border-bottom-color: var(--red);
+      color: var(--black);
+      border-bottom-color: var(--cyan);
     }
 
     /* HOME */
 
     .hero {
+      position: relative;
       display: flex;
-      min-height: min(72vh, 720px);
+      min-height: min(77vh, 820px);
       flex-direction: column;
       justify-content: space-between;
       overflow: hidden;
-      padding: clamp(32px, 6vw, 86px) 0 30px;
-      border-bottom: 1px solid var(--ink);
+      padding: clamp(35px, 7vw, 105px) 0 28px;
+      border-bottom: 3px solid var(--black);
+      background: var(--pink);
     }
 
-    .hero-top {
+    .hero::before {
+      position: absolute;
+      top: 8%;
+      right: -3%;
+      width: clamp(180px, 35vw, 520px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--lime);
+      content: "";
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      position: absolute;
+      top: 19%;
+      right: 8%;
+      width: clamp(120px, 23vw, 330px);
+      aspect-ratio: 1;
+      border: clamp(12px, 2.5vw, 35px) solid var(--cyan);
+      border-radius: 50%;
+      content: "";
+      pointer-events: none;
+    }
+
+    .hero-top,
+    .hero-bottom {
+      position: relative;
+      z-index: 1;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 20px;
     }
 
-    .hero-label,
-    .section-kicker {
+    .hero-label {
       margin: 0;
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.13em;
       text-transform: uppercase;
     }
 
-    .hero-index {
-      display: inline-block;
-      padding: 8px 12px;
-      background: var(--yellow);
+    .hero-star {
+      color: var(--purple);
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .hero h1 {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      margin: 80px 0;
+      white-space: nowrap;
+      font-family: var(--display);
+      font-size: clamp(30px, 11.2vw, 165px);
+      font-weight: 400;
+      letter-spacing: -0.075em;
+      line-height: 1;
+      text-align: center;
+      color: var(--lime);
+      text-shadow: 6px 6px 0 var(--purple);
+      transform: rotate(-2deg);
+    }
+
+    .hero h1 .ka {
+      color: var(--cyan);
+    }
+
+    .hero-bottom {
+      align-items: flex-end;
+    }
+
+    .hero-bottom p {
+      max-width: 340px;
+      margin: 0;
+      font-size: 11px;
+    }
+
+    .scroll-link {
+      padding: 9px 14px;
+      background: var(--black);
+      color: var(--lime);
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.08em;
       text-transform: uppercase;
       transform: rotate(2deg);
     }
 
-    .hero h1 {
-      max-width: 1100px;
-      margin: 55px 0 38px -0.06em;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(64px, 13.5vw, 190px);
-      font-weight: 700;
-      letter-spacing: -0.105em;
-      line-height: 0.79;
-      overflow-wrap: anywhere;
-    }
-
-    .hero h1 .blue {
-      color: var(--blue);
-    }
-
-    .hero-bottom {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .hero-bottom p {
-      max-width: 420px;
-      margin: 0;
-      font-size: 13px;
-    }
-
-    .scroll-link {
-      flex-shrink: 0;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .scroll-link span {
-      margin-left: 8px;
-      color: var(--red);
+    .scroll-link:hover {
+      background: var(--cyan);
+      color: var(--black);
     }
 
     /* SHARED SECTIONS */
 
     .section {
-      padding: clamp(60px, 9vw, 125px) 0;
-      border-bottom: 1px solid var(--ink);
+      padding: clamp(55px, 8vw, 115px) 0;
+      border-bottom: 3px solid var(--black);
     }
 
     .section-heading {
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 35px;
+      grid-template-columns: 0.7fr 2fr;
+      gap: 30px;
+      align-items: start;
       margin-bottom: 55px;
     }
 
     .section-kicker {
-      padding-top: 12px;
+      margin: 10px 0 0;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
     }
 
     .section-title {
       margin: 0;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(44px, 8vw, 100px);
-      font-weight: 600;
-      letter-spacing: -0.075em;
-      line-height: 0.95;
+      font-family: var(--display);
+      font-size: clamp(48px, 10vw, 130px);
+      font-weight: 400;
+      letter-spacing: -0.065em;
+      line-height: 0.92;
+      text-transform: uppercase;
+      color: var(--lime);
+      text-shadow: 4px 4px 0 var(--purple);
     }
 
     /* ABOUT */
 
+    #about {
+      background: var(--cyan);
+    }
+
     .about-layout {
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 35px;
+      grid-template-columns: 0.7fr 2fr;
+      gap: 30px;
+      align-items: start;
     }
 
     .about-marker {
-      align-self: start;
-      width: 100%;
-      max-width: 240px;
-      aspect-ratio: 1;
       display: grid;
+      width: 100%;
+      max-width: 250px;
+      aspect-ratio: 1;
       place-items: center;
-      background: var(--blue);
-      color: var(--yellow);
-      font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(45px, 7vw, 90px);
-      font-weight: 700;
-      letter-spacing: -0.1em;
-      line-height: 0.8;
+      background: var(--orange);
+      color: var(--black);
+      font-family: var(--display);
+      font-size: clamp(54px, 8vw, 100px);
+      line-height: 0.75;
       text-align: center;
-      transform: rotate(-3deg);
+      transform: rotate(4deg);
+      box-shadow: 9px 9px 0 var(--purple);
     }
 
     .about-copy {
-      max-width: 850px;
+      max-width: 920px;
       margin: 0;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(21px, 2.7vw, 34px);
-      font-weight: 400;
+      font-size: clamp(20px, 2.5vw, 34px);
+      font-weight: 500;
       letter-spacing: -0.045em;
-      line-height: 1.42;
+      line-height: 1.4;
     }
 
     .about-copy .ending {
-      color: var(--blue);
+      background: var(--lime);
+      box-shadow: 4px 0 0 var(--lime), -4px 0 0 var(--lime);
       font-weight: 700;
     }
 
     /* MUSIC */
+
+    #music {
+      background: var(--lime);
+    }
 
     .music-intro {
       display: flex;
@@ -262,44 +317,47 @@
     }
 
     .music-intro .section-title {
-      margin-top: 14px;
+      margin-top: 15px;
+      color: var(--pink);
+      text-shadow: 4px 4px 0 var(--cyan);
     }
 
     .release {
       display: grid;
-      grid-template-columns: 70px minmax(180px, 1fr) minmax(280px, 1.3fr);
+      grid-template-columns: 55px minmax(180px, 0.9fr) minmax(280px, 1.3fr);
       gap: 24px;
       align-items: start;
       padding: 30px 0 36px;
-      border-top: 1px solid var(--line);
+      border-top: 2px solid var(--black);
     }
 
     .release-number {
       padding-top: 7px;
-      color: var(--red);
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.08em;
     }
 
     .release h3 {
       margin: 0;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(25px, 3.4vw, 43px);
-      font-weight: 600;
-      letter-spacing: -0.06em;
+      font-family: var(--display);
+      font-size: clamp(24px, 3.4vw, 45px);
+      font-weight: 400;
+      letter-spacing: -0.045em;
       line-height: 1.05;
+      text-transform: uppercase;
     }
 
     .release-meta {
-      margin: 8px 0 0;
-      font-size: 12px;
+      margin: 10px 0 0;
+      font-size: 11px;
+      font-weight: 700;
       text-transform: uppercase;
     }
 
     .release-player {
       width: 100%;
       min-width: 0;
+      background: var(--black);
     }
 
     .release-player iframe {
@@ -309,29 +367,33 @@
       border: 0;
     }
 
-    /* SOCIAL LINKS */
+    /* OTHER SECTIONS */
 
-    .social-section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px 28px;
-      padding: 35px 0;
-      border-bottom: 1px solid var(--ink);
+    #videos {
+      background: var(--orange);
     }
 
-    .social-section a {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
+    #photos {
+      background: var(--purple);
+      color: var(--white);
     }
 
-    .social-section a:hover {
-      color: var(--red);
+    #photos .section-title {
+      color: var(--cyan);
+      text-shadow: 4px 4px 0 var(--pink);
     }
 
-    /* VIDEOS, PHOTOS, SHOWS, PRESS, CONTACT */
+    #shows {
+      background: var(--cyan);
+    }
+
+    #press {
+      background: var(--pink);
+    }
+
+    #contact {
+      background: var(--lime);
+    }
 
     .empty-section-note {
       max-width: 520px;
@@ -339,24 +401,27 @@
       font-size: 14px;
     }
 
-    .contact-line {
+    /* SOCIAL LINKS */
+
+    .social-section {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 22px 0;
-      border-top: 1px solid var(--line);
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px 28px;
+      padding: 35px 0;
+      border-bottom: 3px solid var(--black);
+      background: var(--black);
+      color: var(--lime);
     }
 
-    .contact-line h3 {
-      margin: 0;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(22px, 3vw, 36px);
-      letter-spacing: -0.05em;
+    .social-section a {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
     }
 
-    .contact-line a {
-      overflow-wrap: anywhere;
+    .social-section a:hover {
+      color: var(--cyan);
     }
 
     /* FOOTER */
@@ -368,26 +433,39 @@
       gap: 24px;
       padding: 24px 0 32px;
       font-size: 11px;
+      font-weight: 700;
+      background: var(--pink);
     }
 
     .footer-mark {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -0.07em;
+      font-family: var(--display);
+      font-size: 22px;
+      letter-spacing: -0.05em;
     }
 
     .back-to-top {
-      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
     }
 
     /* RESPONSIVE */
 
-    @media (max-width: 900px) {
+    @media (max-width: 1100px) {
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .wordmark {
+        font-size: clamp(30px, 6vw, 43px);
+      }
+
+      .main-nav {
+        justify-content: flex-start;
+      }
+
       .release {
-        grid-template-columns: 45px minmax(0, 1fr);
+        grid-template-columns: 40px minmax(0, 1fr);
         gap: 12px;
       }
 
@@ -395,36 +473,33 @@
         grid-column: 2;
         margin-top: 12px;
       }
-
-      .release-player iframe {
-        height: 450px;
-      }
     }
 
-    @media (max-width: 760px) {
+    @media (max-width: 600px) {
       .page {
-        width: min(100% - 36px, var(--page-width));
-      }
-
-      .site-header {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .main-nav {
-        justify-content: flex-start;
-        gap: 8px 17px;
+        width: calc(100% - 28px);
       }
 
       .hero {
-        min-height: 65vh;
-        min-height: 65svh;
+        min-height: 62vh;
+        min-height: 62svh;
       }
 
       .hero h1 {
-        font-size: clamp(58px, 15vw, 110px);
-        margin-top: 70px;
+        margin: 65px 0;
+        font-size: 10.9vw;
+        letter-spacing: -0.07em;
+        text-shadow: 3px 3px 0 var(--purple);
+      }
+
+      .hero::before {
+        top: 20%;
+        right: -20%;
+      }
+
+      .hero::after {
+        top: 28%;
+        right: 3%;
       }
 
       .hero-bottom {
@@ -435,43 +510,46 @@
       .section-heading,
       .about-layout {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 24px;
       }
 
       .section-heading {
-        margin-bottom: 38px;
+        margin-bottom: 35px;
+      }
+
+      .section-title {
+        font-size: clamp(48px, 14vw, 90px);
       }
 
       .about-marker {
-        max-width: 150px;
+        max-width: 135px;
       }
 
-      .music-intro {
-        align-items: flex-start;
-        flex-direction: column;
+      .about-copy {
+        font-size: clamp(20px, 5.2vw, 28px);
       }
 
       .release-player iframe {
-        height: 400px;
+        height: 380px;
       }
 
       .social-section {
         justify-content: flex-start;
-        gap: 14px 22px;
-      }
-
-      .empty-section-note {
-        margin-left: 0;
+        gap: 14px 20px;
       }
     }
 
-    @media (max-width: 420px) {
-      .release-player iframe {
-        height: 350px;
+    @media (max-width: 360px) {
+      .wordmark {
+        font-size: 27px;
       }
 
       .hero h1 {
-        font-size: 15vw;
+        font-size: 10.5vw;
+      }
+
+      .release-player iframe {
+        height: 340px;
       }
     }
 
@@ -487,9 +565,7 @@
   <div class="page">
 
     <header class="site-header">
-      <a class="wordmark" href="#top" aria-label="ShazaLaKazoo home">
-        ShazaLa<span>Kazoo</span>
-      </a>
+      <a class="wordmark" href="#top" aria-label="ShazaLaKazoo home">ShazaLa<span class="ka">Ka</span>zoo</a>
 
       <nav class="main-nav" aria-label="Main navigation">
         <a href="#music">Music</a>
@@ -506,20 +582,15 @@
 
       <section class="hero" aria-labelledby="home-title">
         <div class="hero-top">
-          <p class="hero-label">Official website</p>
-          <span class="hero-index">Independent / Balkan</span>
+          <p class="hero-label">ShazaLaKazoo</p>
+          <span class="hero-star" aria-hidden="true">✳</span>
         </div>
 
-        <h1 id="home-title">
-          ShazaLa<br>
-          <span class="blue">Kazoo</span>
-        </h1>
+        <h1 id="home-title">ShazaLa<span class="ka">Ka</span>zoo</h1>
 
         <div class="hero-bottom">
           <p></p>
-          <a class="scroll-link" href="#about">
-            About <span>↓</span>
-          </a>
+          <a class="scroll-link" href="#about">About ↓</a>
         </div>
       </section>
 
@@ -532,9 +603,7 @@
         </div>
 
         <div class="about-layout">
-          <div class="about-marker" aria-hidden="true">
-            S<br>L<br>K
-          </div>
+          <div class="about-marker" aria-hidden="true">S<br>L<br>K</div>
 
           <p class="about-copy">People often think of the Balkans as a crossroads. With their busy trade and cultural
             routes, the Balkans have been linking the East with the West, the North with the South
@@ -565,12 +634,7 @@
             <p class="release-meta">Album / 2024</p>
           </div>
           <div class="release-player">
-            <iframe
-              title="Chorba — ShazaLaKazoo"
-              scrolling="no"
-              frameborder="no"
-              allow="autoplay"
-              loading="lazy"
+            <iframe title="Chorba — ShazaLaKazoo" scrolling="no" frameborder="no" allow="autoplay" loading="lazy"
               src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1798992951&color=%23ff5500&auto_play=false&show_comments=true&visual=true">
             </iframe>
           </div>
@@ -583,12 +647,7 @@
             <p class="release-meta">Album / 2016</p>
           </div>
           <div class="release-player">
-            <iframe
-              title="Metanational — ShazaLaKazoo"
-              scrolling="no"
-              frameborder="no"
-              allow="autoplay"
-              loading="lazy"
+            <iframe title="Metanational — ShazaLaKazoo" scrolling="no" frameborder="no" allow="autoplay" loading="lazy"
               src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/275988183&color=%23ff0000&auto_play=false&show_comments=true&visual=true">
             </iframe>
           </div>
@@ -601,12 +660,7 @@
             <p class="release-meta">Album / 2014</p>
           </div>
           <div class="release-player">
-            <iframe
-              title="Monobrow — ShazaLaKazoo"
-              scrolling="no"
-              frameborder="no"
-              allow="autoplay"
-              loading="lazy"
+            <iframe title="Monobrow — ShazaLaKazoo" scrolling="no" frameborder="no" allow="autoplay" loading="lazy"
               src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/30427835&color=%23ff0000&auto_play=false&show_comments=true&visual=true">
             </iframe>
           </div>
@@ -619,12 +673,7 @@
             <p class="release-meta">Album / 2012</p>
           </div>
           <div class="release-player">
-            <iframe
-              title="Karton City Boom — ShazaLaKazoo"
-              scrolling="no"
-              frameborder="no"
-              allow="autoplay"
-              loading="lazy"
+            <iframe title="Karton City Boom — ShazaLaKazoo" scrolling="no" frameborder="no" allow="autoplay" loading="lazy"
               src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1176296&color=%23ff0000&auto_play=false&show_comments=true&visual=true">
             </iframe>
           </div>
@@ -637,12 +686,7 @@
             <p class="release-meta">Album / 2010</p>
           </div>
           <div class="release-player">
-            <iframe
-              title="Speaking Balkanian — ShazaLaKazoo"
-              scrolling="no"
-              frameborder="no"
-              allow="autoplay"
-              loading="lazy"
+            <iframe title="Speaking Balkanian — ShazaLaKazoo" scrolling="no" frameborder="no" allow="autoplay" loading="lazy"
               src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/4538604&color=%23ff0000&auto_play=false&show_comments=true&visual=true">
             </iframe>
           </div>
@@ -655,12 +699,7 @@
             <p class="release-meta">EP / 2011</p>
           </div>
           <div class="release-player">
-            <iframe
-              title="Bang! Bang! — ShazaLaKazoo"
-              scrolling="no"
-              frameborder="no"
-              allow="autoplay"
-              loading="lazy"
+            <iframe title="Bang! Bang! — ShazaLaKazoo" scrolling="no" frameborder="no" allow="autoplay" loading="lazy"
               src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1174853&color=%23ff0000&auto_play=false&show_comments=true&visual=true">
             </iframe>
           </div>
@@ -672,12 +711,7 @@
             <h3>Remixes</h3>
           </div>
           <div class="release-player">
-            <iframe
-              title="Remixes — ShazaLaKazoo"
-              scrolling="no"
-              frameborder="no"
-              allow="autoplay"
-              loading="lazy"
+            <iframe title="Remixes — ShazaLaKazoo" scrolling="no" frameborder="no" allow="autoplay" loading="lazy"
               src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/4538475&color=%23ff0000&auto_play=false&show_comments=true&visual=true">
             </iframe>
           </div>
@@ -691,7 +725,7 @@
           <p class="section-kicker">03 / Watch</p>
           <h2 class="section-title" id="videos-title">Videos.</h2>
         </div>
-        <!-- Add your videos or YouTube embeds here. -->
+        <!-- Add your existing videos or YouTube embeds here. -->
       </section>
 
       <!-- PHOTOS -->
