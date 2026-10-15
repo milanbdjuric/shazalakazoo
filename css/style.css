@@ -171,6 +171,7 @@ a {
 
 .album {
   min-width: 0;
+  max-width: 460px;
 }
 
 .album h3,
@@ -189,8 +190,7 @@ a {
 .album-art-player {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1;
+  height: 500px;
   border: 0;
   background: #171717;
 }
@@ -393,7 +393,7 @@ a {
   }
 
   .album-art-player {
-    aspect-ratio: 1 / 1;
+    height: 420px;
   }
 
   .soundcloud-player {
