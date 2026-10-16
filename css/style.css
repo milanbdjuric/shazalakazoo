@@ -261,31 +261,95 @@ a {
   line-height: 1.5;
 }
 
+.shows-subheading {
+  margin: 24px 0 10px;
+  color: var(--pink);
+  font-size: clamp(1.45rem, 2.7vw, 2.15rem);
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-shadow: 2px 2px 0 var(--purple);
+}
+
+.past-shows-heading {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid var(--cyan);
+}
+
 .next-show,
 .show-row {
   display: flex;
   align-items: baseline;
   gap: 12px;
-  padding: 14px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
   overflow-wrap: anywhere;
 }
 
 .next-show {
-  margin-bottom: 18px;
+  align-items: center;
+  margin-bottom: 10px;
   color: var(--yellow);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
   font-weight: 800;
 }
 
 .show-flag {
-  flex: 0 0 auto;
-  font-size: 1.2em;
+  flex: 0 0 1.8em;
+  font-size: 1.1em;
   line-height: 1;
 }
 
-.show-row {
+.show-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.55em;
+}
+
+.show-date {
+  color: var(--cyan);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.show-at {
+  color: var(--pink);
+}
+
+.show-venue {
   color: var(--white);
+}
+
+.shows-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 34px;
+  align-items: start;
+}
+
+.show-row {
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+  padding: 7px 0;
+  font-size: clamp(0.82rem, 1vw, 0.98rem);
+  line-height: 1.45;
+}
+
+.show-row .show-flag {
+  flex-basis: 1.6em;
+  font-size: 1em;
+}
+
+.show-row .show-details {
+  display: block;
+  min-width: 0;
+}
+
+.show-row .show-date {
+  margin-right: 0.55em;
 }
 
 .shows-list:empty {
@@ -356,6 +420,10 @@ a {
     grid-template-columns: 1fr;
   }
 
+  .shows-list {
+    grid-template-columns: 1fr;
+  }
+
   .video h3 {
     min-height: 0;
   }
@@ -400,10 +468,13 @@ a {
     height: 420px;
   }
 
-  .next-show,
-  .show-row {
+  .next-show {
     gap: 9px;
     font-size: 0.92rem;
+  }
+
+  .show-row {
+    font-size: 0.84rem;
   }
 }
 
