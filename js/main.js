@@ -315,7 +315,6 @@ if (menuToggle && mainNav) {
       "SLOVAKIA":"🇸🇰","MONTENEGRO":"🇲🇪","NORWAY":"🇳🇴","BELARUS":"🇧🇾"
     };
 
-    // FIX: split by actual newline '\n' instead of string '\\n'
     pastShows.split("\n").filter(Boolean).forEach((show) => {
       const parts = show.split(" @ ");
       const detailsText = parts.slice(1).join(" @ ");
