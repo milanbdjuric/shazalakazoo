@@ -28,7 +28,6 @@ if (menuToggle && mainNav) {
 
 
 
-// Past shows use the site's neon palette and country flags.
   const pastShowsContainer = document.querySelector("#past-shows");
   if (pastShowsContainer) {
     const pastShows = `29.08.2026 @ TUTTI MATI PER COLORNO FESTIVAL, COLORNO, ITALY
