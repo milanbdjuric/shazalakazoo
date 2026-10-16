@@ -30,7 +30,8 @@ if (menuToggle && mainNav) {
 
   const pastShowsContainer = document.querySelector("#past-shows");
   if (pastShowsContainer) {
-    const pastShows = `29.08.2026 @ TUTTI MATI PER COLORNO FESTIVAL, COLORNO, ITALY
+    const pastShows = `
+29.08.2026 @ TUTTI MATI PER COLORNO FESTIVAL, COLORNO, ITALY
 28.08.2026 @ MAMA STOCK FESTIVAL, MONTPELLIER, FRANCE
 07.06.2025 @ TOM FEST, TURIN, ITALY
 25.01.2025 @ AMPERE, MUNICH, GERMANY
@@ -301,7 +302,8 @@ if (menuToggle && mainNav) {
 13.10.2007 @ CARGO BAR, BASEL, SWITZERLAND
 12.10.2007 @ NORDSTERN, BASEL, SWITZERLAND
 29.09.2007 @ TERMINAL00 FESTIVAL, LJUBLJANA, SLOVENIA
-01.05.2007 @ POVETARAC, BELGRADE, SERBIA`;
+01.05.2007 @ POVETARAC, BELGRADE, SERBIA
+`;
 
     const countryFlags = {
       "ITALY":"🇮🇹","FRANCE":"🇫🇷","GERMANY":"🇩🇪","SWITZERLAND":"🇨🇭","POLAND":"🇵🇱",
