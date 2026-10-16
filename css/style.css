@@ -19,6 +19,8 @@ html {
   scroll-padding-top: 90px;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap");
+
 body {
   margin: 0;
   background: var(--black);
@@ -46,27 +48,16 @@ a {
 
 .wordmark {
   display: inline-flex;
-  align-items: baseline;
-  flex-shrink: 0;
-  font-size: clamp(1.4rem, 2.6vw, 2.2rem);
-  font-weight: 900;
-  letter-spacing: -0.07em;
-  line-height: 1;
+  align-items: center;
+  flex: 0 0 auto;
+  width: 82px;
   text-decoration: none;
-  white-space: nowrap;
-  text-shadow: 2px 2px 0 var(--black);
 }
 
-.wordmark-shaza {
-  color: var(--pink);
-}
-
-.wordmark-la {
-  color: var(--cyan);
-}
-
-.wordmark-kazoo {
-  color: var(--yellow);
+.wordmark img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .main-nav {
@@ -126,16 +117,24 @@ a {
 }
 
 .hero-wordmark {
+  display: flex;
+  justify-content: center;
+  width: min(100%, 660px);
   max-width: 100%;
-  font-size: clamp(3rem, 11vw, 10rem);
-  font-weight: 900;
-  letter-spacing: -0.085em;
-  line-height: 1;
-  text-align: center;
-  white-space: nowrap;
-  text-shadow:
-    4px 4px 0 var(--purple),
-    8px 8px 0 rgba(55, 224, 230, 0.4);
+  margin: 0 auto;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.45));
+}
+
+.hero-wordmark img {
+  display: block;
+  width: 100%;
+  max-height: 68vh;
+  object-fit: contain;
+}
+
+.content-section h2 {
+  font-family: "Metal Mania", Impact, fantasy;
+  letter-spacing: 0.04em;
 }
 
 .content-section {
@@ -371,7 +370,7 @@ a {
   }
 
   .wordmark {
-    font-size: 1.65rem;
+    width: 58px;
   }
 
   .hero {
@@ -379,8 +378,8 @@ a {
     padding: 45px 4%;
   }
 
-  .hero-wordmark {
-    font-size: clamp(2.4rem, 10.2vw, 3.4rem);
+  .hero-wordmark img {
+    max-height: 52vh;
   }
 
   .content-section {
