@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Metalista";
+  src: url("../fonts/metalista.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 :root {
   --purple: #8A14FF;
@@ -50,9 +58,10 @@ a {
   align-items: center;
   gap: clamp(6px, 0.9vw, 14px);
   flex-shrink: 0;
+  font-family: "Metalista", sans-serif;
   font-size: clamp(1.4rem, 2.6vw, 2.2rem);
-  font-weight: 900;
-  letter-spacing: -0.07em;
+  font-weight: normal;
+  letter-spacing: 0.015em;
   line-height: 1;
   text-decoration: none;
   white-space: nowrap;
@@ -175,9 +184,10 @@ a {
   right: clamp(16px, 4vw, 48px);
   top: clamp(18px, 4vw, 44px);
   left: clamp(16px, 4vw, 48px);
+  font-family: "Metalista", sans-serif;
   font-size: clamp(2.5rem, 8.5vw, 7.5rem);
-  font-weight: 900;
-  letter-spacing: -0.085em;
+  font-weight: normal;
+  letter-spacing: 0.015em;
   line-height: 1;
   text-align: center;
   white-space: nowrap;
@@ -518,7 +528,7 @@ a {
 
   .hero-photo-wordmark {
     font-size: clamp(2rem, 9vw, 3.2rem);
-    letter-spacing: -0.09em;
+    letter-spacing: 0.005em;
   }
 
   .content-section {
