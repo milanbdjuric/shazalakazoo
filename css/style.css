@@ -113,7 +113,6 @@ a {
   transition: color 150ms ease, text-shadow 150ms ease;
 }
 
-/* Neon colors for the header navigation */
 .main-nav a:nth-child(1) { color: var(--pink); }
 .main-nav a:nth-child(2) { color: var(--yellow); }
 .main-nav a:nth-child(3) { color: var(--cyan); }
@@ -568,6 +567,10 @@ a {
   .show-row {
     font-size: 0.84rem;
   }
+}
+
+.about-section {
+  text-align: center;
 }
 
 @media (prefers-reduced-motion: reduce) {
