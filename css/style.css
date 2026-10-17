@@ -146,6 +146,7 @@ a {
 .hero-photo-wrap {
   position: relative;
   width: 100%;
+  min-height: 72vh;
   overflow: hidden;
   background: #080808;
 }
@@ -153,9 +154,11 @@ a {
 .hero-band-photo {
   display: block;
   width: 100%;
-  height: auto;
-  object-fit: contain;
-  object-position: center;
+  height: 72vh;
+  min-height: 420px;
+  max-height: 900px;
+  object-fit: cover;
+  object-position: center bottom;
 }
 
 .hero-photo-wrap::after {
@@ -461,13 +464,13 @@ a {
   }
 
   .hero-photo-wrap {
-    min-height: 0;
+    min-height: 58vh;
   }
 
   .hero-band-photo {
-    height: auto;
-    min-height: 0;
-    object-position: center;
+    height: 58vh;
+    min-height: 340px;
+    object-position: center bottom;
   }
 
   .album-grid,
@@ -504,13 +507,13 @@ a {
   }
 
   .hero-photo-wrap {
-    min-height: 0;
+    min-height: 52vh;
   }
 
   .hero-band-photo {
-    height: auto;
-    min-height: 0;
-    object-position: center;
+    height: 52vh;
+    min-height: 300px;
+    object-position: center bottom;
   }
 
   .hero-photo-wordmark {
