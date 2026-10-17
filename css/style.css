@@ -206,8 +206,9 @@ a {
 .content-section h2 {
   margin: 0 0 34px;
   color: var(--yellow);
+  font-family: "Metalista", sans-serif;
   font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 900;
+  font-weight: normal;
   line-height: 1.1;
   text-transform: uppercase;
   text-shadow: 3px 3px 0 var(--purple);
