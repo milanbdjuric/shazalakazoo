@@ -158,7 +158,7 @@ a {
   min-height: 420px;
   max-height: 900px;
   object-fit: cover;
-  object-position: center bottom;
+  object-position: center 48%;
 }
 
 .hero-photo-wrap::after {
@@ -470,7 +470,7 @@ a {
   .hero-band-photo {
     height: 58vh;
     min-height: 340px;
-    object-position: center bottom;
+    object-position: center 48%;
   }
 
   .album-grid,
@@ -513,7 +513,7 @@ a {
   .hero-band-photo {
     height: 52vh;
     min-height: 300px;
-    object-position: center bottom;
+    object-position: center 48%;
   }
 
   .hero-photo-wordmark {
