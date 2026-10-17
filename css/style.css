@@ -117,26 +117,54 @@ a {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 60px 5%;
+  padding: 48px 5%;
   background:
-    radial-gradient(ellipse at 20% 25%, rgba(138, 20, 255, 0.4), transparent 35%),
-    radial-gradient(ellipse at 80% 70%, rgba(55, 224, 230, 0.23), transparent 38%),
-    radial-gradient(ellipse at 70% 15%, rgba(255, 0, 185, 0.18), transparent 32%),
+    radial-gradient(ellipse at 20% 25%, rgba(138, 20, 255, 0.3), transparent 35%),
+    radial-gradient(ellipse at 80% 70%, rgba(55, 224, 230, 0.2), transparent 38%),
     var(--black);
   border-bottom: 3px solid var(--yellow);
 }
 
-.hero-wordmark {
-  max-width: 100%;
-  font-size: clamp(3rem, 11vw, 10rem);
+.hero-photo-wrap {
+  position: relative;
+  width: min(100%, 1250px);
+  overflow: hidden;
+  border: 2px solid var(--purple);
+  box-shadow: 0 0 28px rgba(138, 20, 255, 0.28);
+  background: #080808;
+}
+
+.hero-band-photo {
+  display: block;
+  width: 100%;
+  height: clamp(340px, 65vh, 760px);
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.hero-photo-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 45% 0 0;
+  pointer-events: none;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.82));
+}
+
+.hero-photo-wordmark {
+  position: absolute;
+  z-index: 1;
+  right: clamp(16px, 4vw, 48px);
+  bottom: clamp(18px, 4vw, 44px);
+  left: clamp(16px, 4vw, 48px);
+  font-size: clamp(2.5rem, 8.5vw, 7.5rem);
   font-weight: 900;
   letter-spacing: -0.085em;
   line-height: 1;
   text-align: center;
   white-space: nowrap;
   text-shadow:
-    4px 4px 0 var(--purple),
-    8px 8px 0 rgba(55, 224, 230, 0.4);
+    3px 3px 0 var(--purple),
+    6px 6px 0 rgba(0, 0, 0, 0.8);
 }
 
 .content-section {
@@ -412,7 +440,13 @@ a {
   }
 
   .hero {
-    min-height: 55vh;
+    min-height: 0;
+    padding: 28px 4%;
+  }
+
+  .hero-band-photo {
+    height: clamp(300px, 52vh, 520px);
+    object-position: center;
   }
 
   .album-grid,
@@ -444,12 +478,18 @@ a {
   }
 
   .hero {
-    min-height: 42vh;
-    padding: 45px 4%;
+    min-height: 0;
+    padding: 20px 3%;
   }
 
-  .hero-wordmark {
-    font-size: clamp(2.4rem, 10.2vw, 3.4rem);
+  .hero-band-photo {
+    height: 360px;
+    object-position: center;
+  }
+
+  .hero-photo-wordmark {
+    font-size: clamp(2rem, 9vw, 3.2rem);
+    letter-spacing: -0.09em;
   }
 
   .content-section {
