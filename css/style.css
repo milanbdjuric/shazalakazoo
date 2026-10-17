@@ -110,14 +110,25 @@ a {
   font-weight: 800;
   text-decoration: none;
   text-transform: uppercase;
-  transition: color 150ms ease;
+  transition: color 150ms ease, text-shadow 150ms ease;
 }
+
+/* Neon colors for the header navigation */
+.main-nav a:nth-child(1) { color: var(--pink); }
+.main-nav a:nth-child(2) { color: var(--yellow); }
+.main-nav a:nth-child(3) { color: var(--cyan); }
+.main-nav a:nth-child(4) { color: var(--green); }
+.main-nav a:nth-child(5) { color: var(--pink); }
+.main-nav a:nth-child(6) { color: var(--yellow); }
+.main-nav a:nth-child(7) { color: var(--cyan); }
+.main-nav a:nth-child(8) { color: var(--green); }
 
 .main-nav a:hover,
 .main-nav a:focus-visible,
 .social-links a:hover,
 .social-links a:focus-visible {
-  color: var(--cyan);
+  color: var(--white);
+  text-shadow: 0 0 8px currentColor;
 }
 
 .menu-toggle {
