@@ -185,7 +185,7 @@ a {
   top: clamp(18px, 4vw, 44px);
   left: clamp(16px, 4vw, 48px);
   font-family: "Metalista", sans-serif;
-  font-size: clamp(3rem, 10.2vw, 9rem);
+  font-size: clamp(3.6rem, 12.5vw, 11rem);
   font-weight: normal;
   letter-spacing: 0.03em;
   line-height: 1;
