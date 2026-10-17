@@ -305,6 +305,17 @@ if (menuToggle && mainNav) {
 01.05.2007 @ POVETARAC, BELGRADE, SERBIA
 `;
 
+    const countryCodes = {
+      "ITALY":"it","FRANCE":"fr","GERMANY":"de","SWITZERLAND":"ch","POLAND":"pl",
+      "HUNGARY":"hu","SERBIA":"rs","UK":"gb","CROATIA":"hr","SWEDEN":"se",
+      "AUSTRIA":"at","DENMARK":"dk","BULGARIA":"bg","BOSNIA AND HERZEGOVINA":"ba",
+      "ISRAEL":"il","ESTONIA":"ee","SPAIN":"es","LITHUANIA":"lt","LATVIA":"lv",
+      "ROMANIA":"ro","SLOVENIA":"si","BELGIUM":"be","PORTUGAL":"pt",
+      "NETHERLANDS":"nl","MOLDOVA":"md","MACEDONIA":"mk","CZECH REPUBLIC":"cz",
+      "IRELAND":"ie","FINLAND":"fi","SOUTH AFRICA":"za","RUSSIA":"ru",
+      "SLOVAKIA":"sk","MONTENEGRO":"me","NORWAY":"no","BELARUS":"by"
+    };
+
     const countryFlags = {
       "ITALY":"🇮🇹","FRANCE":"🇫🇷","GERMANY":"🇩🇪","SWITZERLAND":"🇨🇭","POLAND":"🇵🇱",
       "HUNGARY":"🇭🇺","SERBIA":"🇷🇸","UK":"🇬🇧","CROATIA":"🇭🇷","SWEDEN":"🇸🇪",
@@ -316,6 +327,20 @@ if (menuToggle && mainNav) {
       "SLOVAKIA":"🇸🇰","MONTENEGRO":"🇲🇪","NORWAY":"🇳🇴","BELARUS":"🇧🇾"
     };
 
+    document.querySelectorAll(".show-flag[aria-label]").forEach((flag) => {
+      const code = countryCodes[flag.getAttribute("aria-label").trim().toUpperCase()];
+      if (code && !flag.querySelector("img")) {
+        const flagImage = document.createElement("img");
+        flagImage.src = `https://flagcdn.com/w40/${code}.png`;
+        flagImage.alt = "";
+        flagImage.width = 28;
+        flagImage.height = 20;
+        flagImage.loading = "lazy";
+        flag.textContent = "";
+        flag.appendChild(flagImage);
+      }
+    });
+
     pastShows.split("\n").filter(Boolean).forEach((show) => {
       const parts = show.split(" @ ");
       const detailsText = parts.slice(1).join(" @ ");
@@ -326,9 +351,20 @@ if (menuToggle && mainNav) {
 
       const flag = document.createElement("span");
       flag.className = "show-flag";
-      flag.textContent = countryFlags[country] || "🌍";
       flag.setAttribute("role", "img");
       flag.setAttribute("aria-label", country || "International show");
+      const countryCode = countryCodes[country];
+      if (countryCode) {
+        const flagImage = document.createElement("img");
+        flagImage.src = `https://flagcdn.com/w40/${countryCode}.png`;
+        flagImage.alt = "";
+        flagImage.width = 28;
+        flagImage.height = 20;
+        flagImage.loading = "lazy";
+        flag.appendChild(flagImage);
+      } else {
+        flag.textContent = countryFlags[country] || "🌍";
+      }
 
       const details = document.createElement("span");
       details.className = "show-details";
