@@ -435,7 +435,10 @@ if (menuToggle && mainNav) {
       separatorTwo.className = "show-separator";
       separatorTwo.textContent = ",";
 
-      details.append(date, venue, town, countryName);
+      const location = document.createElement("span");
+      location.className = "show-location";
+      location.append(town, countryName);
+      details.append(date, venue, location);
       row.append(flag, details);
       pastShowsContainer.appendChild(row);
     });
