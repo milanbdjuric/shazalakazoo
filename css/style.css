@@ -769,7 +769,10 @@ main > #home {
   margin-bottom: 0 !important;
 }
 
-.about-copy .about-intro { color: var(--green); }
+.about-section .about-copy > p.about-intro,
+.about-section .about-copy > p.about-intro * {
+  color: var(--green) !important;
+}
 .about-copy .about-history { color: var(--cyan); }
 .about-copy .about-discography { color: var(--yellow); }
 .about-copy .about-members-history { color: var(--pink); }
