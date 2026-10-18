@@ -796,3 +796,60 @@ main > #home {
   color: var(--cyan);
   font-size: 0.88em;
 }
+
+
+/* Slow-moving edge lights: keep the centre dark and the content readable. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -12%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.72;
+  background:
+    radial-gradient(ellipse 30% 52% at 0% 24%, rgba(138, 20, 255, 0.34), transparent 74%),
+    radial-gradient(ellipse 26% 48% at 100% 30%, rgba(55, 224, 230, 0.25), transparent 74%),
+    radial-gradient(ellipse 30% 48% at 100% 82%, rgba(255, 0, 185, 0.23), transparent 76%),
+    radial-gradient(ellipse 24% 42% at 0% 82%, rgba(255, 245, 0, 0.12), transparent 76%);
+  filter: blur(18px);
+  animation: stage-lights-drift 38s ease-in-out infinite alternate;
+  -webkit-mask-image: radial-gradient(ellipse at center, transparent 18%, rgba(0, 0, 0, 0.3) 46%, #000 82%);
+  mask-image: radial-gradient(ellipse at center, transparent 18%, rgba(0, 0, 0, 0.3) 46%, #000 82%);
+}
+
+.site-header,
+main,
+.social-bar {
+  position: relative;
+  z-index: 1;
+}
+
+.site-header {
+  z-index: 100;
+}
+
+.social-bar {
+  position: fixed;
+  z-index: 1000;
+}
+
+@keyframes stage-lights-drift {
+  0% {
+    transform: translate3d(-1.5%, -1%, 0) scale(1);
+    opacity: 0.58;
+  }
+  50% {
+    transform: translate3d(1.5%, 1%, 0) scale(1.035);
+    opacity: 0.78;
+  }
+  100% {
+    transform: translate3d(-0.5%, 1.5%, 0) scale(1.015);
+    opacity: 0.64;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
+}
