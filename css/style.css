@@ -814,7 +814,7 @@ body::before {
     radial-gradient(ellipse 32% 50% at 0% 84%, rgba(255, 245, 0, 0.24) 0%, rgba(255, 245, 0, 0.08) 42%, transparent 76%);
   filter: blur(28px);
   mix-blend-mode: screen;
-  animation: stage-lights-drift 32s ease-in-out infinite alternate;
+  animation: stage-lights-drift 7s ease-in-out infinite alternate;
 }
 
 .site-header,
