@@ -85,9 +85,11 @@ if (menuToggle && mainNav) {
 }
 
 
+  const nextShowContainer = document.querySelector("#next-show");
   const pastShowsContainer = document.querySelector("#past-shows");
-  if (pastShowsContainer) {
-    const pastShows = `
+
+  const nextShow = "13.11.2026 @ TRANSVOCALE FESTIVAL, SLUBICE, POLAND";
+  const pastShows = `
 29.08.2026 @ TUTTI MATI PER COLORNO FESTIVAL, COLORNO, ITALY
 28.08.2026 @ MAMA STOCK FESTIVAL, MONTPELLIER, FRANCE
 07.06.2025 @ TOM FEST, TURIN, ITALY
@@ -244,7 +246,7 @@ if (menuToggle && mainNav) {
 06.08.2010 @ SERBIA WORLD MUSIC FESTIVAL, TAKOVO, SERBIA
 31.07.2010 @ MEDIA MEDITERRANEA FESTIVAL, PULA, CROATIA
 23.07.2010 @ FESTIVAL LA VALLEE, VERDELAIS, FRANCE
-12.07.2010 @ JAZZ A LUZ, LUZ-ST-SAUVEUR, FRANCE
+12.07.2010 @ JAZZ A LUZ, LUZ-ST-ST-SAUVEUR, FRANCE
 10.07.2010 @ POHODA FESTIVAL, TRENCIN, SLOVAKIA
 08.07.2010 @ EXIT FESTIVAL, NOVI SAD, SERBIA
 03.07.2010 @ 20/44, BELGRADE, SERBIA
@@ -362,98 +364,101 @@ if (menuToggle && mainNav) {
 01.05.2007 @ POVETARAC, BELGRADE, SERBIA
 `;
 
-    const countryCodes = {
-      "ITALY":"it","FRANCE":"fr","GERMANY":"de","SWITZERLAND":"ch","POLAND":"pl",
-      "HUNGARY":"hu","SERBIA":"rs","UK":"gb","CROATIA":"hr","SWEDEN":"se",
-      "AUSTRIA":"at","DENMARK":"dk","BULGARIA":"bg","BOSNIA AND HERZEGOVINA":"ba",
-      "ISRAEL":"il","ESTONIA":"ee","SPAIN":"es","LITHUANIA":"lt","LATVIA":"lv",
-      "ROMANIA":"ro","SLOVENIA":"si","BELGIUM":"be","PORTUGAL":"pt",
-      "NETHERLANDS":"nl","MOLDOVA":"md","MACEDONIA":"mk","CZECH REPUBLIC":"cz",
-      "IRELAND":"ie","FINLAND":"fi","SOUTH AFRICA":"za","RUSSIA":"ru",
-      "SLOVAKIA":"sk","MONTENEGRO":"me","NORWAY":"no","BELARUS":"by"
-    };
+  const countryCodes = {
+    ITALY: "it", FRANCE: "fr", GERMANY: "de", SWITZERLAND: "ch",
+    POLAND: "pl", HUNGARY: "hu", SERBIA: "rs", UK: "gb", CROATIA: "hr",
+    SWEDEN: "se", AUSTRIA: "at", DENMARK: "dk", BULGARIA: "bg",
+    "BOSNIA AND HERZEGOVINA": "ba", ISRAEL: "il", ESTONIA: "ee",
+    SPAIN: "es", LITHUANIA: "lt", LATVIA: "lv", ROMANIA: "ro",
+    SLOVENIA: "si", BELGIUM: "be", PORTUGAL: "pt", NETHERLANDS: "nl",
+    MOLDOVA: "md", MACEDONIA: "mk", "CZECH REPUBLIC": "cz", IRELAND: "ie",
+    FINLAND: "fi", "SOUTH AFRICA": "za", RUSSIA: "ru", SLOVAKIA: "sk",
+    MONTENEGRO: "me", NORWAY: "no", BELARUS: "by"
+  };
 
-    const countryFlags = {
-      "ITALY":"🇮🇹","FRANCE":"🇫🇷","GERMANY":"🇩🇪","SWITZERLAND":"🇨🇭","POLAND":"🇵🇱",
-      "HUNGARY":"🇭🇺","SERBIA":"🇷🇸","UK":"🇬🇧","CROATIA":"🇭🇷","SWEDEN":"🇸🇪",
-      "AUSTRIA":"🇦🇹","DENMARK":"🇩🇰","BULGARIA":"🇧🇬","BOSNIA AND HERZEGOVINA":"🇧🇦",
-      "ISRAEL":"🇮🇱","ESTONIA":"🇪🇪","SPAIN":"🇪🇸","LITHUANIA":"🇱🇹","LATVIA":"🇱🇻",
-      "ROMANIA":"🇷🇴","SLOVENIA":"🇸🇮","BELGIUM":"🇧🇪","PORTUGAL":"🇵🇹",
-      "NETHERLANDS":"🇳🇱","MOLDOVA":"🇲🇩","MACEDONIA":"🇲🇰","CZECH REPUBLIC":"🇨🇿",
-      "IRELAND":"🇮🇪","FINLAND":"🇫🇮","SOUTH AFRICA":"🇿🇦","RUSSIA":"🇷🇺",
-      "SLOVAKIA":"🇸🇰","MONTENEGRO":"🇲🇪","NORWAY":"🇳🇴","BELARUS":"🇧🇾"
-    };
+  const countryFlags = {
+    ITALY: "🇮🇹", FRANCE: "🇫🇷", GERMANY: "🇩🇪", SWITZERLAND: "🇨🇭",
+    POLAND: "🇵🇱", HUNGARY: "🇭🇺", SERBIA: "🇷🇸", UK: "🇬🇧",
+    CROATIA: "🇭🇷", SWEDEN: "🇸🇪", AUSTRIA: "🇦🇹", DENMARK: "🇩🇰",
+    BULGARIA: "🇧🇬", "BOSNIA AND HERZEGOVINA": "🇧🇦", ISRAEL: "🇮🇱",
+    ESTONIA: "🇪🇪", SPAIN: "🇪🇸", LITHUANIA: "🇱🇹", LATVIA: "🇱🇻",
+    ROMANIA: "🇷🇴", SLOVENIA: "🇸🇮", BELGIUM: "🇧🇪", PORTUGAL: "🇵🇹",
+    NETHERLANDS: "🇳🇱", MOLDOVA: "🇲🇩", MACEDONIA: "🇲🇰",
+    "CZECH REPUBLIC": "🇨🇿", IRELAND: "🇮🇪", FINLAND: "🇫🇮",
+    "SOUTH AFRICA": "🇿🇦", RUSSIA: "🇷🇺", SLOVAKIA: "🇸🇰",
+    MONTENEGRO: "🇲🇪", NORWAY: "🇳🇴", BELARUS: "🇧🇾"
+  };
 
-    document.querySelectorAll(".show-flag[aria-label]").forEach((flag) => {
-      const code = countryCodes[flag.getAttribute("aria-label").trim().toUpperCase()];
-      if (code && !flag.querySelector("img")) {
-        const flagImage = document.createElement("img");
-        flagImage.src = `https://flagcdn.com/w40/${code}.png`;
-        flagImage.alt = "";
-        flagImage.width = 28;
-        flagImage.height = 20;
-        flagImage.loading = "lazy";
-        flag.textContent = "";
-        flag.appendChild(flagImage);
-      }
+  function createFlag(country) {
+    const flag = document.createElement("span");
+    flag.className = "show-flag";
+    flag.setAttribute("role", "img");
+    flag.setAttribute("aria-label", country || "International show");
+
+    const code = countryCodes[country];
+    if (code) {
+      const image = document.createElement("img");
+      image.src = `https://flagcdn.com/w40/${code}.png`;
+      image.alt = "";
+      image.width = 28;
+      image.height = 20;
+      image.loading = "lazy";
+      flag.appendChild(image);
+    } else {
+      flag.textContent = countryFlags[country] || "🌍";
+    }
+
+    return flag;
+  }
+
+  function createShowRow(showText) {
+    const [dateText, detailsText = ""] = showText.split(" @ ");
+    const locationParts = detailsText.split(",").map((part) => part.trim());
+    const country = locationParts.length ? locationParts[locationParts.length - 1].toUpperCase() : "";
+    const venue = locationParts.shift() || "";
+    const town = locationParts.shift() || "";
+    const countryName = locationParts.join(", ");
+
+    const row = document.createElement("div");
+    row.className = "show-row";
+
+    const details = document.createElement("span");
+    details.className = "show-details";
+
+    const date = document.createElement("span");
+    date.className = "show-date";
+    date.textContent = dateText.trim();
+
+    const venueElement = document.createElement("span");
+    venueElement.className = "show-venue-name";
+    venueElement.textContent = venue;
+
+    const location = document.createElement("span");
+    location.className = "show-location";
+
+    const townElement = document.createElement("span");
+    townElement.className = "show-town";
+    townElement.textContent = town;
+
+    const countryElement = document.createElement("span");
+    countryElement.className = "show-country";
+    countryElement.textContent = countryName;
+
+    location.append(townElement, countryElement);
+    details.append(date, venueElement, location);
+    row.append(createFlag(country), details);
+
+    return row;
+  }
+
+  if (nextShowContainer) {
+    nextShowContainer.replaceChildren(createShowRow(nextShow));
+  }
+
+  if (pastShowsContainer) {
+    const fragment = document.createDocumentFragment();
+    pastShows.split("\n").map((line) => line.trim()).filter(Boolean).forEach((show) => {
+      fragment.appendChild(createShowRow(show));
     });
-
-    pastShows.split("\n").filter(Boolean).forEach((show) => {
-      const parts = show.split(" @ ");
-      const detailsText = parts.slice(1).join(" @ ");
-      const lastComma = detailsText.lastIndexOf(",");
-      const country = lastComma >= 0 ? detailsText.slice(lastComma + 1).trim().toUpperCase() : "";
-      const row = document.createElement("div");
-      row.className = "show-row";
-
-      const flag = document.createElement("span");
-      flag.className = "show-flag";
-      flag.setAttribute("role", "img");
-      flag.setAttribute("aria-label", country || "International show");
-      const countryCode = countryCodes[country];
-      if (countryCode) {
-        const flagImage = document.createElement("img");
-        flagImage.src = `https://flagcdn.com/w40/${countryCode}.png`;
-        flagImage.alt = "";
-        flagImage.width = 28;
-        flagImage.height = 20;
-        flagImage.loading = "lazy";
-        flag.appendChild(flagImage);
-      } else {
-        flag.textContent = countryFlags[country] || "🌍";
-      }
-
-      const details = document.createElement("span");
-      details.className = "show-details";
-      const date = document.createElement("span");
-      date.className = "show-date";
-      date.textContent = parts[0];
-
-      const locationParts = detailsText.split(",").map((part) => part.trim());
-      const venue = document.createElement("span");
-      venue.className = "show-venue-name";
-      venue.textContent = locationParts.shift() || "";
-
-      const town = document.createElement("span");
-      town.className = "show-town";
-      town.textContent = locationParts.shift() || "";
-
-      const countryName = document.createElement("span");
-      countryName.className = "show-country";
-      countryName.textContent = locationParts.join(", ");
-
-      const separatorOne = document.createElement("span");
-      separatorOne.className = "show-separator";
-      separatorOne.textContent = ",";
-      const separatorTwo = document.createElement("span");
-      separatorTwo.className = "show-separator";
-      separatorTwo.textContent = ",";
-
-      const location = document.createElement("span");
-      location.className = "show-location";
-      location.append(town, countryName);
-      details.append(date, venue, location);
-      row.append(flag, details);
-      pastShowsContainer.appendChild(row);
-    });
+    pastShowsContainer.replaceChildren(fragment);
   }
