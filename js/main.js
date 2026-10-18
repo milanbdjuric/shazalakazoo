@@ -29,46 +29,60 @@ if (menuToggle && mainNav) {
     menuToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
-  mainNav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", async (event) => {
+  mainNav.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const hash = link.getAttribute("href");
+      const target = hash ? document.querySelector(hash) : null;
+      if (!target) return;
+
+      event.preventDefault();
+
       mainNav.classList.remove("is-open");
       menuToggle.setAttribute("aria-expanded", "false");
 
-      if (link.getAttribute("href") === "#shows") {
-        event.preventDefault();
-        const target = document.querySelector("#shows");
-        const photoImages = Array.from(document.querySelectorAll("#photos img"));
+      if (window.location.hash !== hash) {
+        history.pushState(null, "", hash);
+      }
 
-        photoImages.forEach((img) => {
+      // Scroll immediately. Navigation must never depend on media loading.
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      // Photos above Shows/Press/Contact can change document height as they load.
+      // Correct the final position after those images decode, without blocking the click.
+      const photos = document.querySelector("#photos");
+      const targetIsBelowPhotos = photos && target.compareDocumentPosition(photos) & Node.DOCUMENT_POSITION_PRECEDING;
+
+      if (targetIsBelowPhotos) {
+        const images = Array.from(photos.querySelectorAll("img"));
+        images.forEach((img) => {
           img.loading = "eager";
         });
 
-        await Promise.all(photoImages.map((img) => {
-          if (img.complete && img.naturalWidth > 0) return Promise.resolve();
-          if (typeof img.decode === "function") {
-            return img.decode().catch(() => undefined);
-          }
+        Promise.allSettled(images.map((img) => {
+          if (typeof img.decode === "function") return img.decode();
+          if (img.complete) return Promise.resolve();
           return new Promise((resolve) => {
             img.addEventListener("load", resolve, { once: true });
             img.addEventListener("error", resolve, { once: true });
           });
-        }));
-
-        history.replaceState(null, "", "#shows");
-        target?.scrollIntoView({ behavior: "smooth", block: "start" });
+        })).then(() => {
+          // Do not override a newer navigation if the user clicked another section.
+          if (window.location.hash === hash) {
+            target.scrollIntoView({ behavior: "auto", block: "start" });
+          }
+        });
       }
     });
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
+    if (event.key === "Escape" && mainNav.classList.contains("is-open")) {
       mainNav.classList.remove("is-open");
       menuToggle.setAttribute("aria-expanded", "false");
       menuToggle.focus();
     }
   });
 }
-
 
 
   const pastShowsContainer = document.querySelector("#past-shows");
