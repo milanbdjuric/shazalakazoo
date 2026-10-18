@@ -395,18 +395,22 @@ a {
 .show-details {
   display: flex;
   flex-wrap: wrap;
-  gap: 0 0.5em;
+  gap: 0;
 }
 
 .show-date {
-  color: var(--cyan);
+  color: var(--green);
   white-space: nowrap;
+  margin-right: 0.5em;
 }
 
 .show-at { color: var(--pink); }
 .show-venue { color: var(--white); }
 .show-venue-name { color: var(--pink); }
-.show-separator { color: var(--white); }
+.show-separator {
+  color: var(--white);
+  margin-right: 0.5em;
+}
 .show-town { color: var(--cyan); }
 .show-country { color: var(--yellow); }
 
