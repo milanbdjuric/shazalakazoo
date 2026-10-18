@@ -426,6 +426,14 @@ a {
 .show-town { color: var(--cyan); }
 .show-country { color: var(--yellow); }
 
+.show-location {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.5em;
+}
+
 .show-date,
 .show-venue-name,
 .show-town,
@@ -468,10 +476,16 @@ a {
 }
 
 .show-row .show-date,
-.show-row .show-venue-name,
-.show-row .show-town,
-.show-row .show-country {
+.show-row .show-venue-name {
   display: block;
+}
+
+.show-row .show-location {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.5em;
 }
 
 .show-row .show-date {
