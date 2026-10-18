@@ -72,7 +72,7 @@ a {
   line-height: 1;
   text-decoration: none;
   white-space: nowrap;
-  text-shadow: 2px 2px 0 var(--black);
+  text-shadow: none;
 }
 
 .wordmark-text {
@@ -118,7 +118,7 @@ a {
   font-weight: 800;
   text-decoration: none;
   text-transform: uppercase;
-  transition: color 150ms ease, text-shadow 150ms ease;
+  transition: color 150ms ease;
 }
 
 .main-nav a:nth-child(1) { color: var(--pink); }
@@ -135,7 +135,6 @@ a {
 .social-links a:hover,
 .social-links a:focus-visible {
   color: var(--white);
-  text-shadow: 0 0 8px currentColor;
 }
 
 .menu-toggle {
@@ -630,7 +629,7 @@ a {
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
-  transition: color 160ms ease, text-shadow 160ms ease;
+  transition: color 160ms ease;
 }
 
 .social-bar a:nth-child(1) { color: var(--pink); }
@@ -642,7 +641,6 @@ a {
 .social-bar a:hover,
 .social-bar a:focus-visible {
   color: #fff;
-  text-shadow: 0 0 8px currentColor;
 }
 
 body {
