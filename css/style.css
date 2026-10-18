@@ -113,7 +113,8 @@ a {
 
 .main-nav a,
 .social-links a {
-  font-size: 0.9rem;
+  font-size: 1.8rem;
+  letter-spacing: 0.08em;
   font-weight: 800;
   text-decoration: none;
   text-transform: uppercase;
@@ -224,7 +225,7 @@ a {
   margin: 0 0 34px;
   color: var(--yellow);
   font-family: "Metalista", sans-serif;
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(4rem, 8vw, 7rem);
   font-weight: normal;
   line-height: 1.1;
   text-transform: uppercase;
@@ -232,9 +233,10 @@ a {
 }
 
 .about-section p {
+  color: var(--yellow);
   max-width: 950px;
   margin: 0;
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-size: clamp(2rem, 3vw, 2.4rem);
   line-height: 1.9;
 }
 
@@ -254,7 +256,8 @@ a {
 .video h3 {
   margin: 0 0 6px;
   color: var(--cyan);
-  font-size: 1.25rem;
+  font-size: 2.5rem;
+  letter-spacing: 0.08em;
   line-height: 1.4;
 }
 
@@ -333,14 +336,14 @@ a {
 .photo-grid figcaption {
   padding: 12px 0 0;
   color: var(--cyan);
-  font-size: 0.95rem;
+  font-size: 1.9rem;
   line-height: 1.5;
 }
 
 .shows-subheading {
   margin: 24px 0 10px;
   color: var(--pink);
-  font-size: clamp(1.45rem, 2.7vw, 2.15rem);
+  font-size: clamp(2.9rem, 5.4vw, 4.3rem);
   font-weight: 900;
   line-height: 1.1;
   text-transform: uppercase;
@@ -368,7 +371,7 @@ a {
   align-items: center;
   margin-bottom: 10px;
   color: var(--yellow);
-  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-size: clamp(2rem, 3vw, 2.3rem);
   font-weight: 800;
 }
 
@@ -399,6 +402,7 @@ a {
 }
 
 .show-venue-name { color: var(--pink); }
+.show-separator { color: var(--white); }
 .show-town { color: var(--cyan); }
 .show-country { color: var(--yellow); }
 
@@ -418,7 +422,7 @@ a {
   gap: 8px;
   min-width: 0;
   padding: 7px 0;
-  font-size: clamp(0.82rem, 1vw, 0.98rem);
+  font-size: clamp(1.64rem, 2vw, 1.96rem);
   line-height: 1.45;
 }
 
@@ -448,7 +452,7 @@ a {
 
 .social-links a {
   color: var(--pink);
-  font-size: 1rem;
+  font-size: 2rem;
 }
 
 .contact-section {
@@ -619,7 +623,8 @@ a {
 
 .social-bar a {
   color: var(--cyan);
-  font-size: 0.78rem;
+  font-size: 1.56rem;
+  letter-spacing: 0.08em;
   font-weight: 700;
   letter-spacing: 0.045em;
   text-decoration: none;
