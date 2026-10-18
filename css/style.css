@@ -1,19 +1,10 @@
 @font-face {
-  font-family: "Metalista";
-  src: url("../fonts/Metalista.otf") format("opentype");
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: "Cicaizrija";
   src: url("../fonts/CICAIZRIJA.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
-
 
 :root {
   --purple: #8A14FF;
@@ -25,7 +16,6 @@
   --white: #FFFFFF;
   --content-width: 1400px;
 }
-
 
 * {
   box-sizing: border-box;
@@ -40,8 +30,9 @@ body {
   margin: 0;
   background: var(--black);
   color: var(--white);
-  font-family: "Metalista", sans-serif;
+  font-family: "Cicaizrija", sans-serif;
   line-height: 1.6;
+  text-transform: uppercase;
 }
 
 button,
@@ -49,6 +40,7 @@ input,
 select,
 textarea {
   font: inherit;
+  text-transform: uppercase;
 }
 
 a {
@@ -73,7 +65,7 @@ a {
   align-items: center;
   gap: clamp(6px, 0.9vw, 14px);
   flex-shrink: 0;
-  font-family: "Metalista", sans-serif;
+  font-family: "Cicaizrija", sans-serif;
   font-size: clamp(1.68rem, 3.12vw, 2.64rem);
   font-weight: 200;
   letter-spacing: 0.03em;
@@ -81,6 +73,7 @@ a {
   text-decoration: none;
   white-space: nowrap;
   text-shadow: none;
+  text-transform: uppercase;
 }
 
 .wordmark-text {
@@ -121,6 +114,7 @@ a {
 
 .main-nav a,
 .social-links a {
+  font-family: "Cicaizrija", sans-serif;
   font-size: 1.8rem;
   letter-spacing: 0.08em;
   font-weight: 200;
@@ -162,7 +156,7 @@ a {
   background: var(--white);
 }
 
- .hero {
+.hero {
   display: flex;
   width: 100%;
   min-height: 72vh;
@@ -209,13 +203,14 @@ a {
   right: clamp(16px, 4vw, 48px);
   top: clamp(18px, 4vw, 44px);
   left: clamp(16px, 4vw, 48px);
-  font-family: "Metalista", sans-serif;
+  font-family: "Cicaizrija", sans-serif;
   font-size: clamp(3.6rem, 12.5vw, 11rem);
   font-weight: 200;
   letter-spacing: 0.03em;
   line-height: 1;
   text-align: center;
   white-space: nowrap;
+  text-transform: uppercase;
   text-shadow:
     3px 3px 0 var(--purple),
     6px 6px 0 rgba(0, 0, 0, 0.8);
@@ -231,7 +226,7 @@ a {
 .content-section h2 {
   margin: 0 0 34px;
   color: var(--yellow);
-  font-family: "Metalista", sans-serif;
+  font-family: "Cicaizrija", sans-serif;
   font-size: clamp(4rem, 8vw, 7rem);
   font-weight: 200;
   line-height: 1.1;
@@ -265,14 +260,17 @@ a {
 .video h3 {
   margin: 0 0 6px;
   color: var(--cyan);
+  font-family: "Cicaizrija", sans-serif;
   font-size: 2.5rem;
   letter-spacing: 0.08em;
   line-height: 1.4;
+  text-transform: uppercase;
 }
 
 .album-type {
   margin: 0 0 16px;
   color: var(--white);
+  text-transform: uppercase;
 }
 
 .album-art-player {
@@ -306,9 +304,11 @@ a {
   min-height: 3.5em;
   margin-bottom: 12px;
   color: var(--cyan);
+  font-family: "Cicaizrija", sans-serif;
   font-size: 1.9rem;
   letter-spacing: normal;
   line-height: 1.5;
+  text-transform: uppercase;
 }
 
 .video-frame {
@@ -349,13 +349,16 @@ a {
 .photo-grid figcaption {
   padding: 12px 0 0;
   color: var(--cyan);
+  font-family: "Cicaizrija", sans-serif;
   font-size: 1.9rem;
   line-height: 1.5;
+  text-transform: uppercase;
 }
 
 .shows-subheading {
   margin: 24px 0 10px;
   color: var(--pink);
+  font-family: "Cicaizrija", sans-serif;
   font-size: clamp(2.9rem, 5.4vw, 4.3rem);
   font-weight: 200;
   line-height: 1.1;
@@ -377,6 +380,7 @@ a {
   padding: 10px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.14);
   overflow-wrap: anywhere;
+  text-transform: uppercase;
 }
 
 .next-show {
@@ -437,6 +441,7 @@ a {
   font-size: clamp(1.64rem, 2vw, 1.96rem);
   font-weight: 200;
   line-height: 1.45;
+  text-transform: uppercase;
 }
 
 .show-row .show-flag {
@@ -466,8 +471,10 @@ a {
 
 .social-links a {
   color: var(--pink);
+  font-family: "Cicaizrija", sans-serif;
   font-size: 2rem;
   font-weight: 200;
+  text-transform: uppercase;
 }
 
 .contact-section {
@@ -618,9 +625,6 @@ a {
   }
 }
 
-
-
-/* Persistent social strip */
 .social-bar {
   position: fixed;
   z-index: 1000;
@@ -641,10 +645,10 @@ a {
 
 .social-bar a {
   color: var(--cyan);
+  font-family: "Cicaizrija", sans-serif;
   font-size: 1.56rem;
-  letter-spacing: 0.08em;
-  font-weight: 200;
   letter-spacing: 0.045em;
+  font-weight: 200;
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
