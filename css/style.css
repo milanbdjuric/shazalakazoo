@@ -390,7 +390,7 @@ a {
 }
 
 .next-show {
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 8px;
   color: var(--yellow);
   font-size: clamp(1.3rem, 1.8vw, 1.6rem);
@@ -404,22 +404,24 @@ a {
 
 .show-details {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
   gap: 0;
 }
 
 .show-date {
+  display: block;
   color: var(--green);
   white-space: nowrap;
-  margin-right: 0.5em;
+  margin-right: 0;
 }
 
 .show-at { color: var(--pink); }
 .show-venue { color: var(--white); }
 .show-venue-name { color: var(--pink); }
 .show-separator {
-  color: var(--white);
-  margin-right: 0.5em;
+  display: none;
 }
 .show-town { color: var(--cyan); }
 .show-country { color: var(--yellow); }
@@ -459,12 +461,21 @@ a {
 }
 
 .show-row .show-details {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   min-width: 0;
 }
 
+.show-row .show-date,
+.show-row .show-venue-name,
+.show-row .show-town,
+.show-row .show-country {
+  display: block;
+}
+
 .show-row .show-date {
-  margin-right: 0.5em;
+  margin-right: 0;
 }
 
 .shows-list:empty {
