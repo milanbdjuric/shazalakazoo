@@ -242,7 +242,7 @@ a {
   display: inline-block;
 }
 
-.about-word-0 { color: var(--purple); }
+.about-word-0 { color: var(--green); }
 .about-word-1 { color: var(--cyan); }
 .about-word-2 { color: var(--yellow); }
 .about-word-3 { color: var(--pink); }
@@ -769,7 +769,7 @@ main > #home {
   margin-bottom: 0 !important;
 }
 
-.about-copy .about-intro { color: var(--purple); }
+.about-copy .about-intro { color: var(--green); }
 .about-copy .about-history { color: var(--cyan); }
 .about-copy .about-discography { color: var(--yellow); }
 .about-copy .about-members-history { color: var(--pink); }
@@ -777,7 +777,7 @@ main > #home {
 .about-copy .about-lineup { color: inherit; }
 
 .about-copy .lineup-heading {
-  color: var(--purple);
+  color: var(--green);
   margin-bottom: 1em !important;
 }
 
