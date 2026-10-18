@@ -706,7 +706,8 @@ a {
   font-family: inherit;
   font-size: 1rem;
   letter-spacing: 0.1em;
-  text-transform: none;
+  text-transform: uppercase;
+  -webkit-text-size-adjust: 100%;
 }
 
 .contact-field input::placeholder,
