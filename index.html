@@ -191,7 +191,34 @@ People often think of the Balkans as a crossroads. With their busy trade and cul
     </section>
 
     <section id="contact" class="content-section contact-section">
-      <h2>Contact</h2><h3>shazalakazoo at gmail dot com</h3>
+      <h2>Contact</h2>
+      <form class="contact-form" action="https://formsubmit.co/shazalakazoo@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New message from ShazaLaKazoo website">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://milanbdjuric.github.io/shazalakazoo/#contact">
+
+        <label class="contact-field">
+          <span>Name</span>
+          <input type="text" name="name" placeholder="Name" autocomplete="name" required>
+        </label>
+
+        <label class="contact-field">
+          <span>Email</span>
+          <input type="email" name="email" placeholder="Email" autocomplete="email" required>
+        </label>
+
+        <label class="contact-field">
+          <span>Message</span>
+          <textarea name="message" placeholder="Your message" rows="6" required></textarea>
+        </label>
+
+        <label class="robot-check">
+          <input type="checkbox" name="not_a_robot" value="Confirmed" required>
+          <span>NISAM ROBOT DECE MI MOJE DABOGDA MI SVE ODMA POMRE AKO TE LAZEM</span>
+        </label>
+
+        <button type="submit">Send message</button>
+      </form>
     </section>
   </main>
 
