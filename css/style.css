@@ -545,7 +545,7 @@ a {
 .social-bar a {
   color: var(--cyan);
   font-family: "Cicaizrija", sans-serif;
-  font-size: clamp(1rem, 3vw, 2rem);
+  font-size: clamp(0.8rem, 2.6vw, 1.6rem);
   letter-spacing: 0.1em;
   text-decoration: none;
   text-transform: uppercase;
