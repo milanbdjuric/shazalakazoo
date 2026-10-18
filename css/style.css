@@ -295,6 +295,10 @@ a {
 .video h3 {
   min-height: 3.5em;
   margin-bottom: 12px;
+  color: var(--cyan);
+  font-size: 1.9rem;
+  letter-spacing: normal;
+  line-height: 1.5;
 }
 
 .video-frame {
@@ -347,7 +351,6 @@ a {
   line-height: 1.1;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  text-shadow: 2px 2px 0 var(--purple);
 }
 
 .past-shows-heading {
