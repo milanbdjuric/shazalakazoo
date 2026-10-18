@@ -774,3 +774,16 @@ a {
     width: 100%;
   }
 }
+
+/* Anchor navigation: keep section headings clear of the sticky header. */
+main > .content-section,
+main > #home {
+  scroll-margin-top: 110px;
+}
+
+@media (max-width: 480px) {
+  main > .content-section,
+  main > #home {
+    scroll-margin-top: 85px;
+  }
+}
