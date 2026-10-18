@@ -44,8 +44,17 @@ if (menuToggle && mainNav) {
         history.pushState(null, "", hash);
       }
 
+      // Align the section heading directly beneath the sticky header.
+      const scrollToSection = (behavior) => {
+        const heading = target.querySelector("h2") || target;
+        const header = document.querySelector(".site-header");
+        const headerHeight = header ? header.getBoundingClientRect().height : 0;
+        const top = window.scrollY + heading.getBoundingClientRect().top - headerHeight;
+        window.scrollTo({ top: Math.max(0, top), behavior });
+      };
+
       // Scroll immediately. Navigation must never depend on media loading.
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      scrollToSection("smooth");
 
       // Photos above Shows/Press/Contact can change document height as they load.
       // Correct the final position after those images decode, without blocking the click.
@@ -68,7 +77,7 @@ if (menuToggle && mainNav) {
         })).then(() => {
           // Do not override a newer navigation if the user clicked another section.
           if (window.location.hash === hash) {
-            target.scrollIntoView({ behavior: "auto", block: "start" });
+            scrollToSection("auto");
           }
         });
       }
