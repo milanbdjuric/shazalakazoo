@@ -822,7 +822,10 @@ body::before {
     radial-gradient(ellipse 26% 20% at 100% 11%, rgba(138, 20, 255, 0.96) 0%, rgba(138, 20, 255, 0.42) 44%, transparent 80%),
     radial-gradient(ellipse 23% 29% at 98% 39%, rgba(138, 20, 255, 0.98) 0%, rgba(138, 20, 255, 0.44) 44%, transparent 80%),
     radial-gradient(ellipse 29% 20% at 100% 70%, rgba(138, 20, 255, 0.92) 0%, rgba(138, 20, 255, 0.4) 44%, transparent 80%),
-    radial-gradient(ellipse 18% 22% at 38% 0%, rgba(255, 245, 0, 0.28), transparent 80%);
+    radial-gradient(ellipse 18% 22% at 38% 0%, rgba(255, 245, 0, 0.28), transparent 80%),
+    /* Very subdued violet haze occasionally drifts across the dark centre. */
+    radial-gradient(ellipse 32% 38% at 48% 44%, rgba(75, 0, 145, 0.18) 0%, rgba(75, 0, 145, 0.08) 48%, transparent 82%),
+    radial-gradient(ellipse 26% 34% at 60% 76%, rgba(75, 0, 145, 0.14) 0%, transparent 82%);
   filter: blur(18px);
   animation: stage-lights-drift 3.7s ease-in-out infinite alternate;
 }
@@ -836,7 +839,9 @@ body::after {
     radial-gradient(ellipse 23% 18% at 100% 24%, rgba(138, 20, 255, 0.84) 0%, rgba(138, 20, 255, 0.3) 48%, transparent 80%),
     radial-gradient(ellipse 29% 24% at 94% 57%, rgba(255, 0, 185, 0.8) 0%, rgba(255, 0, 185, 0.28) 48%, transparent 80%),
     radial-gradient(ellipse 23% 21% at 100% 91%, rgba(138, 20, 255, 0.88) 0%, rgba(138, 20, 255, 0.3) 48%, transparent 80%),
-    radial-gradient(ellipse 19% 20% at 62% 100%, rgba(55, 224, 230, 0.28), transparent 80%);
+    radial-gradient(ellipse 19% 20% at 62% 100%, rgba(55, 224, 230, 0.28), transparent 80%),
+    radial-gradient(ellipse 30% 36% at 56% 54%, rgba(75, 0, 145, 0.16) 0%, rgba(75, 0, 145, 0.06) 50%, transparent 84%),
+    radial-gradient(ellipse 24% 30% at 42% 82%, rgba(75, 0, 145, 0.12) 0%, transparent 82%);
   filter: blur(24px);
   animation: stage-lights-clouds 5.3s ease-in-out infinite alternate;
 }
@@ -887,7 +892,8 @@ main,
       radial-gradient(ellipse 43% 20% at 0% 59%, rgba(138, 20, 255, 0.96) 0%, rgba(138, 20, 255, 0.44) 46%, transparent 80%),
       radial-gradient(ellipse 42% 18% at 100% 10%, rgba(138, 20, 255, 0.98) 0%, rgba(138, 20, 255, 0.44) 44%, transparent 80%),
       radial-gradient(ellipse 39% 20% at 98% 33%, rgba(138, 20, 255, 1) 0%, rgba(138, 20, 255, 0.46) 44%, transparent 80%),
-      radial-gradient(ellipse 43% 19% at 100% 59%, rgba(138, 20, 255, 0.96) 0%, rgba(138, 20, 255, 0.42) 44%, transparent 80%);
+      radial-gradient(ellipse 43% 19% at 100% 59%, rgba(138, 20, 255, 0.96) 0%, rgba(138, 20, 255, 0.42) 44%, transparent 80%),
+      radial-gradient(ellipse 34% 22% at 48% 46%, rgba(75, 0, 145, 0.2) 0%, rgba(75, 0, 145, 0.08) 48%, transparent 82%);
   }
 
   body::after {
@@ -898,7 +904,8 @@ main,
       radial-gradient(ellipse 40% 18% at 5% 80%, rgba(138, 20, 255, 0.9) 0%, transparent 80%),
       radial-gradient(ellipse 40% 18% at 96% 23%, rgba(138, 20, 255, 0.86) 0%, transparent 80%),
       radial-gradient(ellipse 43% 21% at 100% 48%, rgba(255, 0, 185, 0.9) 0%, transparent 80%),
-      radial-gradient(ellipse 39% 19% at 95% 80%, rgba(138, 20, 255, 0.98) 0%, transparent 80%);
+      radial-gradient(ellipse 39% 19% at 95% 80%, rgba(138, 20, 255, 0.98) 0%, transparent 80%),
+      radial-gradient(ellipse 32% 24% at 57% 62%, rgba(75, 0, 145, 0.16) 0%, transparent 84%);
   }
 }
 
