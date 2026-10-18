@@ -273,7 +273,7 @@ a {
 
 .album-type {
   margin: 0 0 14px;
-  color: var(--white);
+  color: var(--yellow);
   text-transform: uppercase;
   letter-spacing: 0.14em;
 }
@@ -775,6 +775,11 @@ main > #home {
 .about-copy .about-members-history { color: var(--pink); }
 .about-copy .about-current { color: var(--green); }
 .about-copy .about-lineup { color: inherit; }
+
+.about-copy .lineup-heading {
+  color: var(--purple);
+  margin-bottom: 1em !important;
+}
 
 .about-copy .lineup-member {
   display: flex;
