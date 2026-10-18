@@ -419,12 +419,12 @@ a {
 
 .show-at { color: var(--pink); }
 .show-venue { color: var(--white); }
-.show-venue-name { color: var(--pink); }
+.show-venue-name { color: var(--yellow); }
 .show-separator {
   display: none;
 }
 .show-town { color: var(--cyan); }
-.show-country { color: var(--yellow); }
+.show-country { color: var(--pink); }
 
 .show-location {
   display: flex;
@@ -441,9 +441,9 @@ a {
   white-space: nowrap;
 }
 
-.show-row .show-venue-name { color: var(--pink); }
+.show-row .show-venue-name { color: var(--yellow); }
 .show-row .show-town { color: var(--cyan); }
-.show-row .show-country { color: var(--yellow); }
+.show-row .show-country { color: var(--pink); }
 
 .shows-list {
   display: grid;
