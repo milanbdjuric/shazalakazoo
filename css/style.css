@@ -749,3 +749,29 @@ main > #home {
 #press h3 a:focus-visible {
   color: var(--white);
 }
+
+/* About copy: each paragraph uses one palette colour. */
+.about-copy {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-copy p {
+  max-width: 100% !important;
+  margin: 0 auto 1.5em !important;
+  font-size: clamp(1.1rem, 1.55vw, 1.45rem);
+  line-height: 1.8;
+  text-align: center;
+}
+
+.about-copy p:last-child {
+  margin-bottom: 0 !important;
+}
+
+.about-copy .about-intro { color: var(--purple); }
+.about-copy .about-history { color: var(--cyan); }
+.about-copy .about-discography { color: var(--yellow); }
+.about-copy .about-members-history { color: var(--pink); }
+.about-copy .about-current { color: var(--green); }
+.about-copy .about-lineup { color: var(--purple); }
