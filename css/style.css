@@ -538,7 +538,7 @@ a {
   }
 
   .wordmark {
-    font-size: 1.65rem;
+    font-size: 3.3rem;
   }
 
   .hero {
@@ -557,7 +557,7 @@ a {
   }
 
   .hero-photo-wordmark {
-    font-size: clamp(2rem, 9vw, 3.2rem);
+    font-size: clamp(4rem, 18vw, 6.4rem);
     letter-spacing: 0.005em;
   }
 
@@ -580,11 +580,11 @@ a {
 
   .next-show {
     gap: 9px;
-    font-size: 0.92rem;
+    font-size: 1.84rem;
   }
 
   .show-row {
-    font-size: 0.84rem;
+    font-size: 1.68rem;
   }
 }
 
@@ -657,7 +657,7 @@ body {
   }
 
   .social-bar a {
-    font-size: 0.68rem;
+    font-size: 1.36rem;
     letter-spacing: 0.015em;
   }
 
