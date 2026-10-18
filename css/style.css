@@ -19,6 +19,7 @@
 
 * {
   box-sizing: border-box;
+  font-weight: normal !important;
 }
 
 html {
@@ -33,6 +34,7 @@ body {
   font-family: "Cicaizrija", sans-serif;
   line-height: 1.6;
   text-transform: uppercase;
+  letter-spacing: 0.15em;
 }
 
 button,
@@ -41,6 +43,7 @@ select,
 textarea {
   font: inherit;
   text-transform: uppercase;
+  letter-spacing: 0.15em;
 }
 
 a {
@@ -66,9 +69,8 @@ a {
   gap: clamp(6px, 0.9vw, 14px);
   flex-shrink: 0;
   font-family: "Cicaizrija", sans-serif;
-  font-size: clamp(1.68rem, 3.12vw, 2.64rem);
-  font-weight: 200;
-  letter-spacing: 0.03em;
+  font-size: clamp(1.3rem, 2.2vw, 2rem);
+  letter-spacing: 0.2em;
   line-height: 1;
   text-decoration: none;
   white-space: nowrap;
@@ -115,9 +117,8 @@ a {
 .main-nav a,
 .social-links a {
   font-family: "Cicaizrija", sans-serif;
-  font-size: 1.8rem;
-  letter-spacing: 0.08em;
-  font-weight: 200;
+  font-size: 1.3rem;
+  letter-spacing: 0.22em;
   text-decoration: none;
   text-transform: uppercase;
   transition: color 150ms ease;
@@ -204,9 +205,8 @@ a {
   top: clamp(18px, 4vw, 44px);
   left: clamp(16px, 4vw, 48px);
   font-family: "Cicaizrija", sans-serif;
-  font-size: clamp(3.6rem, 12.5vw, 11rem);
-  font-weight: 200;
-  letter-spacing: 0.03em;
+  font-size: clamp(2.8rem, 9.5vw, 8.5rem);
+  letter-spacing: 0.2em;
   line-height: 1;
   text-align: center;
   white-space: nowrap;
@@ -227,8 +227,8 @@ a {
   margin: 0 0 34px;
   color: var(--yellow);
   font-family: "Cicaizrija", sans-serif;
-  font-size: clamp(4rem, 8vw, 7rem);
-  font-weight: 200;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  letter-spacing: 0.18em;
   line-height: 1.1;
   text-transform: uppercase;
   text-shadow: 3px 3px 0 var(--purple);
@@ -239,7 +239,8 @@ a {
   color: var(--yellow);
   max-width: 950px;
   margin: 0;
-  font-size: clamp(2rem, 3vw, 2.4rem);
+  font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+  letter-spacing: 0.18em;
   line-height: 1.9;
   text-transform: uppercase;
 }
@@ -261,8 +262,8 @@ a {
   margin: 0 0 6px;
   color: var(--cyan);
   font-family: "Cicaizrija", sans-serif;
-  font-size: 2.5rem;
-  letter-spacing: 0.08em;
+  font-size: 1.8rem;
+  letter-spacing: 0.18em;
   line-height: 1.4;
   text-transform: uppercase;
 }
@@ -271,6 +272,7 @@ a {
   margin: 0 0 16px;
   color: var(--white);
   text-transform: uppercase;
+  letter-spacing: 0.15em;
 }
 
 .album-art-player {
@@ -305,8 +307,8 @@ a {
   margin-bottom: 12px;
   color: var(--cyan);
   font-family: "Cicaizrija", sans-serif;
-  font-size: 1.9rem;
-  letter-spacing: normal;
+  font-size: 1.5rem;
+  letter-spacing: 0.18em;
   line-height: 1.5;
   text-transform: uppercase;
 }
@@ -350,7 +352,8 @@ a {
   padding: 12px 0 0;
   color: var(--cyan);
   font-family: "Cicaizrija", sans-serif;
-  font-size: 1.9rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.18em;
   line-height: 1.5;
   text-transform: uppercase;
 }
@@ -359,11 +362,10 @@ a {
   margin: 24px 0 10px;
   color: var(--pink);
   font-family: "Cicaizrija", sans-serif;
-  font-size: clamp(2.9rem, 5.4vw, 4.3rem);
-  font-weight: 200;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
   line-height: 1.1;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.18em;
 }
 
 .past-shows-heading {
@@ -381,14 +383,14 @@ a {
   border-bottom: 1px solid rgba(255, 255, 255, 0.14);
   overflow-wrap: anywhere;
   text-transform: uppercase;
+  letter-spacing: 0.16em;
 }
 
 .next-show {
   align-items: center;
   margin-bottom: 10px;
   color: var(--yellow);
-  font-size: clamp(2rem, 3vw, 2.3rem);
-  font-weight: 200;
+  font-size: clamp(1.5rem, 2.2vw, 1.8rem);
 }
 
 .show-flag {
@@ -405,7 +407,6 @@ a {
 
 .show-date {
   color: var(--cyan);
-  font-weight: 200;
   white-space: nowrap;
 }
 
@@ -438,16 +439,15 @@ a {
   gap: 8px;
   min-width: 0;
   padding: 7px 0;
-  font-size: clamp(1.64rem, 2vw, 1.96rem);
-  font-weight: 200;
+  font-size: clamp(1.3rem, 1.6vw, 1.5rem);
   line-height: 1.45;
   text-transform: uppercase;
+  letter-spacing: 0.16em;
 }
 
 .show-row .show-flag {
   flex-basis: 1.6em;
   font-size: 1em;
-  font-weight: 200;
 }
 
 .show-row .show-details {
@@ -472,8 +472,8 @@ a {
 .social-links a {
   color: var(--pink);
   font-family: "Cicaizrija", sans-serif;
-  font-size: 2rem;
-  font-weight: 200;
+  font-size: 1.5rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
@@ -560,7 +560,7 @@ a {
   }
 
   .wordmark {
-    font-size: 3.3rem;
+    font-size: 2.4rem;
   }
 
   .hero {
@@ -579,9 +579,8 @@ a {
   }
 
   .hero-photo-wordmark {
-    font-size: clamp(4rem, 18vw, 6.4rem);
-    font-weight: 200;
-    letter-spacing: 0.005em;
+    font-size: clamp(3rem, 14vw, 5rem);
+    letter-spacing: 0.12em;
   }
 
   .content-section {
@@ -603,13 +602,11 @@ a {
 
   .next-show {
     gap: 9px;
-    font-size: 1.84rem;
-    font-weight: 200;
+    font-size: 1.4rem;
   }
 
   .show-row {
-    font-size: 1.68rem;
-    font-weight: 200;
+    font-size: 1.3rem;
   }
 }
 
@@ -625,6 +622,7 @@ a {
   }
 }
 
+/* Persistent social strip */
 .social-bar {
   position: fixed;
   z-index: 1000;
@@ -646,9 +644,8 @@ a {
 .social-bar a {
   color: var(--cyan);
   font-family: "Cicaizrija", sans-serif;
-  font-size: 1.56rem;
-  letter-spacing: 0.045em;
-  font-weight: 200;
+  font-size: 1.2rem;
+  letter-spacing: 0.2em;
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
@@ -678,9 +675,8 @@ body {
   }
 
   .social-bar a {
-    font-size: 1.36rem;
-    font-weight: 200;
-    letter-spacing: 0.015em;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
   }
 
   body {
