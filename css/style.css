@@ -799,20 +799,25 @@ main > #home {
 }
 
 
-/* Slow-moving stage lights, kept mostly at the edges. */
+/* Patchy, cloud-like stage lights drifting around the page edges. */
 body::before {
   content: "";
   position: fixed;
-  inset: -18%;
+  inset: -22%;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.95;
+  opacity: 0.96;
   background:
-    radial-gradient(ellipse 38% 62% at 0% 22%, rgba(138, 20, 255, 0.62) 0%, rgba(138, 20, 255, 0.2) 42%, transparent 75%),
-    radial-gradient(ellipse 34% 58% at 100% 22%, rgba(55, 224, 230, 0.48) 0%, rgba(55, 224, 230, 0.16) 42%, transparent 76%),
-    radial-gradient(ellipse 36% 55% at 100% 82%, rgba(255, 0, 185, 0.44) 0%, rgba(255, 0, 185, 0.14) 42%, transparent 76%),
-    radial-gradient(ellipse 32% 50% at 0% 84%, rgba(255, 245, 0, 0.24) 0%, rgba(255, 245, 0, 0.08) 42%, transparent 76%);
-  filter: blur(28px);
+    radial-gradient(ellipse 19% 25% at 5% 18%, rgba(138, 20, 255, 0.76) 0%, rgba(138, 20, 255, 0.32) 45%, transparent 78%),
+    radial-gradient(ellipse 26% 18% at 2% 43%, rgba(55, 224, 230, 0.48) 0%, rgba(55, 224, 230, 0.19) 46%, transparent 80%),
+    radial-gradient(ellipse 20% 29% at 13% 79%, rgba(255, 0, 185, 0.55) 0%, rgba(255, 0, 185, 0.2) 48%, transparent 80%),
+    radial-gradient(ellipse 25% 20% at 96% 15%, rgba(55, 224, 230, 0.58) 0%, rgba(55, 224, 230, 0.2) 48%, transparent 80%),
+    radial-gradient(ellipse 18% 30% at 98% 48%, rgba(138, 20, 255, 0.68) 0%, rgba(138, 20, 255, 0.24) 46%, transparent 80%),
+    radial-gradient(ellipse 28% 19% at 88% 82%, rgba(255, 0, 185, 0.52) 0%, rgba(255, 0, 185, 0.18) 46%, transparent 80%),
+    radial-gradient(ellipse 17% 23% at 35% 2%, rgba(255, 245, 0, 0.22) 0%, transparent 80%),
+    radial-gradient(ellipse 20% 24% at 70% 100%, rgba(55, 224, 230, 0.22) 0%, transparent 80%);
+  background-size: 115% 115%;
+  filter: blur(22px);
   mix-blend-mode: screen;
   animation: stage-lights-drift 7s ease-in-out infinite alternate;
 }
@@ -835,16 +840,20 @@ main,
 
 @keyframes stage-lights-drift {
   0% {
-    transform: translate3d(-2%, -1%, 0) scale(1);
-    opacity: 0.7;
+    transform: translate3d(-2.5%, -1.5%, 0) scale(1);
+    opacity: 0.72;
   }
-  50% {
-    transform: translate3d(2%, 1.5%, 0) scale(1.06);
-    opacity: 1;
+  35% {
+    transform: translate3d(1.5%, 1%, 0) scale(1.055);
+    opacity: 0.98;
+  }
+  70% {
+    transform: translate3d(-1%, 2.5%, 0) scale(1.025);
+    opacity: 0.8;
   }
   100% {
-    transform: translate3d(-1%, 2%, 0) scale(1.025);
-    opacity: 0.82;
+    transform: translate3d(2%, -1%, 0) scale(1.07);
+    opacity: 0.95;
   }
 }
 
