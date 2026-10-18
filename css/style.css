@@ -377,29 +377,34 @@ a {
   border-top: 2px solid var(--cyan);
 }
 
-.next-show,
 .show-row {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   gap: 10px;
+  min-width: 0;
   padding: 8px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.14);
   overflow-wrap: anywhere;
+  font-size: clamp(1.1rem, 1.4vw, 1.3rem);
+  line-height: 1.4;
   text-transform: uppercase;
   letter-spacing: 0.14em;
 }
 
-.next-show {
+.show-flag {
+  display: inline-flex;
+  flex: 0 0 1.5em;
+  justify-content: center;
   align-items: flex-start;
-  margin-bottom: 8px;
-  color: var(--yellow);
-  font-size: clamp(1.3rem, 1.8vw, 1.6rem);
+  font-size: 1em;
+  line-height: 1;
 }
 
-.show-flag {
-  flex: 0 0 1.6em;
-  font-size: 1.1em;
-  line-height: 1;
+.show-flag img {
+  display: block;
+  width: 28px;
+  height: 20px;
+  object-fit: cover;
 }
 
 .show-details {
@@ -414,17 +419,11 @@ a {
   display: block;
   color: var(--green);
   white-space: nowrap;
-  margin-right: 0;
 }
 
-.show-at { color: var(--pink); }
-.show-venue { color: var(--white); }
 .show-venue-name { color: var(--yellow); }
-.show-separator {
-  display: none;
-}
 .show-town { color: var(--cyan); }
-.show-country { color: var(--pink); }
+.show-country { color: var(--pink); white-space: nowrap; }
 
 .show-location {
   display: flex;
@@ -434,17 +433,6 @@ a {
   column-gap: 0.5em;
 }
 
-.show-date,
-.show-venue-name,
-.show-town,
-.show-country {
-  white-space: nowrap;
-}
-
-.show-row .show-venue-name { color: var(--yellow); }
-.show-row .show-town { color: var(--cyan); }
-.show-row .show-country { color: var(--pink); }
-
 .shows-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -452,44 +440,8 @@ a {
   align-items: start;
 }
 
-.show-row {
-  align-items: flex-start;
-  gap: 8px;
-  min-width: 0;
-  padding: 6px 0;
-  font-size: clamp(1.1rem, 1.4vw, 1.3rem);
-  line-height: 1.4;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-}
-
-.show-row .show-flag {
-  flex-basis: 1.5em;
-  font-size: 1em;
-}
-
-.show-row .show-details {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-width: 0;
-}
-
-.show-row .show-date,
-.show-row .show-venue-name {
-  display: block;
-}
-
-.show-row .show-location {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: baseline;
-  column-gap: 0.5em;
-}
-
-.show-row .show-date {
-  margin-right: 0;
+.shows-list-next {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .shows-list:empty {
@@ -650,11 +602,6 @@ a {
   .album-art-player,
   .soundcloud-player {
     height: 350px;
-  }
-
-  .next-show {
-    gap: 6px;
-    font-size: 1.2rem;
   }
 
   .show-row {
