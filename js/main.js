@@ -435,7 +435,7 @@ if (menuToggle && mainNav) {
       separatorTwo.className = "show-separator";
       separatorTwo.textContent = ",";
 
-      details.append(date, venue, separatorOne, town, separatorTwo, countryName);
+      details.append(date, venue, town, countryName);
       row.append(flag, details);
       pastShowsContainer.appendChild(row);
     });
