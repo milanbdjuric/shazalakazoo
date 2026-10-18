@@ -90,8 +90,8 @@ a {
   flex: 0 0 auto;
   object-fit: cover;
   object-position: center;
-  border: 1px solid var(--purple);
-  box-shadow: 0 0 10px rgba(138, 20, 255, 0.35);
+  border: 0;
+  box-shadow: none;
 }
 
 .wordmark-shaza { color: var(--pink); }
@@ -479,7 +479,7 @@ a {
   min-height: 38px;
   padding: 6px 8px;
   background: rgba(5, 5, 5, 0.97);
-  border-top: 1px solid var(--purple);
+  border-top: 2px solid var(--purple);
   box-shadow: 0 -3px 14px rgba(138, 20, 255, 0.12);
   overflow-x: auto;
 }
