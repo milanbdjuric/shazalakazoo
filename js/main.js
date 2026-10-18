@@ -1,6 +1,25 @@
 
 "use strict";
 
+const aboutParagraph = document.querySelector(".about-section p");
+if (aboutParagraph) {
+  const originalText = aboutParagraph.textContent;
+  const parts = originalText.split(/(\\s+)/);
+  let colorIndex = 0;
+  aboutParagraph.textContent = "";
+  parts.forEach((part) => {
+    if (/^\\s+$/.test(part) || part === "") {
+      aboutParagraph.appendChild(document.createTextNode(part));
+      return;
+    }
+    const word = document.createElement("span");
+    word.className = `about-word about-word-${colorIndex % 5}`;
+    word.textContent = part;
+    aboutParagraph.appendChild(word);
+    colorIndex += 1;
+  });
+}
+
 const menuToggle = document.querySelector(".menu-toggle");
 const mainNav = document.querySelector("#main-nav");
 
