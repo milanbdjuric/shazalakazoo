@@ -11,9 +11,33 @@ if (menuToggle && mainNav) {
   });
 
   mainNav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", async (event) => {
       mainNav.classList.remove("is-open");
       menuToggle.setAttribute("aria-expanded", "false");
+
+      if (link.getAttribute("href") === "#shows") {
+        event.preventDefault();
+        const target = document.querySelector("#shows");
+        const photoImages = Array.from(document.querySelectorAll("#photos img"));
+
+        photoImages.forEach((img) => {
+          img.loading = "eager";
+        });
+
+        await Promise.all(photoImages.map((img) => {
+          if (img.complete && img.naturalWidth > 0) return Promise.resolve();
+          if (typeof img.decode === "function") {
+            return img.decode().catch(() => undefined);
+          }
+          return new Promise((resolve) => {
+            img.addEventListener("load", resolve, { once: true });
+            img.addEventListener("error", resolve, { once: true });
+          });
+        }));
+
+        history.replaceState(null, "", "#shows");
+        target?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     });
   });
 
@@ -372,11 +396,20 @@ if (menuToggle && mainNav) {
       date.className = "show-date";
       date.textContent = parts[0];
 
+      const locationParts = detailsText.split(",").map((part) => part.trim());
       const venue = document.createElement("span");
-      venue.className = "show-venue";
-      venue.textContent = detailsText;
+      venue.className = "show-venue-name";
+      venue.textContent = locationParts.shift() || "";
 
-      details.append(date, venue);
+      const town = document.createElement("span");
+      town.className = "show-town";
+      town.textContent = locationParts.shift() || "";
+
+      const countryName = document.createElement("span");
+      countryName.className = "show-country";
+      countryName.textContent = locationParts.join(", ");
+
+      details.append(date, venue, town, countryName);
       row.append(flag, details);
       pastShowsContainer.appendChild(row);
     });
