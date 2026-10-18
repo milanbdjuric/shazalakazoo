@@ -409,7 +409,14 @@ if (menuToggle && mainNav) {
       countryName.className = "show-country";
       countryName.textContent = locationParts.join(", ");
 
-      details.append(date, venue, town, countryName);
+      const separatorOne = document.createElement("span");
+      separatorOne.className = "show-separator";
+      separatorOne.textContent = ",";
+      const separatorTwo = document.createElement("span");
+      separatorTwo.className = "show-separator";
+      separatorTwo.textContent = ",";
+
+      details.append(date, venue, separatorOne, town, separatorTwo, countryName);
       row.append(flag, details);
       pastShowsContainer.appendChild(row);
     });
