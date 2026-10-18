@@ -774,4 +774,21 @@ main > #home {
 .about-copy .about-discography { color: var(--yellow); }
 .about-copy .about-members-history { color: var(--pink); }
 .about-copy .about-current { color: var(--green); }
-.about-copy .about-lineup { color: var(--purple); }
+.about-copy .about-lineup { color: inherit; }
+
+.about-copy .lineup-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15em;
+  margin: 0 0 1em !important;
+}
+
+.about-copy .lineup-name {
+  color: var(--yellow);
+}
+
+.about-copy .lineup-instruments {
+  color: var(--cyan);
+  font-size: 0.88em;
+}
