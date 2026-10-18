@@ -109,8 +109,8 @@ a {
 .main-nav a,
 .-links a {
   font-family: "Cicaizrija", sans-serif;
-  font-size: 1.1rem;
-  letter-spacing: 0.18em;
+  font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+  letter-spacing: 0.1em;
   text-decoration: none;
   text-transform: uppercase;
   transition: color 150ms ease;
