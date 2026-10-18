@@ -347,7 +347,7 @@ a {
   margin: 24px 0 10px;
   color: var(--pink);
   font-size: clamp(2.9rem, 5.4vw, 4.3rem);
-  font-weight: 900;
+  font-weight: 200;
   line-height: 1.1;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -374,7 +374,7 @@ a {
   margin-bottom: 10px;
   color: var(--yellow);
   font-size: clamp(2rem, 3vw, 2.3rem);
-  font-weight: 800;
+  font-weight: 200;
 }
 
 .show-flag {
@@ -391,7 +391,7 @@ a {
 
 .show-date {
   color: var(--cyan);
-  font-weight: 800;
+  font-weight: 200;
   white-space: nowrap;
 }
 
@@ -627,7 +627,7 @@ a {
   color: var(--cyan);
   font-size: 1.56rem;
   letter-spacing: 0.08em;
-  font-weight: 700;
+  font-weight: 200;
   letter-spacing: 0.045em;
   text-decoration: none;
   text-transform: uppercase;
