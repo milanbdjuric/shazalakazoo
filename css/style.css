@@ -115,7 +115,7 @@ a {
 .social-links a {
   font-size: 1.8rem;
   letter-spacing: 0.08em;
-  font-weight: 800;
+  font-weight: 200;
   text-decoration: none;
   text-transform: uppercase;
   transition: color 150ms ease;
@@ -659,6 +659,7 @@ body {
 
   .social-bar a {
     font-size: 1.36rem;
+    font-weight: 200;
     letter-spacing: 0.015em;
   }
 
