@@ -34,13 +34,17 @@ if (menuToggle && mainNav) {
         window.scrollTo({ top: Math.max(0, top), behavior });
       };
 
-      // Scroll immediately. Navigation must never depend on media loading.
-      scrollToSection("smooth");
-
-      // Photos above Shows/Press/Contact can change document height as they load.
-      // Correct the final position after those images decode, without blocking the click.
+      // Photos above Shows/Press/Contact can change page height while loading.
+      // Wait before scrolling, so navigation happens only once at the correct position.
       const photos = document.querySelector("#photos");
-      const targetIsBelowPhotos = photos && target.compareDocumentPosition(photos) & Node.DOCUMENT_POSITION_PRECEDING;
+      const targetIsBelowPhotos = photos &&
+        Boolean(target.compareDocumentPosition(photos) & Node.DOCUMENT_POSITION_PRECEDING);
+
+      const navigate = () => {
+        if (window.location.hash === hash) {
+          scrollToSection("smooth");
+        }
+      };
 
       if (targetIsBelowPhotos) {
         const images = Array.from(photos.querySelectorAll("img"));
@@ -55,12 +59,9 @@ if (menuToggle && mainNav) {
             img.addEventListener("load", resolve, { once: true });
             img.addEventListener("error", resolve, { once: true });
           });
-        })).then(() => {
-          // Do not override a newer navigation if the user clicked another section.
-          if (window.location.hash === hash) {
-            scrollToSection("auto");
-          }
-        });
+        })).then(navigate);
+      } else {
+        navigate();
       }
     });
   });
