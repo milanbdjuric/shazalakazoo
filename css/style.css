@@ -262,7 +262,7 @@ a {
 
 .album h3,
 .video h3 {
-  margin: 0 0 6px;
+  margin: 0 0 4px;
   color: var(--cyan);
   font-family: "Cicaizrija", sans-serif;
   font-size: 1.5rem;
@@ -272,7 +272,7 @@ a {
 }
 
 .album-type {
-  margin: 0 0 14px;
+  margin: 0 0 6px;
   color: var(--yellow);
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -306,8 +306,8 @@ a {
 }
 
 .video h3 {
-  min-height: 3.5em;
-  margin-bottom: 10px;
+  min-height: 0;
+  margin-bottom: 4px;
   color: var(--cyan);
   font-family: "Cicaizrija", sans-serif;
   font-size: 1.3rem;
@@ -352,7 +352,7 @@ a {
 }
 
 .photo-grid figcaption {
-  padding: 10px 0 0;
+  padding: 5px 0 0;
   color: var(--cyan);
   font-family: "Cicaizrija", sans-serif;
   font-size: 1.3rem;
