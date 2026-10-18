@@ -1,7 +1,7 @@
 @font-face {
   font-family: "Metalista";
   src: url("../fonts/Metalista.otf") format("opentype");
-  font-weight: normal;
+  font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
@@ -67,7 +67,7 @@ a {
   flex-shrink: 0;
   font-family: "Metalista", sans-serif;
   font-size: clamp(1.68rem, 3.12vw, 2.64rem);
-  font-weight: normal;
+  font-weight: 200;
   letter-spacing: 0.03em;
   line-height: 1;
   text-decoration: none;
@@ -203,7 +203,7 @@ a {
   left: clamp(16px, 4vw, 48px);
   font-family: "Metalista", sans-serif;
   font-size: clamp(3.6rem, 12.5vw, 11rem);
-  font-weight: normal;
+  font-weight: 200;
   letter-spacing: 0.03em;
   line-height: 1;
   text-align: center;
@@ -225,7 +225,7 @@ a {
   color: var(--yellow);
   font-family: "Metalista", sans-serif;
   font-size: clamp(4rem, 8vw, 7rem);
-  font-weight: normal;
+  font-weight: 200;
   line-height: 1.1;
   text-transform: uppercase;
   text-shadow: 3px 3px 0 var(--purple);
@@ -425,12 +425,14 @@ a {
   min-width: 0;
   padding: 7px 0;
   font-size: clamp(1.64rem, 2vw, 1.96rem);
+  font-weight: 200;
   line-height: 1.45;
 }
 
 .show-row .show-flag {
   flex-basis: 1.6em;
   font-size: 1em;
+  font-weight: 200;
 }
 
 .show-row .show-details {
@@ -455,6 +457,7 @@ a {
 .social-links a {
   color: var(--pink);
   font-size: 2rem;
+  font-weight: 200;
 }
 
 .contact-section {
@@ -560,6 +563,7 @@ a {
 
   .hero-photo-wordmark {
     font-size: clamp(4rem, 18vw, 6.4rem);
+    font-weight: 200;
     letter-spacing: 0.005em;
   }
 
@@ -583,10 +587,12 @@ a {
   .next-show {
     gap: 9px;
     font-size: 1.84rem;
+    font-weight: 200;
   }
 
   .show-row {
     font-size: 1.68rem;
+    font-weight: 200;
   }
 }
 
