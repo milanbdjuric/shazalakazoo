@@ -163,7 +163,7 @@ a {
     radial-gradient(ellipse at 20% 25%, rgba(138, 20, 255, 0.3), transparent 35%),
     radial-gradient(ellipse at 80% 70%, rgba(55, 224, 230, 0.2), transparent 38%),
     var(--black);
-  border-bottom: 3px solid var(--yellow);
+  border-bottom: 3px solid var(--purple);
 }
 
 .hero-photo-wrap {
@@ -215,7 +215,7 @@ a {
   width: min(100% - 10%, var(--content-width));
   margin: 0 auto;
   padding: 60px 0;
-  border-bottom: 1px solid rgba(55, 224, 230, 0.35);
+  border-bottom: 2px solid var(--purple);
 }
 
 .content-section h2 {
@@ -324,7 +324,7 @@ a {
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background: #151515;
-  border: 1px solid var(--purple);
+  border: 2px solid var(--purple);
 }
 
 .video-frame iframe {
