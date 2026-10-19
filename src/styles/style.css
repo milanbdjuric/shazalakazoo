@@ -163,7 +163,7 @@ a {
     radial-gradient(ellipse at 20% 25%, rgba(138, 20, 255, 0.3), transparent 35%),
     radial-gradient(ellipse at 80% 70%, rgba(55, 224, 230, 0.2), transparent 38%),
     var(--black);
-  border-bottom: 3px solid var(--purple);
+  border-bottom: 2px solid var(--purple);
 }
 
 .hero-photo-wrap {
