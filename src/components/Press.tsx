@@ -1,0 +1,2 @@
+import {pressLinks} from "../data/press";
+export default function Press(){return <section id="press" className="content-section"><h2>Press</h2>{pressLinks.map(p=><h3 key={p.url}><a href={p.url} target="_blank" rel="noopener noreferrer">{p.label}</a></h3>)}</section>;}

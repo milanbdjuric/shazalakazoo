@@ -1,0 +1,2 @@
+import {photos} from "../data/photos";
+export default function Photos(){return <section id="photos" className="content-section"><h2>Photos</h2><div className="photo-grid">{photos.map(p=><figure key={p.src}><img loading="lazy" src={import.meta.env.BASE_URL+p.src.replace(/^\.\//,"")} alt={p.alt}/><figcaption>{p.caption}</figcaption></figure>)}</div></section>;}

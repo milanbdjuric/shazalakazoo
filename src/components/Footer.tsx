@@ -1,0 +1,2 @@
+import {socialLinks} from "../data/socialLinks";
+export default function Footer(){return <div className="social-bar" aria-label="Social media links">{socialLinks.map(s=><a key={s.url} href={s.url} target="_blank" rel="noopener noreferrer">{s.label}</a>)}</div>;}

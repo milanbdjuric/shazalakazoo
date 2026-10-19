@@ -1,0 +1,2 @@
+import {videos} from "../data/videos";
+export default function Videos(){return <section id="videos" className="content-section"><h2>Videos</h2><div className="video-grid">{videos.map(v=><article className="video" key={v.videoId}><h3>{v.title}</h3><div className="video-frame"><iframe loading="lazy" src={"https://www.youtube-nocookie.com/embed/"+v.videoId} title={v.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen/></div></article>)}</div></section>;}

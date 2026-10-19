@@ -1,0 +1,2 @@
+import Wordmark from "./Wordmark";
+export default function Hero(){return <section id="home" className="hero"><div className="hero-photo-wrap"><img className="hero-band-photo" src={import.meta.env.BASE_URL+"images/03-shazalakazoo-live-band-by-tomasz-pienicki-2022-709165992-e1712736966102.jpg"} alt="ShazaLaKazoo performing live as a band"/><Wordmark className="hero-photo-wordmark"/></div></section>;}
