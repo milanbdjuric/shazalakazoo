@@ -24,7 +24,8 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 110px;
+  /* Account for the sticky header minus the section's top padding. */
+  scroll-padding-top: 50px;
 }
 
 body {
@@ -579,7 +580,7 @@ a {
 
 @media (max-width: 480px) {
   html {
-    scroll-padding-top: 85px;
+    scroll-padding-top: 43px;
   }
 
   .wordmark {
@@ -723,18 +724,7 @@ a {
   }
 }
 
-/* Anchor navigation: keep section headings clear of the sticky header. */
-main > .content-section,
-main > #home {
-  scroll-margin-top: 110px;
-}
-
-@media (max-width: 480px) {
-  main > .content-section,
-  main > #home {
-    scroll-margin-top: 85px;
-  }
-}
+/* Anchor offsets are handled by html scroll-padding-top above. */
 
 /* Press downloads: keep each link colourful until hovered. */
 #press h3 a {
