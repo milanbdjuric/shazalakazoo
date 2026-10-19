@@ -1,4 +1,4 @@
-export interface Show { date:string; venue:string; town:string; country:string; }
+import type { Show } from "../types/content";
 export const nextShow: Show = {
   "date": "13.11.2026",
   "venue": "TRANSVOCALE FESTIVAL",

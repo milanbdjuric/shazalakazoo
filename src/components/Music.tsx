@@ -1,2 +1,18 @@
-import {albums} from "../data/albums";
-export default function Music(){return <section id="music" className="content-section"><h2>Music</h2><div className="album-grid">{albums.map(a=><article className="album" key={a.playlistId}><h3>{a.title}</h3><p className="album-type">{a.type}</p><iframe title={a.title+" — SoundCloud playlist — album artwork"} className="album-art-player" allow="autoplay" loading="lazy" scrolling="no" src={"https://w.soundcloud.com/player/?url="+encodeURIComponent("https://api.soundcloud.com/playlists/"+a.playlistId)+"&color=%238A14FF&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true"}/></article>)}</div></section>;}
+import type { Album } from "../types/content";
+import AlbumCard from "./media/AlbumCard";
+import SectionHeading from "./shared/SectionHeading";
+
+interface MusicProps {
+  albums: Album[];
+}
+
+export default function Music({ albums }: MusicProps) {
+  return (
+    <section id="music" className="content-section">
+      <SectionHeading>Music</SectionHeading>
+      <div className="album-grid">
+        {albums.map((album) => <AlbumCard key={album.playlistId} album={album} />)}
+      </div>
+    </section>
+  );
+}

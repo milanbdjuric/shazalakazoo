@@ -8,4 +8,27 @@ import Shows from "./components/Shows";
 import Press from "./components/Press";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-export default function App(){return <><Header/><main><Hero/><About/><Music/><Videos/><Photos/><Shows/><Press/><Contact/></main><Footer/></>;}
+import { albums } from "./data/albums";
+import { videos } from "./data/videos";
+import { photos } from "./data/photos";
+import { nextShow, pastShows } from "./data/shows";
+import { pressLinks } from "./data/press";
+
+export default function App() {
+  return (
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <About />
+        <Music albums={albums} />
+        <Videos videos={videos} />
+        <Photos photos={photos} />
+        <Shows nextShow={nextShow} pastShows={pastShows} />
+        <Press links={pressLinks} />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
+}

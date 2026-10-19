@@ -1,4 +1,4 @@
-export interface Photo { src:string; alt:string; caption:string; }
+import type { Photo } from "../types/content";
 export const photos: Photo[] = [
   {
     "src": "images/05-shazalakazoo-live-band-by-tomasz-pienicki-2022.jpg",

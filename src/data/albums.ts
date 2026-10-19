@@ -1,4 +1,4 @@
-export interface Album { title:string; type:string; playlistId:string; }
+import type { Album } from "../types/content";
 export const albums: Album[] = [
   {
     "title": "Chorba",

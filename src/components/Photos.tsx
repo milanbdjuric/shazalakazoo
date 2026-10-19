@@ -1,2 +1,18 @@
-import {photos} from "../data/photos";
-export default function Photos(){return <section id="photos" className="content-section"><h2>Photos</h2><div className="photo-grid">{photos.map(p=><figure key={p.src}><img loading="lazy" src={import.meta.env.BASE_URL+p.src.replace(/^\.\//,"")} alt={p.alt}/><figcaption>{p.caption}</figcaption></figure>)}</div></section>;}
+import type { Photo } from "../types/content";
+import PhotoCard from "./media/PhotoCard";
+import SectionHeading from "./shared/SectionHeading";
+
+interface PhotosProps {
+  photos: Photo[];
+}
+
+export default function Photos({ photos }: PhotosProps) {
+  return (
+    <section id="photos" className="content-section">
+      <SectionHeading>Photos</SectionHeading>
+      <div className="photo-grid">
+        {photos.map((photo) => <PhotoCard key={photo.src} photo={photo} />)}
+      </div>
+    </section>
+  );
+}

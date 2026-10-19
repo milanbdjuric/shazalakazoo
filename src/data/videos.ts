@@ -1,4 +1,4 @@
-export interface Video { title:string; videoId:string; }
+import type { Video } from "../types/content";
 export const videos: Video[] = [
   {
     "title": "ShazaLaKazoo - Krasi",

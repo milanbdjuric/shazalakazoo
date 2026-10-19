@@ -1,4 +1,5 @@
-export const pressLinks: {url:string;label:string}[] = [
+import type { PressLink } from "../types/content";
+export const pressLinks: PressLink[] = [
   {
     "url": "https://drive.google.com/file/d/1bzl-DA7EtLVoZNSDSCKCmRA05FVpBXZC/view?usp=sharing",
     "label": "download electronic press kit"

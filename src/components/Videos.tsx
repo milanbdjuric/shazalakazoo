@@ -1,2 +1,18 @@
-import {videos} from "../data/videos";
-export default function Videos(){return <section id="videos" className="content-section"><h2>Videos</h2><div className="video-grid">{videos.map(v=><article className="video" key={v.videoId}><h3>{v.title}</h3><div className="video-frame"><iframe loading="lazy" src={"https://www.youtube-nocookie.com/embed/"+v.videoId} title={v.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen/></div></article>)}</div></section>;}
+import type { Video } from "../types/content";
+import VideoCard from "./media/VideoCard";
+import SectionHeading from "./shared/SectionHeading";
+
+interface VideosProps {
+  videos: Video[];
+}
+
+export default function Videos({ videos }: VideosProps) {
+  return (
+    <section id="videos" className="content-section">
+      <SectionHeading>Videos</SectionHeading>
+      <div className="video-grid">
+        {videos.map((video) => <VideoCard key={video.videoId} video={video} />)}
+      </div>
+    </section>
+  );
+}
