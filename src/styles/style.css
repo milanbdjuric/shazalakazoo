@@ -283,7 +283,7 @@ a {
 .album-art-player {
   display: block;
   width: 100%;
-  height: 450px;
+  height: 650px;
   border: 0;
   background: #171717;
 }
@@ -603,7 +603,7 @@ a {
 
   .album-art-player,
   .soundcloud-player {
-    height: 350px;
+    height: 600px;
   }
 
   .show-row {
