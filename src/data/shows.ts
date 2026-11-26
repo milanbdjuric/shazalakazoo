@@ -1,5 +1,5 @@
 import type { Show } from "../types/content";
-export const nextShows: Show = {
+export const nextShows: Show[] = {
   "date": "",
   "venue": "",
   "town": "",
