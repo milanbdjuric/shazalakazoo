@@ -1,11 +1,17 @@
 import type { Show } from "../types/content";
-export const nextShow: Show = {
+//export const nextShow: Show = {
+//  "date": "13.11.2026",
+//  "venue": "TRANSVOCALE FESTIVAL",
+//  "town": "SLUBICE",
+//  "country": "POLAND"
+//};
+export const pastShows: Show[] = [
+  {
   "date": "13.11.2026",
   "venue": "TRANSVOCALE FESTIVAL",
   "town": "SLUBICE",
   "country": "POLAND"
-};
-export const pastShows: Show[] = [
+  },
   {
     "date": "29.08.2026",
     "venue": "TUTTI MATI PER COLORNO FESTIVAL",
