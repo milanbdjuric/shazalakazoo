@@ -14,7 +14,7 @@ export default function Shows({ pastShows }: ShowsProps) {
       {/* <div className="shows-list shows-list-next"> */}
       {/*   <ShowRow show={nextShow} /> */}
       {/* </div> */}
-      <h3 className="shows-subheading past-shows-heading">Past Shows:</h3>
+      (/* <h3 className="shows-subheading past-shows-heading">Past Shows:</h3> */}
       <div className="shows-list">
         {pastShows.map((show, index) => (
           <ShowRow key={show.date + show.venue + index} show={show} />
