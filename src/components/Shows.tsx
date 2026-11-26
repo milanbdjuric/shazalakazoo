@@ -6,7 +6,7 @@ interface ShowsProps {
   pastShows: Show[];
 }
 
-export default function Shows({ pastShows }: ShowsProps) {
+export default function Shows({ nextShow, pastShows }: ShowsProps) {
   return (
     <section id="shows" className="content-section">
       <h2>Shows</h2>
