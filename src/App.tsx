@@ -11,7 +11,9 @@ import Footer from "./components/Footer";
 import { albums } from "./data/albums";
 import { videos } from "./data/videos";
 import { photos } from "./data/photos";
-import { nextShow, pastShows } from "./data/shows";
+import { 
+  //nextShow, 
+  pastShows } from "./data/shows";
 import { pressLinks } from "./data/press";
 
 export default function App() {
@@ -24,7 +26,9 @@ export default function App() {
         <Music albums={albums} />
         <Videos videos={videos} />
         <Photos photos={photos} />
-        <Shows nextShow={nextShow} pastShows={pastShows} />
+        <Shows 
+          //nextShow={nextShow} 
+          pastShows={pastShows} />
         <Press links={pressLinks} />
         <Contact />
       </main>
