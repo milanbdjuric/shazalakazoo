@@ -25,7 +25,7 @@ export default function App() {
         <Videos videos={videos} />
         <Photos photos={photos} />
         <Shows 
-          nextShow={nextShow} 
+          //nextShow={nextShow} 
           pastShows={pastShows} />
         <Press links={pressLinks} />
         <Contact />
